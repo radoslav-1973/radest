@@ -1,4 +1,4 @@
-# Astro Template
+# Astro Template for Radest
 
 A minimal, fast photography portfolio with two blogs and a fixed left-hand
 navigation (**Digital · Analog · Calendar · Tech Blog · Photo Blog · About ·
