@@ -25,15 +25,19 @@ export interface GalleryPhoto {
 }
 
 export const digital: GalleryPhoto[] = [
-  { year: 2024, month: 9, location: "Mountain ridge", file: "digital-01.jpg" },
-  { year: 2024, month: 9, location: "Coastal cliffs", file: "digital-02.jpg" },
-  { year: 2024, month: 7, location: "Old harbor", file: "digital-03.jpg" },
-  { year: 2024, month: 6, location: "Pine forest", file: "digital-04.jpg" },
+  { year: 2023, month: 7, location: "Ngorongoro, Tanzania", file: "img-1L.webp" },
+  { year: 2023, month: 7, location: "Ngorongoro, Tanzania", file: "img-2L.webp" },
+  { year: 2023, month: 7, location: "Ngorongoro, Tanzania", file: "img-14L.webp" },
+  { year: 2023, month: 7, location: "Ngorongoro, Tanzania", file: "img-19L.webp" },
   // The rest have no caption yet — they simply show on their own until you add a location.
-  { year: 0, month: 0, location: "", file: "digital-05.jpg" },
-  { year: 0, month: 0, location: "", file: "digital-06.jpg" },
-  { year: 0, month: 0, location: "", file: "digital-07.jpg" },
-  { year: 0, month: 0, location: "", file: "digital-08.jpg" },
+  { year: 2023, month: 7, location: "Ngorongoro, Tanzania", file: "img-23L.webp" },
+  { year: 2023, month: 7, location: "Ngorongoro, Tanzania", file: "img-28L.webp" },
+  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-30L.jpg" },
+  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-14L.jpg" },
+  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-34L.jpg" },
+  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-59L.webp" },
+  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-12L.jpg" },
+  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-24L.jpg" },
 ];
 
 export const analog: GalleryPhoto[] = [
