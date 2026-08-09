@@ -18,6 +18,11 @@ Local    http://localhost:4321/
 It can be deployed automatically via a workflow on GitHub, GitLab, 
 Vercel, Render, Netlify and more, or manually to be uploaded 
 to each host as locally build production `/dist/`.
+I took part in a very interesting discussion about what CI/CD 
+actually is. Dispute usually involves the users of GitHub and 
+GitLab. But that is far beyond the scope of this project.
+
+Project directories:
 
 - **Digital** is the home page — your digital photographs.
 - **Analog** is a second gallery for film work.
