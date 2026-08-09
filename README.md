@@ -2,8 +2,8 @@
 
 A minimal, fast blog with photo galleries. After it is built, 
 the output is a fully static site.
-The template locally is tested and built with latest v7.2.0 
-[Astro](https://astro.build) and Node v26.7.0.
+The template locally is tested and built with latest 
+[Astro](https://astro.build) v7.2.0 and [Node](https://nodejs.org) v26.7.0.
 
 ```bash
 radoslav@zebra:~/web/$ npm run dev  # preview without building
