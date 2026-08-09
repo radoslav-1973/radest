@@ -1,14 +1,23 @@
 # Astro Template for Radest
 
-A minimal, fast photography portfolio with two blogs and a fixed left-hand
-navigation (**Digital · Analog · Calendar · Tech Blog · Photo Blog · About ·
-Contact · License**) and responsive photo galleries. Built with
-[Astro](https://astro.build) and output as a fully static site you can deploy to
-any static host (Netlify, Vercel, GitHub Pages, Cloudflare Pages, S3/CDN, …).
+A minimal, fast blog with photo galleries. After it is built, 
+the output is a fully static site.
+The template locally is tested and built with latest v7.2.0 
+[Astro](https://astro.build) and Node v26.7.0.
 
-It ships with **tasteful, generated placeholder images and example posts**, so it
-looks complete the moment you run it. Swap in your own name, links, and photos
-and you have a finished site.
+```bash
+radoslav@zebra:~/web/$ npm run dev  # preview without building
+16:51:39 [vite] connected.
+16:51:40 [types] Generated 1ms
+16:51:40 [vite] connected.
+16:51:41 [content] Syncing content
+16:51:41 [content] Synced content
+astro  v7.2.0 ready in 2485 ms
+Local    http://localhost:4321/
+```
+It can be deployed automatically via a workflow on GitHub, GitLab, 
+Vercel, Render, Netlify and more, or manually to be uploaded 
+to each host as locally build production `/dist/`.
 
 - **Digital** is the home page — your digital photographs.
 - **Analog** is a second gallery for film work.
