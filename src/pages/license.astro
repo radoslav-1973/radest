@@ -11,9 +11,14 @@ import { site, social } from "../config";
         <h1 class="page__title">Image licensing</h1>
 
         <p class="lede">
-            Every photograph on this site was made by me, {site.name}{site.nameZh && (
-                <> (<span class="name-zh">{site.nameZh}</span>)</>
-            )} — I shoot all of them myself. © {site.name}. All rights reserved.
+            Every photograph on this site were made by us, {site.name}{
+                site.nameZh && (
+                    <>
+                        {" "}
+                        (<span class="name-zh">{site.nameZh}</span>)
+                    </>
+                )
+            } — We shoot all of them. © {site.name}. All rights reserved.
         </p>
 
         <p>
@@ -32,15 +37,11 @@ import { site, social } from "../config";
 
         <p>
             Get in touch with me, {site.name}, on
-            <a
-                href={social.instagram}
-                target="_blank"
-                rel="noopener noreferrer">Instagram</a
+            <a href={social.instagram} target="_blank" rel="noopener noreferrer"
+                >Instagram</a
             > or
-            <a
-                href={social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer">LinkedIn</a
+            <a href={social.linkedin} target="_blank" rel="noopener noreferrer"
+                >LinkedIn</a
             >, or through the <a href="/contact">contact page</a>.
         </p>
     </article>
