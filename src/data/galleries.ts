@@ -32,12 +32,12 @@ export const digital: GalleryPhoto[] = [
   // The rest have no caption yet — they simply show on their own until you add a location.
   { year: 2023, month: 7, location: "Ngorongoro, Tanzania", file: "img-23L.webp" },
   { year: 2023, month: 7, location: "Ngorongoro, Tanzania", file: "img-28L.webp" },
-  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-30L.jpg" },
-  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-14L.jpg" },
-  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-34L.jpg" },
+  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-30L.webp" },
+  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-140L.webp" },
+  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-34L.webp" },
   { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-59L.webp" },
-  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-12L.jpg" },
-  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-24L.jpg" },
+  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-12L.webp" },
+  { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-24L.webp" },
 ];
 
 export const analog: GalleryPhoto[] = [
