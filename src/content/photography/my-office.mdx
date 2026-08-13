@@ -8,22 +8,27 @@ tags: ['guides', 'mountain', 'Kilimanjaro']
 import Photo from '../../components/Photo.astro';
 import Gallery from '../../components/Gallery.astro';
 
-This is an example **Photo Blog** post — delete it once you've seen how it works.
-Because it's an `.mdx` file, you can mix Markdown with the same photo components
-the galleries use. Put images in `src/assets/blog/` and reference them by
-filename — no `import` needed.
+The slopes of Mount Kilimanjaro are our home. I belong to the Chagga tribe,
+a Bantu-speaking community traditionally concentrated on the mountain’s
+fertile southern and eastern foothills. Our livelihoods are closely
+connected to tourism and farming, especially coffee and bananas.
 
-A single full-width photo:
+<Photo src="IMG-20240307.webp" caption="The sun also rises" />
+
+In 2022, I successfully completed training on Mountain Tour Guiding at Mweka 
+College of African Wildlife Management.
+
+<Gallery photos={["IMG-20220802.webp", "IMG_20211225.webp"]} />
+
+I hope my children will remember that their mama tried. Even when I was tired, 
+even when I was stressed, even when I was scared and had no clue what to do, 
+I had every intention of being the best mother I could be, and I hope they know, 
+I did it because I dearly love them with all my heart.
+
+<Gallery photos={["IMG-20230425.webp", "IMG-20231010.webp"]} />
+
+Here around Kilimanjaro, there is plenty of coffee growing beneath shade trees, 
+but our Chagga traditional drink is banana beer. Mbege is more than a beverage: 
+it is associated with weddings, funerals and business discussions.
 
 <Photo src="IMG-20220707.webp" caption="On the way to Africa's highest peak" />
-
-Photos go through the exact same pipeline as the galleries: responsive WebP,
-capped on the long edge, and click-to-open in the full-screen lightbox.
-
-
-A two-up gallery — captions default to the filename, just like the main galleries:
-
-<Gallery photos={["IMG-20230425.webp", "IMG_20230728.webp"]} />
-
-Write as much or as little prose around them as you like. When you're ready,
-swap these placeholders for your own photos and start your first real post.
