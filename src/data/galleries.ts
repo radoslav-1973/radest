@@ -41,8 +41,8 @@ export const digital: GalleryPhoto[] = [
 ];
 
 export const analog: GalleryPhoto[] = [
-  { year: 2024, month: 5, location: "Quiet street", file: "analog-01.jpg" },
-  { year: 2024, month: 5, location: "River bend", file: "analog-02.jpg" },
-  { year: 0, month: 0, location: "", file: "analog-03.jpg" },
-  { year: 0, month: 0, location: "", file: "analog-04.jpg" },
+  { year: 1967, month: 6, location: "Ravno Pole, Bulgaria", file: "IMG_2026-08-13-22-24-02-354.webp" },
+  { year: 1969, month: 5, location: "Gara Iskar, Bulgaria", file: "IMG_2026-08-13-22-25-21-303.webp" },
+  { year: 1975, month: 2, location: "Ravno Pole, Bulgaria", file: "IMG_2026-08-13-22-31-34-924.webp" },
+  { year: 1992, month: 5, location: "Sofia, Bulgaria", file: "IMG_0001.webp" },
 ];
