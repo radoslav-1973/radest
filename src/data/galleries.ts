@@ -45,4 +45,6 @@ export const analog: GalleryPhoto[] = [
   { year: 1969, month: 5, location: "Gara Iskar, Bulgaria", file: "IMG_2026-08-13-22-25-21-303.webp" },
   { year: 1975, month: 2, location: "Ravno Pole, Bulgaria", file: "IMG_2026-08-13-22-31-34-924.webp" },
   { year: 1992, month: 5, location: "Sofia, Bulgaria", file: "IMG_0001.webp" },
+  { year: 0, month: 0, location: "Ravno Pole, Bulgaria 1932 / 1976", file: "IMG_2026-08-13-22-32-56-916.webp" },
+  { year: 0, month: 0, location: "Ravno Pole, Bulgaria 1932 / 1964", file: "IMG_2026-08-14-16-26-13-259.webp" },
 ];
