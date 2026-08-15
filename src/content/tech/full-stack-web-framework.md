@@ -42,8 +42,8 @@ import VueCart from '../components/VueCart.vue';
 </main>
 ```
 This means:
-  1. The shell and static content are pre-rendered into lightweight HTML.
-  2. Only interactive UI widgets load JavaScript runtime engines into the browser, 
+- The shell and static content are pre-rendered into lightweight HTML.
+- Only interactive UI widgets load JavaScript runtime engines into the browser, 
      and only when is needed.
 
 ## Here is a breakdown of how Astro fits into the ecosystem at the same time as a frontend framework and as an integrator:
@@ -51,7 +51,8 @@ This means:
 1. How Astro is a Frontend Framework
 
     Astro has its own component syntax (.astro files), routing system, and templating engine. You do not need to 
-use React or Vue to build a complete website in Astro.
+    use React or Vue to build a complete website in Astro.
+
     - Component Syntax: Astro uses HTML-like templating with embedded JavaScript, very similar to JSX or Svelte.
     - File-based Routing: Adding pages/about.astro creates an /about route automatically.
     - Full-stack Features: It supports API routes, SSR (Server-Side Rendering), middleware, and static site 
@@ -70,9 +71,9 @@ const title = "Hello from Astro!";
 
 2. How Astro Acts as an Orchestrator / Integrator
 
-Where Astro truly shines—and where your second point hits the mark—is its framework-agnostic orchestrator capabilities.
-Instead of forcing you to rewrite UI components in .astro syntax, Astro allows you to bring your existing React, Vue, 
-Svelte, or Solid components directly into its build pipeline. You can even mix them on the same page!
+    Where Astro truly shines is its framework-agnostic orchestrator capabilities. Instead of forcing you 
+    to rewrite UI components in .astro syntax, Astro allows you to bring your existing React, Vue, 
+    Svelte, or Solid components directly into its build pipeline. You can even mix them on the same page!
 
 ## Key Architectural Differences
 
