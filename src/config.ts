@@ -22,11 +22,11 @@ export const site = {
 
 // Left-hand navigation. "Digital" is the home page and shows by default.
 export const nav: NavItem[] = [
-  { label: 'Digital', href: '/' },
-  { label: 'Analog', href: '/analog' },
+  { label: 'Photographs', href: '/' },
+  { label: 'Retro Print', href: '/analog' },
   { label: 'Calendar', href: '/calendar' },
   { label: 'Tech Blog', href: '/blog/tech' },
-  { label: 'Photo Blog', href: '/blog/photography' },
+  { label: 'Hiker Blog', href: '/blog/photography' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
   { label: 'License', href: '/license' },
@@ -38,5 +38,5 @@ export const nav: NavItem[] = [
 export const social = {
   instagram: 'https://www.instagram.com/yourusername',
   linkedin: 'https://www.linkedin.com/in/yourusername',
-  github: 'https://github.com/yourusername',
+  github: 'https://github.com/radoslav-1973',
 };
