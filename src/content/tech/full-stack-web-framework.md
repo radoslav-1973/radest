@@ -6,8 +6,9 @@ tags: ['astro', 'hydration', 'Islands Architecture']
 ---
 
 Let me briefly explain how does hydration differ from SSR (standard server-side rendering).
-Hydration is the step after SSR where JavaScript “wakes up” already-rendered HTML by attaching 
+Hydration is the step after SSR, where JavaScript “wakes up” already-rendered HTML by attaching 
 event handlers and client-side behavior to it, while standard SSR only produces the HTML response itself.
+
 Simple example:
 - SSR sends: **`<button>Buy</button>`**
 - Browser paints it immediately. (button looks real, but not respond)
@@ -18,7 +19,7 @@ Simple example:
 
 ## The Secret Sauce: "Islands Architecture"
 
-By default, Astro converts everything (even your React, Vue orq Svelte components) into raw HTML and 
+By default, Astro converts everything (even your React, Vue or Svelte components) into raw HTML and 
 CSS at build time, stripping out all JavaScript.
 If you need an interactive UI piece (like a dynamic search bar, modal, or shopping cart), 
 you turn that specific component into an "Island" using explicit client directives:
@@ -48,7 +49,8 @@ This means:
 ## Here is a breakdown of how Astro fits into the ecosystem at the same time as a frontend framework and as an integrator:
 
 1. How Astro is a Frontend Framework
-Astro has its own component syntax (.astro files), routing system, and templating engine. You do not need to 
+
+    Astro has its own component syntax (.astro files), routing system, and templating engine. You do not need to 
 use React or Vue to build a complete website in Astro.
     - Component Syntax: Astro uses HTML-like templating with embedded JavaScript, very similar to JSX or Svelte.
     - File-based Routing: Adding pages/about.astro creates an /about route automatically.
