@@ -1,0 +1,29 @@
+---
+// src/components/VideoPlayer.astro
+interface Props {
+    src: string;
+    width?: number;
+    height?: number;
+}
+
+const { src, width = 270, height = 480 } = Astro.props;
+---
+
+<video width={width} height={height} controls style="max-width: 100%;">
+    <source src={src} type="video/mp4" />
+    Your browser does not support the video tag.
+</video>
+
+<style>
+    video {
+        display: block;
+        margin: 0 auto;
+        align-content: center;
+        border-right: 20px solid pink;
+        border-left: 20px solid pink;
+        border-top: 20px solid pink;
+        border-bottom: 20px solid pink;
+        border-radius: 50px;
+        background-color: #000;
+    }
+</style>
