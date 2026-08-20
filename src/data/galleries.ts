@@ -38,6 +38,10 @@ export const digital: GalleryPhoto[] = [
   { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-59L.webp" },
   { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-12L.webp" },
   { year: 2023, month: 7, location: "Arusha Art Gallery", file: "img-24L.webp" },
+  { year: 2023, month: 8, location: "Kisumu, Kenya", file: "IMG_20230802_11.webp" },
+  { year: 2023, month: 8, location: "Kisumu, Kenya", file: "IMG_20230801_18.webp" },
+  { year: 2023, month: 8, location: "Airpot, Kisumu, Kenya", file: "IMG_20230801_10.webp" },
+  {year: 2023, month: 6, location: "Thai restaurant, Flic en Flac, Mauritius", file: "IMG_20230601_132.webp" }
 ];
 
 export const analog: GalleryPhoto[] = [
