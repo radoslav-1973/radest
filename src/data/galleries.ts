@@ -44,6 +44,9 @@ export const digital: GalleryPhoto[] = [
   { year: 2016, month: 11, location: "Brussels, Belgium", file: "img_5968.webp" },
   { year: 2016, month: 9, location: "Intercosmetica, Sofia, Bulgaria", file: "img_5816.webp" },
   { year: 2023, month: 6, location: "Thai Restaurant, Flic en Flac, Mauritius", file: "IMG_20230601_132.webp" },
+  { year: 2011, month: 6, location: "Olympus, Greece", file: "img_2745.webp" },
+  { year: 2016, month: 8, location: "Olympus, Greece", file: "img_5628.webp" },
+  { year: 2011, month: 11, location: "Kom, Bulgaria", file: "img_2788.webp" },
 ];
 
 export const analog: GalleryPhoto[] = [
