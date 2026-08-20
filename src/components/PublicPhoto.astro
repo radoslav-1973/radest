@@ -1,0 +1,52 @@
+---
+// A photo component for pre-compressed images in public/.
+// Use this for manually optimized photos that don't need Astro's image pipeline.
+//
+// Usage:
+//   <PublicPhoto src="/photos/my-photo.webp" caption="My caption" />
+//   <PublicPhoto src="/photos/my-photo.jpg" alt="Alt text" width={1200} height={800} />
+
+interface Props {
+    src: string; // path relative to public/ (e.g. "/photos/lake.webp")
+    caption?: string; // optional visible caption (shown in lightbox)
+    alt?: string; // alt text (defaults to caption)
+    width?: number; // image display width in px
+    height?: number; // image display height in px
+}
+
+const { src, caption, alt: altProp, width, height } = Astro.props;
+const alt = altProp ?? caption ?? src.split("/").pop() ?? "Photo";
+const aspectRatio = width && height ? `${width}/${height}` : undefined;
+const maxWidth = width ? `${width}px` : undefined;
+---
+
+<figure
+    class="post-figure"
+    style={`
+    ${maxWidth ? `max-width: ${maxWidth};` : ""}
+    margin: 0 auto;
+    text-align: center;
+  `}
+>
+    <button
+        class="photo-tile"
+        type="button"
+        aria-label={`${alt} — view larger`}
+        data-full={src}
+        data-alt={alt}
+        data-caption={caption ?? ""}
+        style={aspectRatio
+            ? `aspect-ratio: ${aspectRatio}; width: 100%;`
+            : "width: 100%;"}
+    >
+        <img
+            class="photo__img"
+            src={src}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            draggable={false}
+        />
+    </button>
+    {caption && <figcaption class="post-figure__caption">{caption}</figcaption>}
+</figure>
