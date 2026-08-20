@@ -22,11 +22,12 @@ export const site = {
 
 // Left-hand navigation. "Digital" is the home page and shows by default.
 export const nav: NavItem[] = [
-  { label: 'Hiker Blog', href: '/' },
-  { label: 'Tech Blog', href: '/blog/tech' },
-  { label: 'Photographs', href: '/photographs' },
+  { label: 'Home', href: '/' },
+  { label: 'Photo Gallery', href: '/photographs' },
   { label: 'Retro Print', href: '/analog' },
   { label: 'Calendar', href: '/calendar' },
+  { label: 'Hiker Blog', href: '/blog/photography' },
+  { label: 'Tech Blog', href: '/blog/tech' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
   { label: 'License', href: '/license' },
