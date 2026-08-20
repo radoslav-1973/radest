@@ -41,8 +41,9 @@ export const digital: GalleryPhoto[] = [
   { year: 2023, month: 8, location: "Kisumu, Kenya", file: "IMG_20230802_11.webp" },
   { year: 2023, month: 8, location: "Kisumu, Kenya", file: "IMG_20230801_18.webp" },
   { year: 2023, month: 8, location: "Airpot, Kisumu, Kenya", file: "IMG_20230801_10.webp" },
-  { year: 2016, month: 11, location: "Thai restaurant, Flic en Flac, Mauritius", file: "img_5968.webp" },
-  { year: 2016, month: 9, location: "Thai restaurant, Flic en Flac, Mauritius", file: "img_5816.webp" },
+  { year: 2016, month: 11, location: "Brussels, Belgium", file: "img_5968.webp" },
+  { year: 2016, month: 9, location: "Intercosmetica, Sofia, Bulgaria", file: "img_5816.webp" },
+  { year: 2023, month: 6, location: "Thai Restaurant, Flic en Flac, Mauritius", file: "IMG_20230601_132.webp" },
 ];
 
 export const analog: GalleryPhoto[] = [
