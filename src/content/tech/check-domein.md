@@ -2,7 +2,7 @@
 title: 'Check basic settings of your domain by following best practices'
 description: 'Simple diagnostics of the basic settings of the internet site using shell tools and a bash script.'
 pubDate: 2026-08-26
-tags: ['cURL', 'domain', 'Bash']
+tags: ['cURL', 'domain', 'bash']
 ---
 
 First of all, we assumed that our domain was set up correctly. 
@@ -11,7 +11,7 @@ That’s mean A, AAAA, CNAME and / or DNS records point to the right host.
 When I was young people used to say, “everything new is something old that we have forgotten”.
 
 Today, there are many websites that claim to test our domain settings. 
-But still, we can do it even better from the shell console using Bash commands.
+But still, we can do it even better from the shell console using bash commands.
 
 Since there are many type of documents like ```TLDR```(too long, don't read), it matters little that we don't 
 know the Bash syntax very well. Just like FTP, there's a great command-line tool called cURL (connect to URL). 
@@ -65,7 +65,7 @@ things they don't intend to.
 
 The most significant data from the second query are presence of TLS protocol and its version.
 
-So why not use a simple set of Bash commands that send the necessary requests, analyze the relevant 
+So why not to use a simple set of bash commands that send the necessary requests, analyze the relevant 
 information, and provide recommendations, just like in the script below:
 
 
@@ -256,12 +256,34 @@ radoslav@zebra:~$ curl -sIL --max-redirs 8 http://example.top 2>/dev/null || tru
 
 ```--max-redirs 8``` says, “follow at most 8 redirects”, so it prevents infinite loops from hanging the script.
 
-```>/dev/null || true``` says, "redirect stderr to /dev/null, but don't fail if it fails". Logical || (OR) clarifies, 
+```2>/dev/null || true``` says, "redirect stderr to /dev/null, but don't fail if it fails". Logical || (OR) clarifies, 
 "run the right side only if the left side fails (exits with a non‑zero status)". True is a command that always succeeds.
 
 ```bash
 echo "$(curl -sIL https://example.com)" | grep -E '^(HTTP|<|>|[0-9]{3}\|)' || echo "(no output or failed)"
 ```
-The regular expression pattern ```^(HTTP|<|>|[0-9]{3}\|)``` inside **grep** filter tells Bash to output the lines that match HTTP or three-digit numbers.
+The regular expression pattern ```^(HTTP|<|>|[0-9]{3}\|)``` inside **grep** filter tells Bash to output the 
+lines that match HTTP or three-digit numbers.
+
+### Post Script:
+By using a strict CSP (Content Security Policy), we instruct the server, "Allow styles and scripts from my own site 
+(including inline ones), but block everything else from external sources unless explicitly allowed."
+
+The security is always trade-off. Of course, the ```"value": unsafe-inline``` does weaken CSP's protection 
+against XSS (cross-site scripting) attacks, but for a static Astro site where we control all the code and 
+there's no user-generated content being injected, the risk is minimal. If we want to be more secure, 
+we can use the hash that the browser is suggesting in the error message, but that becomes complex to manage.
+The hash guarantees that the specific inline script hasn't been altered.
+When we use a hash like ```'sha256-vB7A7ffHlQ58GZTJyS2cgCnlN7E/X5ml6To='```, the browser calculates the SHA-256 
+hash of the actual inline script in our HTML and compares it to the hash in your CSP header. The browser
+only executes the script if the hashes match. If someone modifies the inline script even slightly 
+(even one character), the hash will change and the script won't execute — it will be blocked by the CSP policy.
+
+```json
+{
+  "key": "Content-Security-Policy", 
+  "value": "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-vB7A7ffHlQ58GZTJyS2cgCnlN7E/X5ml6To='; img-src 'self'"
+}
+```
 
 You can also visit my personal [page](https://radoslav.xyz/)
