@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
-import { unified } from '@astrojs/markdown-remark';
+//import { unified } from '@astrojs/markdown-remark';
 
 // https://astro.build/config
 export default defineConfig({
@@ -44,7 +44,7 @@ export default defineConfig({
     // style-src 'unsafe-inline'). Styled in global.css. Configured on the
     // `unified()` processor directly — the older `markdown.remarkRehype`
     // shortcut was deprecated ahead of Astro 7, so this is the supported form.
-    processor: unified({ remarkRehype: { tableCellAlignToStyle: false } }),
+    //processor: unified({ remarkRehype: { tableCellAlignToStyle: false } }),
   },
 
   // Fully static output — deploy the generated dist/ to any static host.
