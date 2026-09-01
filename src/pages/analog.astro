@@ -1,9 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import PhotoGrid from "../components/PhotoGrid.astro";
+import PublicPhotoGallery from "../components/PublicPhotoGallery.astro";
+//import PhotoGrid from "../components/PhotoGrid.astro";
+//import type { Photo } from "../data/retro-photos";
+import { photos } from "../data/retro-photos";
 ---
 
+<Layout title="Analog" description="Old photography.">
+    <h1 class="gallery-label" style="align-self: center;">Retro Photographs</h1>
+    <PublicPhotoGallery photos={photos} />
+</Layout>
+
+<!--
 <Layout title="Analog" description="Old photography.">
     <h1 class="gallery-label">Retro Photographs</h1>
     <PhotoGrid collection="analog" />
 </Layout>
+-->
