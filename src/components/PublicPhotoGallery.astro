@@ -1,0 +1,60 @@
+---
+// src/components/PhotoGallery.astro
+export interface Photo {
+    id: string;
+    small: string; // path to small thumbnail
+    large: string; // path to large image
+    caption: string; // caption /
+    text?: string;
+    link?: string; // optional external link (e.g. gallery site)
+}
+
+const { photos } = Astro.props as {
+    photos: Photo[];
+    albumAnchor?: string;
+};
+---
+
+<div class="grid-container">
+    <h1>Gallery</h1>
+    <br />
+    {
+        photos.map((photo, i) => (
+            <div>
+                <a href={`#${photo.id}`}>
+                    <img
+                        src={photo.small}
+                        alt={photo.caption}
+                        loading={i < 4 ? "eager" : "lazy"}
+                    />
+                </a>
+                {photo.link ? (
+                    <p>
+                        <a target="_blank" href={photo.link}>
+                            {photo.text || "Gallery"}
+                        </a>
+                    </p>
+                ) : (
+                    photo.text && <p>{photo.text}</p>
+                )}
+            </div>
+        ))
+    }
+</div>
+
+<!-- Enlarged photos -->
+{
+    photos.map((photo) => (
+        <div class="photo" id={photo.id}>
+            <div class="content">
+                <img src={photo.large} alt={photo.caption} />
+                <div class="title">{photo.caption}</div>
+                <a class="close" href="#photo" />
+            </div>
+        </div>
+    ))
+}
+
+<style>
+    @import "./css/gallery.css";
+</style>

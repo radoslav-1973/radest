@@ -1,12 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PhotoGrid from "../components/PhotoGrid.astro";
+import PublicPhotoGallery from "../components/PublicPhotoGallery.astro";
+//import type { Photo } from "../data/arush-photos";
+import { photos } from "../data/arusha-photos";
 ---
 
 <Layout>
-    <h1 class="gallery-label">
-        Test photo template<br />
-        Please, visit Instagram
-    </h1>
-    <PhotoGrid collection="digital" />
+    <PublicPhotoGallery photos={photos} />
 </Layout>
