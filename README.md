@@ -373,15 +373,15 @@ Webmaster Tools.
 ```
 src/
 ├── assets/
-│   ├── digital/        # ← Digital gallery images
-│   ├── analog/         # ← Analog (film) gallery images
+│   ├── photo-gallery/        # ← Digital gallery images
+│   ├── retro/         # ← Analog (film) gallery images
 │   ├── calendar/       # ← Calendar images (YYYY-MM.jpg)
 │   └── blog/           # ← Blog photos (referenced by <Photo> / <Gallery>)
 ├── components/         # Sidebar, PhotoGrid, Calendar, Lightbox, Logo, Icon,
 │                       #   Photo, Gallery, ShareButton, PostCard, BaseSchema
 ├── content/            # ← Blog posts (Markdown / MDX)
 │   ├── tech/           #     Tech Blog   (example: getting-started.md)
-│   └── photography/    #     Photo Blog  (example: a-first-walk.mdx)
+│   └── hiker/    #     Photo Blog  (example: a-first-walk.mdx)
 ├── content.config.ts   # ← Blog collections + frontmatter schema
 ├── data/
 │   ├── calendar.ts     # ← Calendar entries (month + location)

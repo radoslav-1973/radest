@@ -11,7 +11,7 @@ const techPosts = (
 ).sort((a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate));
 
 const photographyPosts = (
-    await getCollection("photography", ({ data }) =>
+    await getCollection("hiker", ({ data }) =>
         import.meta.env.PROD ? !data.draft : true,
     )
 ).sort((a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate));
@@ -28,7 +28,7 @@ const showTechBlog =
 
 const posts = showTechBlog ? techPosts : photographyPosts;
 const sectionLabel = showTechBlog ? "Tech Blog" : "Hiker Blog";
-const sectionHref = showTechBlog ? "/blog/tech" : "/blog/photography";
+const sectionHref = showTechBlog ? "/blog/tech" : "/blog/hiker";
 const title = showTechBlog ? "Tech Blog" : "Photo Blog";
 const description = showTechBlog
     ? "Notes on tools, code, and building for the web."
@@ -41,15 +41,13 @@ const description = showTechBlog
         <p class="blog-head__sub">{description}</p>
     </header>
 
-    {
-        posts.length === 0 ? (
-            <p class="empty">Please wait patiently for the first post.</p>
-        ) : (
-            <ul class="post-list">
-                {posts.map((post) => (
-                    <PostCard post={post} base={sectionHref} />
-                ))}
-            </ul>
-        )
-    }
+    {posts.length === 0 ? (
+        <p class="empty">Please wait patiently for the first post.</p>
+    ) : (
+        <ul class="post-list">
+            {posts.map((post) => (
+                <PostCard post={post} base={sectionHref} />
+            ))}
+        </ul>
+    )}
 </Layout>

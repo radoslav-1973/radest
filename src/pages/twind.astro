@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import GlobeMapFly from "../components/GlobeMapFly.svelte";
+import { galleries } from "../data/map-gallery";
+---
+
+<Layout>
+    <div class="mx-auto max-w-5xl px-4">
+    	<!-- <GlobeMapFly galleries={galleries} client:idle /> -->
+    	<!-- Load in advance -->
+        <!-- <GlobeMapFly galleries={galleries} client:load /> -->
+        <!-- Load only after the map is visible -->
+        <!-- <GlobeMapFly galleries={galleries} client:visible /> -->
+        <!-- Load only after the client click the page -->
+        <GlobeMapFly galleries={galleries} client:only="svelte" />  
+    </div>
+</Layout>

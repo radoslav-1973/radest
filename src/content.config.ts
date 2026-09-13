@@ -30,9 +30,9 @@ const tech = defineCollection({
   schema: blogSchema,
 });
 
-const photography = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/photography' }),
+const hiker = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/hiker' }),
   schema: blogSchema,
 });
 
-export const collections = { tech, photography };
+export const collections = { tech, hiker };
