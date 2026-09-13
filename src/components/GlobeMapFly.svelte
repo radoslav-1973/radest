@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
   import * as maplibregl from 'maplibre-gl';
-  import 'maplibre-gl/dist/maplibre-gl.css'; 
+  import 'maplibre-gl/dist/maplibre-gl.css';
   import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 
   if (typeof window !== 'undefined') {
@@ -68,113 +68,7 @@
         return "bg-emerald-500 hover:bg-emerald-400";
     }
   }
-/*
-  function addMarkers() {
-    if (!map || !styleLoaded) return;
-
-    galleries.forEach((g) => {
-      const el = document.createElement('a');
-      el.href = g.href;
-      el.className = 'group block';
-      el.title = g.name;
-
-      const dot = document.createElement('div');
-      dot.className = [
-        'size-3 rounded-full border-2 border-white shadow transition',
-        markerColorClass(g.region),
-        'group-hover:scale-125',
-      ].join(' ');
-
-      el.appendChild(dot);
-
-      const marker = new maplibregl.Marker({ element: el })
-        .setLngLat([g.lng, g.lat])
-        .addTo(map!);
-
-      markers.push(marker);
-    });
-  }
- */ 
- /* 
-  function addMarkers() {
-  if (!map || !styleLoaded) return;
-
-  galleries.forEach((g) => {
-    // 1. Основен контейнер (Трябва да е relative, за да позиционираме етикета спрямо него)
-    const el = document.createElement('a');
-    el.href = g.href;
-    el.className = 'group relative block'; // Добавено 'relative'
-    el.title = g.name;
-
-    // 2. Точката (Вашият оригинален код)
-    const dot = document.createElement('div');
-    dot.className = [
-      'size-3 rounded-full border-2 border-white shadow transition',
-      markerColorClass(g.region),
-      'group-hover:scale-125',
-    ].join(' ');
-
-    el.appendChild(dot);
-
-    // 3. 🌟 НАПРАВЕТЕ ТАЗИ ДОБАВКА: Постоянен етикет (Pinned Label)
-    
-     const pointer = document.createElement('div');
-    pointer.className = [
-      'absolute bottom-full left-1/2 -translate-x-1/2 w-[1px] h-6 bg-foreground/40',
-      'origin-bottom transition-colors duration-150 group-hover:bg-foreground'
-    ].join(' ');
-    el.appendChild(pointer);
-
-    // 4. 🌟 Постоянен етикет (Закачен директно на върха на линията)
-    const label = document.createElement('div');
-    label.className = [
-      'absolute bottom-full left-1/2 -translate-x-1/2 mb-1 whitespace-nowrap', // mb-1 за малко разстояние над линията
-      'rounded bg-background/95 px-1.5 py-0.5 text-[10px] font-semibold text-foreground shadow border border-border/50',
-      'transition-colors duration-150 group-hover:bg-foreground group-hover:text-background'
-    ].join(' ');
-    label.textContent = g.name;
-    pointer.appendChild(label); // Закачаме етикета на върха на линията
-
-    // 5. Добавяне към картата
-    const marker = new maplibregl.Marker({ 
-      element: el,
-      anchor: 'bottom' // 🌟 ВАЖНО: Закотвяме маркера по долния му край (точката), за да не бяга линията
-    })
-      .setLngLat([g.lng, g.lat])
-      .addTo(map!);
-
-    markers.push(marker);
-  });
-}
-*/
-    
-    /*
-    const label = document.createElement('div');
-    label.className = [
-      // Позициониране: Абсолютно, центрирано под точката (top-full, left-1/2, -translate-x-1/2)
-      'absolute top-full left-1/2 -translate-x-1/2 mt-1 whitespace-nowrap',
-      // Стилизиране: Тъмен полупрозрачен фон с бял чист текст, за да се чете върху всяка карта
-      'rounded bg-background/90 px-1.5 py-0.5 text-[10px] font-semibold text-foreground shadow-sm border border-border/50',
-      // Интерактивност: Плавен преход на цвета при посочване на групата
-      'transition-colors duration-150 group-hover:bg-foreground group-hover:text-background',
-    ].join(' ');
-    
-    label.textContent = g.name; // Задаваме името от галерията
-    el.appendChild(label); // Закачаме етикета в контейнера
-
-    // 4. Закачане на маркера към MapLibre
-    const marker = new maplibregl.Marker({ 
-      element: el,
-      anchor: 'center' // Центрира маркерната точка точно върху координатите
-    })
-      .setLngLat([g.lng, g.lat])
-      .addTo(map!);
-
-    markers.push(marker);
-  });
-}
-*/
-// 🌟 Помощна функция, която генерира стабилно произволно число въз основа на името
+//  random number generator based on the name of the gallery
 function getSeededRandom(str: string) {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
@@ -187,18 +81,18 @@ function addMarkers() {
   if (!map || !styleLoaded) return;
 
   galleries.forEach((g) => {
-    // Генерираме стабилни случайни стойности за всяка дестинация
+    // Generate seeded random values for each destination
     const seed = getSeededRandom(g.name);
-    const randomHeight = Math.floor(seed * (60 - 20 + 1)) + 20; // Височина в пиксели между 20px (h-5) и 60px (h-15)
-    const randomAngle = Math.floor(seed * 360); // Градус между 0 и 360
+    const randomHeight = Math.floor(seed * (60 - 20 + 1)) + 20; // Height between 20px (h-5) и 60px (h-15)
+    const randomAngle = Math.floor(seed * 360); // Angle between 0 and 360
 
-    // 1. Основен контейнер на маркера
+    // Marker container
     const el = document.createElement('a');
     el.href = g.href;
     el.className = 'group relative block';
     el.title = g.name;
 
-    // 2. Точката върху картата (Център на всичко)
+    // The dot at the center of the marker
     const dot = document.createElement('div');
     dot.className = [
       'size-3 rounded-full border-2 border-white shadow transition relative z-10',
@@ -206,30 +100,21 @@ function addMarkers() {
       'group-hover:scale-125'
     ].join(' ');
     el.appendChild(dot);
-/*
-    // 3. 🌟 Произволно завъртяна дълга СИНЯ линия
-    const pointer = document.createElement('div');
-pointer.className = [
-  'absolute bottom-1/2 left-1/2 -translate-x-1/2 w-[1.5px]', // Дебелина 1.5px
-  'bg-blue-500/70 transition-colors duration-150 group-hover:bg-blue-600', // Синьо с лека прозрачност, което става по-ярко при hover
-  'origin-bottom'
-].join(' ');
-*/
 
-// 3. Произволно завъртяна и дълга ОРАНЖЕВА линия
+// Randomly rotated and long ORANGE line
 const pointer = document.createElement('div');
 pointer.className = [
-  'absolute bottom-1/2 left-1/2 -translate-x-1/2 w-[1.5px]', // Дебелина 1.5px
-  'bg-orange-500/70 transition-colors duration-150 group-hover:bg-orange-600', // Оранжево с лека прозрачност
+  'absolute bottom-1/2 left-1/2 -translate-x-1/2 w-[1.5px]', // Width: 1.5px
+  'bg-orange-500/70 transition-colors duration-150 group-hover:bg-orange-600', // Orange with light transparency, becomes darker on hover
   'origin-bottom'
 ].join(' ');
-    
-    // Задаваме динамичната дължина и ротация директно в стила
+
+    // Set dynamic height and rotation directly in the style
     pointer.style.height = `${randomHeight}px`;
     pointer.style.transform = `translateX(-50%) rotate(${randomAngle}deg)`;
     el.appendChild(pointer);
 
-    // 4. 🌟 Винаги изправен етикет на върха на линията
+    // Always aligned label at the top of the line
     const label = document.createElement('div');
     label.className = [
       'absolute bottom-full left-1/2 -translate-x-1/2 mb-1 whitespace-nowrap',
@@ -237,16 +122,16 @@ pointer.className = [
       'transition-colors duration-150 group-hover:bg-foreground group-hover:text-background'
     ].join(' ');
     label.textContent = g.name;
-    
-    // 🌟 ВАЖНО: Завъртаме етикета в обратната посока (-randomAngle), 
-    // за да остане текстът перфектно хоризонтален за четене!
+
+    // Rotate the label in the opposite direction (-randomAngle),
+    // so that the text remains perfectly horizontal for reading!
     label.style.transform = `translateX(-50%) rotate(${-randomAngle}deg)`;
     pointer.appendChild(label);
 
-    // 5. Добавяне към картата
-    const marker = new maplibregl.Marker({ 
+    // Add to the map
+    const marker = new maplibregl.Marker({
       element: el,
-      anchor: 'center' // Връщаме на center, защото линиите вече се разклоняват в 360 градуса от центъра
+      anchor: 'center' // Return to center, as lines already rotate 360 degrees from the center
     })
       .setLngLat([g.lng, g.lat])
       .addTo(map!);

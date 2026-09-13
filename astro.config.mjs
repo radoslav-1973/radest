@@ -22,6 +22,11 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+          alias: {
+            $lib: '/src/lib',
+          },
+        },
     optimizeDeps: {
       exclude: ['maplibre-gl'],
     },
@@ -29,7 +34,7 @@ export default defineConfig({
       noExternal: ['maplibre-gl']
     },
     build: {
-      chunkSizeWarningLimit: 1100 
+      chunkSizeWarningLimit: 1100
     }
   },
 
@@ -53,6 +58,5 @@ build: {
         }
       }
     }
-  
-});
 
+});

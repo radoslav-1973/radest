@@ -18,7 +18,7 @@ export const GET: APIRoute = ({ site }) => {
 
 ## Blog
 - [Tech Blog](${url('/blog/tech')}): writing on engineering, edge & cloud systems, and building for the web.
-- [Photo Blog](${url('/blog/photography')}): field notes on light, places, and the craft of photography.
+- [Photo Blog](${url('/blog/hiker')}): field notes on light, places, and the craft of photography.
 
 ## About
 - [About](${url('/about')}): a short biography of ${siteInfo.name}.
