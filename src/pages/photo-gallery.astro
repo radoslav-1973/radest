@@ -7,14 +7,14 @@ import { galleries } from "../data/map-gallery.ts";
 
 <Layout>
     <div class="mx-auto max-w-5xl px-4">
-        <h1 class="gallery-label">Photo Gallery</h1>
+        <GlobeMapFly galleries={galleries} client:only="svelte" />
+        <!-- <h1 class="gallery-label">Photo Gallery</h1>
         <GlobeMapFly galleries={galleries} client:idle />
-        <!-- Load in advance
+        Load in advance
         <GlobeMapFly galleries={galleries} client:load />
         Load only after the map is visible
         <GlobeMapFly galleries={galleries} client:visible />
-        Load only after the client click the page
-        <GlobeMapFly galleries={galleries} client:only="svelte" /> -->
+         -->
     </div>
 </Layout>
 
