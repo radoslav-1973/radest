@@ -7,7 +7,7 @@ export interface Gallery {
     lng: number;
     lat: number;
     href: string;
-    region: Region;  
+    region: Region;
 }
 
 export const galleries: Gallery[] = [
@@ -54,3 +54,6 @@ export const galleries: Gallery[] = [
         region: "Europe",
     },
 ];
+
+export const allRegions = ["All", "Africa", "Indian Ocean", "Europe"] as const;
+export type RegionFilter = (typeof allRegions)[number];

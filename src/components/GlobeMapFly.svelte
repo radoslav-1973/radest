@@ -4,11 +4,15 @@
   import 'maplibre-gl/dist/maplibre-gl.css';
   import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 
+  import { allRegions, type RegionFilter } from '../data/map-gallery';
+
   if (typeof window !== 'undefined') {
     maplibregl.setWorkerUrl(workerUrl);
   }
 
-  type Region = "Africa" | "Indian Ocean" | "Europe";
+  // For the map, you only need the non-"All" regions
+  const mapRegions = allRegions.filter((r): r is Exclude<RegionFilter, "All"> => r !== "All");
+  type Region = Exclude<RegionFilter, "All">;
 
   type Gallery = {
     name: string;
@@ -26,12 +30,12 @@
   let styleLoaded: boolean = $state(false);
   let activeRegion: Region = $state("Africa");
 
-  const regions: Region[] = ["Africa", "Indian Ocean", "Europe"];
+  const regions: Region[] = mapRegions as Region[];
 
   const regionViews: Record<Region, { center: [number, number]; zoom: number }> = {
     "Africa": { center: [25, -3.2], zoom: 1 },
     "Indian Ocean": { center: [60.4, -17], zoom: 1 },
-    "Europe": { center: [14.6, 45], zoom: 1 },
+    "Europe": { center: [14.6, 45], zoom: 0.5 },
   };
 
   onMount(() => {
