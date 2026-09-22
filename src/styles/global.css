@@ -77,7 +77,7 @@
      note above), add its family first; the platform 宋体 / Noto Serif SC fonts
      below are the cross-device fallbacks. */
   --serif-cjk: 'Songti SC', 'SimSun', '宋体', 'STSong', 'Noto Serif SC', 'Noto Serif CJK SC', serif;
-    --background: var(--bg);
+  --background: var(--bg);
   --foreground: var(--fg);
   --card: var(--bg);
   --card-foreground: var(--fg);

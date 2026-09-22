@@ -1,23 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import GlobeMapFly from "../components/GlobeMapFly.svelte";
-import { galleries } from "../data/map-gallery.ts";
-//import PhotoGrid from "../components/PhotoGrid.astro";
+import Map from "../components/Globe.svelte";
 ---
 
 <Layout>
-    <div class="mx-auto max-w-5xl px-4">
-        <h1 class="gallery-label">Photo Gallery</h1>
-        <GlobeMapFly galleries={galleries} client:load />
-        <!-- <GlobeMapFly galleries={galleries} client:only="svelte" />
-        <GlobeMapFly galleries={galleries} client:idle />
-        Load only after the map is visible
-        <GlobeMapFly galleries={galleries} client:visible />
-         -->
-    </div>
+<div class="mx-auto max-w-5xl px-4">
+	<h1 class="gallery-label">Photo Gallery</h1>
+    	<Map client:load />
+</div>
 </Layout>
 
-<!--<Layout>
-    <h1 class="gallery-label">Photo Gallery</h1>
-    <PhotoGrid collection="digital" />
-</Layout> -->

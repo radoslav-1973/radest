@@ -5,15 +5,9 @@
     children?: import("svelte").Snippet;
     class?: string;
     position?: "top" | "right" | "bottom" | "left";
-    labelOffset?: { x: number; y: number };
   }
 
-  let {
-    children,
-    class: className,
-    position = "top",
-    labelOffset
-  }: Props = $props();
+  let { children, class: className, position = "top" }: Props = $props();
 
   const positionClasses = {
     top: "bottom-full mb-1 left-1/2 -translate-x-1/2",
@@ -30,11 +24,6 @@
     positionClasses[position],
     className
   )}
-  style={
-    labelOffset
-      ? `transform: translate(${labelOffset.x}px, ${labelOffset.y}px);`
-      : undefined
-  }
 >
   {@render children?.()}
 </div>
