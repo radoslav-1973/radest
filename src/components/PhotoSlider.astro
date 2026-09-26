@@ -1,0 +1,105 @@
+---
+// src/components/PhotoSlider.astro
+import "./css/w3.css";
+
+export interface Photo {
+  path: string;
+  caption: string;
+  tooltip: string;
+  more?: string;
+}
+
+interface Props {
+  photos: Photo[];
+}
+
+const { photos } = Astro.props;
+---
+
+<div class="w3-content" style="max-width:250px">
+<div class="w3-content photo-slider" data-photo-slider>
+	<p class="w3-center w3-padding">Arusha Art Gallery 2024</p>
+  {
+    photos.map((photo, i) => (
+      <div
+        class={`w3-display-container mySlides ${i === 0 ? "" : "is-hidden"}`}
+      >
+        <img
+          src={photo.path}
+          alt={photo.caption}
+          style="width: 100%;"
+        />
+
+        <div class="w3-small w3-container w3-black">
+          <p class="w3-tooltip w3-padding">
+            {photo.tooltip}
+            <br />
+            See more
+            <br />
+
+            <span
+              class="w3-text w3-animate-opacity w3-padding w3-tag w3-white"
+              style="position: absolute; left: 0; bottom: 52px;max-height:230px;overflow:auto;"
+              set:html={photo.more ?? photo.tooltip}
+            />
+          </p>
+        </div>
+      </div>
+    ))
+  }
+
+  <button
+    type="button"
+    class="w3-button w3-display-left w3-black"
+    data-previous
+    aria-label="Previous photo"
+  >
+    &#10094;
+  </button>
+
+  <button
+    type="button"
+    class="w3-button w3-display-right w3-black"
+    data-next
+    aria-label="Next photo"
+  >
+    &#10095;
+  </button>
+</div>
+</div>
+
+<script>
+  document.querySelectorAll("[data-photo-slider]").forEach((slider) => {
+    const slides = slider.querySelectorAll(".mySlides");
+    const previousButton = slider.querySelector("[data-previous]");
+    const nextButton = slider.querySelector("[data-next]");
+
+    let currentIndex = 0;
+
+    function showSlide(index: number) {
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("is-hidden", slideIndex !== index);
+      });
+    }
+
+    previousButton?.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    });
+
+    nextButton?.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    });
+  });
+</script>
+
+<style>
+  .is-hidden {
+    display: none;
+  }
+
+  .photo-slider {
+    position: relative;
+  }
+</style>

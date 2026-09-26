@@ -11,7 +11,7 @@
     maplibregl.setWorkerUrl(workerUrl);
   }
   
-  let currentZoom = 0.5;
+  let currentZoom = 0.65;
   
   onMount(() => {
     // Check if the user use desktop display (above 1024px depth )
@@ -21,23 +21,17 @@
   });
 </script>
 
-<!-- Outer container resize from 420px to 600px -->
-<div class="flex h-[420px] w-full items-center justify-center overflow-hidden lg:h-[600px]">
-  
-  <!-- Inner square container, 600x600 only for desktop lg: -->
-  <div class="h-[420px] w-full min-w-full md:w-[420px] md:min-w-[420px] lg:h-[600px] lg:w-[600px] lg:min-w-[600px]">
-    <Map
+<div class="h-[500px] w-full">
+  <Map
       center={[hub.lng, hub.lat]}
-      bind:zoom={currentZoom}
+      zoom={currentZoom}
       projection={{ type: "globe" }}
-    >
-      <WorldArcsLabels
-        {hub}
-        {destinations}
-        {extraArcs}
-      />
-    </Map>
-  </div>
-  
-</div>
+  >
+    <WorldArcsLabels
+      {hub}
+      {destinations}
+      extraArcs={extraArcs}
+    />
 
+  </Map>
+</div>
