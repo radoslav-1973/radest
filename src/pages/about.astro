@@ -9,13 +9,14 @@ const facts = [
     {
         label: "Ester",
         line: "Mountain guide & mother",
-        muted: "Moshi, Tanzania",
+        text: "Always learning",
+        country: "Tanzania",
     },
-    { label: "Since", line: "20XX", muted: "Always learning" },
     {
         label: "Radoslav",
         line: "Developer & psychologist",
-        muted: "Sofia, Bulgaria",
+        text: "Always learning",
+        country: "Bulgaria",
     },  
 ];
 ---
@@ -79,7 +80,8 @@ const facts = [
                     <section class="fact">
                         <h2 class="fact__label">{f.label}</h2>
                         <p class="fact__line">{f.line}</p>
-                        <p class="fact__muted">{f.muted}</p>
+                        <p class="fact__line">{f.text}</p>
+                        <p class="fact__muted">{f.country}</p>
                     </section>
                 ))
             }
