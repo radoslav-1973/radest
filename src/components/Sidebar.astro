@@ -67,7 +67,8 @@ const isActive = (href: string) => {
 </header>
 
 <script>
-  const sidebar = document.querySelector('.sidebar');
+  const sidebar = document.querySelector<HTMLElement>('.sidebar');
+  
   const toggle = sidebar?.querySelector<HTMLButtonElement>('.nav-toggle');
   const label = toggle?.querySelector('.nav-toggle__label');
   const menu = sidebar?.querySelector<HTMLElement>('.nav');

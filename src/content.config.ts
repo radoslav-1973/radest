@@ -9,7 +9,8 @@
 //  frontmatter below, write Markdown, and it appears — sorted newest-first by
 //  `pubDate`. Set `draft: true` to keep a post out of the production build.
 // ────────────────────────────────────────────────────────────────────────────
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
 const blogSchema = ({ image }: { image: () => any }) =>
