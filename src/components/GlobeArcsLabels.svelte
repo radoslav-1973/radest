@@ -9,7 +9,7 @@
   import type {
     Point,
     ExtraArc
-  } from "../data/map_arcs";
+  } from "../data/globe_arcs";
 
   export let hub: Point;
   export let destinations: Point[];
