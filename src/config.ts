@@ -10,12 +10,12 @@ export interface NavItem {
 }
 
 export const site = {
-  name: 'Radest',
+  name: 'RADEST',
   // Optional second-script name (e.g. a Chinese 中文名) shown under the brand and
   // in a couple of prose pages. Leave it '' to hide it everywhere. See the README
   // for how to self-host a font subset so it renders identically on every device.
   nameZh: '',
-  title: 'Radest',
+  title: 'RADEST',
   description:
     'A minimal website for climbers with photography galleries, a photo-a-month calendar, and two blogs.',
 };

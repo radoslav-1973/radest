@@ -1,6 +1,6 @@
 ---
-title: 'Why is map labeling considered an NP hard problem and when manually labeling is better decision'
-description: 'What is really complicated task and why sometimes better solution is human judgment.'
+title: 'Why is map labeling considered an NP-hard problem and when is manual labeling the better solution?'
+description: 'What is really complicated task and why sometimes better solution is human judgment?'
 pubDate: 2026-09-28
 tags: ['map', 'labels', 'NP-hard']
 ---
