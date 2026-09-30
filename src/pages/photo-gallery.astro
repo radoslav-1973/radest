@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Map from "../components/Globe.svelte";
+import GalleryFallbackLinks from "../components/GalleryFallbackLinks.svelte";
 ---
 
 <Layout title="Photo Gallery" description="A collection of photos">
 <div class="mx-auto max-w-5xl px-4">
 	<h1 class="gallery-label">Photo Gallery</h1>
+	    <GalleryFallbackLinks />
+	<h3 class="gallery-label">Explore the map and select a label to open photographs from that place.</h3>
     	<Map client:load />
 </div>
 </Layout>
-
