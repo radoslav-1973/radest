@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Map from "../components/Globe.svelte";
+import Globe from "../components/Globe.svelte";
+import { photos } from "../data/favorite-photos";
+import PublicPhotoGallery from "../components/PublicPhotoGallery.astro";
 import GalleryFallbackLinks from "../components/GalleryFallbackLinks.svelte";
 ---
 
@@ -8,7 +10,9 @@ import GalleryFallbackLinks from "../components/GalleryFallbackLinks.svelte";
 <div class="mx-auto max-w-5xl px-4">
 	<h1 class="gallery-label">Photo Gallery</h1>
 	    <GalleryFallbackLinks />
+	<h3 class="gallery-label">Favorite Photos</h3>
+        <PublicPhotoGallery photos={photos} />
 	<h3 class="gallery-label">Explore the map and select a label to open photographs from that place.</h3>
-    	<Map client:load />
+    	<Globe client:idle />
 </div>
 </Layout>

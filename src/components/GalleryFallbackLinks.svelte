@@ -29,7 +29,7 @@
 
 <style>
   .gallery-fallback {
-    --gallery-accent: #1558a6;
+    --gallery-accent: #0645ad;
     --gallery-accent-contrast: #ffffff;
 
     width: 100%;

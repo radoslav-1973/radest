@@ -1,5 +1,5 @@
 ---
-title: 'The strenght of Astro'
+title: 'The strength of Astro'
 description: 'A simple example of how to avoid embedding JavaScript in HTML with Astro.'
 pubDate: 2026-08-20
 tags: ['astro', 'syntax']
