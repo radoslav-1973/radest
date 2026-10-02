@@ -7,8 +7,6 @@
 </script>
 
 <nav class="gallery-fallback" aria-labelledby="gallery-fallback-title">
-  <h2 id="gallery-fallback-title">Browse photo galleries</h2>
-
   <div class="gallery-links">
     {#each destinations as dest, index (dest.name)}
         {@const slug = dest.name
@@ -29,17 +27,11 @@
 
 <style>
   .gallery-fallback {
-    --gallery-accent: #0645ad;
+    --gallery-accent: #0766f7;
     --gallery-accent-contrast: #ffffff;
 
     width: 100%;
-    margin: 0 auto 2rem;
-  }
-
-  .gallery-fallback h2 {
-    margin: 0 0 0.75rem;
-    text-align: center;
-    font-size: 1.25rem;
+    margin: 0 auto 6rem;
   }
 
   .gallery-links {
@@ -78,5 +70,20 @@
       --gallery-accent: #8ab4f8;
       --gallery-accent-contrast: #101820;
     }
+  }
+
+  :global(html.dark) .gallery-fallback {
+    --gallery-accent: #8ab4f8;
+    --gallery-accent-contrast: #101820;
+  }
+
+  :global(html[data-theme="dark"]) .gallery-fallback {
+    --gallery-accent: #8ab4f8;
+    --gallery-accent-contrast: #101820;
+  }
+
+  :global(html[data-theme="light"]) .gallery-fallback {
+    --gallery-accent: #0766f7;
+    --gallery-accent-contrast: #ffffff;
   }
 </style>
