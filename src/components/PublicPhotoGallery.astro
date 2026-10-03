@@ -6,6 +6,8 @@ export interface Photo {
     large: string; // path to large image
     caption: string; // caption /
     text?: string;
+    smallWidth?: number;
+    smallHeight?: number;
     link?: string; // optional external link (e.g. gallery site)
 }
 
@@ -23,6 +25,8 @@ const { photos } = Astro.props as {
                     <img
                         src={photo.small}
                         alt={photo.caption}
+                        width={photo.smallWidth}
+                        height={photo.smallHeight}
                         loading={i < 8 ? "eager" : "lazy"}
                     />
                 </a>

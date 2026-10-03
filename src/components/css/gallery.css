@@ -28,6 +28,11 @@ h1 {
   border-radius: 5px;
   transition: all 0.25s ease-in-out;
 }
+.grid-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .grid-container div:hover img {
   filter: grayscale(0);
 }
