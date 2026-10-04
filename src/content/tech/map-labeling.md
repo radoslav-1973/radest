@@ -254,4 +254,4 @@ The lesson is not that complex algorithms are unnecessary. It is that theoretica
 should be matched to practical complexity. Sometimes the most efficient solution to a difficult 
 general problem is not to solve the general problem at all.
 
-You can also visit my personal [page](https://radoslav.xyz/)
+Visit also my personal page, [Radoslav](https://radoslav.xyz/)

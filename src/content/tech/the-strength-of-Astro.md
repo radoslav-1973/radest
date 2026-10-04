@@ -148,4 +148,4 @@ const description = showTechBlog
 
 >No React, Vue, Svelte, or embedded **`<script>`** tags — it's all pure Astro.
 
-You can also visit my personal [page](https://radoslav.xyz/)
+Visit also my personal page, [Radoslav](https://radoslav.xyz/)

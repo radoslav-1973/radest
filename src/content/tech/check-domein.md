@@ -286,4 +286,4 @@ only executes the script if the hashes match. If someone modifies the inline scr
 }
 ```
 
-You can also visit my personal [page](https://radoslav.xyz/)
+Visit also my personal page, [Radoslav](https://radoslav.xyz/)
