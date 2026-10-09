@@ -129,4 +129,13 @@ export const photos: Photo[] = [
     smallHeight: 323,
     text: "Nesebar, Bulgaria",
   },
+  {
+    id: "photo-17",
+    small: "/albums/retro/img-17S.avif",
+    large: "/albums/retro/img-17L.avif",
+    caption: "Books are the horizon beyond which the sun sets and the sun rises",
+    smallWidth: 300,
+    smallHeight: 315,
+    text: "My favorite pin",
+  },
 ];

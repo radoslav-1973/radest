@@ -3,8 +3,10 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import tailwindcss from "@tailwindcss/vite";
 import svelte from '@astrojs/svelte';
+import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
+  site: 'https://radest.top',
   integrations: [
     mdx(),
     sitemap({
@@ -12,19 +14,15 @@ export default defineConfig({
     }),
     svelte(),
   ],
-  site: 'https://radest.top',
   compressHTML: true,
   markdown: {
     syntaxHighlight: 'prism',
-    build: {
-      inlineStylesheets: 'always',
-    },
   },
   vite: {
     plugins: [tailwindcss()],
     resolve: {
           alias: {
-            $lib: '/src/lib',
+            $lib: fileURLToPath(new URL('./src/lib', import.meta.url)),
           },
         },
     optimizeDeps: {
@@ -39,19 +37,22 @@ export default defineConfig({
   },
 
 build: {
+      chunkSizeWarningLimit: 1100,
       rolldownOptions: {
         output: {
+          strictExecutionOrder: true, 
           codeSplitting: {
             groups: [
               {
                 name: "maplibre",
                 test: /node_modules\/maplibre-gl/,
-                minSize: 20_000
+                minSize: 20000,
+                includeDependenciesRecursively: false
               },
               {
                 name: "vendor",
                 test: /node_modules/,
-                minSize: 20_000
+                minSize: 20000
               }
             ]
           }
