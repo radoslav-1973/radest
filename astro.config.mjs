@@ -15,9 +15,6 @@ export default defineConfig({
     svelte(),
   ],
   compressHTML: true,
-  markdown: {
-    syntaxHighlight: 'prism',
-  },
   vite: {
     plugins: [tailwindcss()],
     resolve: {

@@ -8,6 +8,9 @@ node_modules/
 # astro
 .astro/
 
+# zed
+.zed/
+
 # logs & env
 *.log
 .env

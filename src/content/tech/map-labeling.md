@@ -126,7 +126,6 @@ This approach does not attempt to solve map labeling in its most general form. I
 knowledge of the particular map. A person can inspect the destinations, choose suitable positions, and 
 encode those decisions directly in the data.
 
-````md
 ```svelte
 // src/components/GlobeArcsLabels.svelte
 <script lang="ts">
@@ -212,8 +211,6 @@ encode those decisions directly in the data.
   </MapMarker>
 {/each}
 ```
-````
-
 
 ## The value of knowing the boundaries
 
