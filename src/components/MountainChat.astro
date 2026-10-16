@@ -22,14 +22,6 @@
                             <input
                                 type="radio"
                                 name="engineMode"
-                                value="auto"
-                            />{" "}
-                            Auto (WebGPU/Fallback)
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                name="engineMode"
                                 value="webllm"
                             />{" "}
                             WebLLM (AI)
@@ -106,9 +98,11 @@
             <div class="chat-window">
                 <div id="chat-log" class="chat-messages">
                     <div class="message bot">
-                        Hello! I’m your mountain guide.
-                        <br />
-                        Can I help you?
+                        <span>
+                            Hello! I’m your mountain guide.
+                            <br />
+                            Can I help you?
+                        </span>
                     </div>
                 </div>
 
@@ -280,6 +274,8 @@
         border-top: 1px solid var(--border-color);
         background: var(--chat-bg);
         flex-shrink: 0;
+        width: 100%;
+        box-sizing: border-box;
     }
     .chat-input-area input {
         flex: 1;
@@ -290,6 +286,8 @@
         background: var(--input-bg);
         color: var(--text-main);
         font-size: 16px;
+        min-width: 0;
+        box-sizing: border-box;
     }
     .chat-input-area button {
         padding: 10px 16px;
@@ -300,6 +298,7 @@
         border-radius: 4px;
         cursor: pointer;
         font-size: 0.9em;
+        flex-shrink: 0;
     }
 
     @media (min-width: 768px) {
@@ -618,24 +617,12 @@
     }
 
     function updateEngineState() {
-        const selectedMode = (
-            document.querySelector(
-                'input[name="engineMode"]:checked',
-            ) as HTMLInputElement
-        ).value;
+        const selectedRadio = document.querySelector(
+            'input[name="engineMode"]:checked',
+        ) as HTMLInputElement;
+        const selectedMode = selectedRadio ? selectedRadio.value : "json";
 
-        if (selectedMode === "auto") {
-            if (hasWebGPU) {
-                activeEngine = "webllm";
-                roleSelectionGroup.style.display = "block";
-                if (!engine && !isEngineInitializing) initEngine();
-            } else {
-                activeEngine = "json";
-                roleSelectionGroup.style.display = "none";
-                statusElement.textContent =
-                    "自由 Active: JSON Rule Bot (Auto-Fallback)";
-            }
-        } else if (selectedMode === "webllm") {
+        if (selectedMode === "webllm") {
             activeEngine = "webllm";
             roleSelectionGroup.style.display = "block";
             if (!hasWebGPU) {
@@ -643,7 +630,7 @@
                     "🔴 Warning: WebLLM forced, but browser does not support WebGPU!";
             } else if (!engine && !isEngineInitializing) {
                 initEngine();
-            } else if (engine) {
+            } else if (engine && !isEngineInitializing) {
                 statusElement.textContent = "🟢 Active: Manual WebLLM mode.";
             }
         } else if (selectedMode === "hybrid") {
@@ -652,20 +639,16 @@
             if (!hasWebGPU) {
                 statusElement.textContent =
                     "🔴 Warning: Hybrid forced, but browser does not support WebGPU!";
-                inputElement.disabled = true;
-                submitElement.disabled = true;
             } else if (!engine && !isEngineInitializing) {
                 initEngine();
-            } else if (engine) {
+            } else if (engine && !isEngineInitializing) {
                 statusElement.textContent =
                     "🤖 Active: WebLLM + JSON Knowledge Base.";
-                inputElement.disabled = false;
-                submitElement.disabled = false;
             }
         } else {
             activeEngine = "json";
             roleSelectionGroup.style.display = "none";
-            statusElement.textContent = "🔵 Active: Manual JSON Rule Bot.";
+            statusElement.textContent = "Ready.";
             inputElement.disabled = false;
             submitElement.disabled = false;
         }
@@ -838,11 +821,10 @@
             console.error("Error during background loading of Fuse.js:", err);
         });
 
-    // --- ЛОГИКА НА WEBLLM ---
     async function initEngine() {
         if (!hasWebGPU) {
             statusElement.textContent =
-                "WebGPU is not available. The browser is running in JSON Fallback mode.";
+                "🔴 WebGPU is not supported in this browser. JSON fallback is enabled.";
             return;
         }
 
@@ -854,7 +836,6 @@
 
             inputElement.disabled = false;
             submitElement.disabled = false;
-
             modelSelectElement.disabled = true;
 
             if (!engine) {
@@ -868,17 +849,44 @@
             }
 
             isEngineInitializing = false;
+            modelSelectElement.disabled = false;
             statusElement.textContent =
                 "🟢 Model ready. Your messages stay in this browser.";
-            modelSelectElement.disabled = false;
 
             updateEngineState();
-        } catch (error) {
-            console.error(error);
+        } catch (error: any) {
+            console.error("Critical error on WebLLM start-up:", error);
+
             isEngineInitializing = false;
             modelSelectElement.disabled = false;
-            updateEngineState();
-            statusElement.textContent = "Could not initialize selected model.";
+            activeEngine = "json";
+
+            const errorMessage =
+                error?.message?.toLowerCase() || String(error).toLowerCase();
+
+            if (
+                errorMessage.includes("compatible gpu") ||
+                errorMessage.includes("navigator.gpu")
+            ) {
+                statusElement.textContent =
+                    "🔴 Hardware Error: WebGPU is supported by browser, but no compatible graphics card (GPU) was found. Fallback to JSON active.";
+            } else if (
+                errorMessage.includes("out of memory") ||
+                errorMessage.includes("allocation failed") ||
+                errorMessage.includes("vram")
+            ) {
+                statusElement.textContent =
+                    "🔴 Memory Error: Your GPU ran out of VRAM memory trying to allocate this model size. Try selecting a smaller model.";
+            } else if (
+                errorMessage.includes("fetch") ||
+                errorMessage.includes("network") ||
+                errorMessage.includes("failed to load")
+            ) {
+                statusElement.textContent =
+                    "🔴 Network Error: Could not download the AI weights from the server. Check your internet connection.";
+            } else {
+                statusElement.textContent = `🔴 Initialization Failed: ${error?.message || "Unknown hardware restriction"}. Fallback to JSON active.`;
+            }
         }
     }
 

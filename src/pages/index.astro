@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import PostCard from "../components/PostCard.astro";
 import { getCollection } from "astro:content";
+import MountainChat from "../components/MountainChat.astro";
 
 // Fetch both blog collections
 const techPosts = (
@@ -39,6 +40,7 @@ const description = showTechBlog
     <header class="blog-head">
         <h1 class="page__title">{sectionLabel}</h1>
         <p class="blog-head__sub">{description}</p>
+        <br /><MountainChat />
     </header>
 
     {posts.length === 0 ? (
