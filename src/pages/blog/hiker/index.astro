@@ -2,7 +2,7 @@
 import Layout from "../../../layouts/Layout.astro";
 import PostCard from "../../../components/PostCard.astro";
 import { getCollection } from "astro:content";
-
+import MountainChat from "../../../components/MountainChat.astro";
 const posts = (
     await getCollection("hiker", ({ data }) =>
         import.meta.env.PROD ? !data.draft : true,
@@ -25,6 +25,7 @@ const posts = (
         <p class="empty">Please wait patiently for the first post.</p>
     ) : (
         <ul class="post-list">
+            <MountainChat />
             {posts.map((post) => (
                 <PostCard post={post} base="/blog/hiker" />
             ))}

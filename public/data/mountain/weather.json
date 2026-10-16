@@ -1,0 +1,844 @@
+{
+  "topic": "weather",
+  "nodes": [
+    {
+      "id": "mountain-weather",
+      "label": "Mountain weather",
+      "phrases": [
+        "mountain weather",
+        "weather forecast",
+        "mountain forecast",
+        "alpine weather",
+        "high-altitude weather"
+      ],
+      "synonyms": [
+        "mountain conditions",
+        "alpine conditions",
+        "highland weather",
+        "summit weather"
+      ],
+      "keywords": [
+        "wind",
+        "temperature",
+        "precipitation",
+        "visibility",
+        "cloud cover",
+        "humidity",
+        "pressure",
+        "freezing level",
+        "snow line",
+        "weather warning"
+      ],
+      "answer": "Check a current mountain-specific forecast. Conditions can differ sharply from the valley, so review wind, temperature, precipitation, visibility, and hazards before setting out, and make a backup plan."
+    },
+    {
+      "id": "wind",
+      "label": "Wind",
+      "phrases": [
+        "wind speed",
+        "wind direction",
+        "wind gusts",
+        "strong wind",
+        "windy conditions"
+      ],
+      "synonyms": [
+        "breeze",
+        "gale",
+        "storm-force wind",
+        "gusts",
+        "air movement"
+      ],
+      "keywords": [
+        "sustained wind",
+        "gust",
+        "wind chill",
+        "exposed ridge",
+        "summit wind",
+        "katabatic wind",
+        "anabatic wind",
+        "foehn",
+        "valley wind"
+      ],
+      "answer": "Check both sustained wind speed and gusts, especially for exposed ridges and summits. Strong gusts can make balance, navigation, and movement difficult even when the average wind speed seems manageable."
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature",
+      "phrases": [
+        "temperature forecast",
+        "feels-like temperature",
+        "temperature drop",
+        "freezing temperature"
+      ],
+      "synonyms": [
+        "air temperature",
+        "apparent temperature",
+        "thermal conditions",
+        "cold"
+      ],
+      "keywords": [
+        "feels like",
+        "wind chill",
+        "freezing level",
+        "frost",
+        "icing",
+        "hypothermia",
+        "altitude",
+        "night temperature"
+      ],
+      "answer": "Use the feels-like temperature, not only the air temperature. Wind, moisture, altitude, and darkness can make conditions feel much colder and increase the risk of hypothermia."
+    },
+    {
+      "id": "precipitation",
+      "label": "Precipitation",
+      "phrases": [
+        "chance of rain",
+        "rain forecast",
+        "snow forecast",
+        "precipitation probability",
+        "wet weather"
+      ],
+      "synonyms": [
+        "rainfall",
+        "snowfall",
+        "drizzle",
+        "sleet",
+        "hail",
+        "showers"
+      ],
+      "keywords": [
+        "probability of precipitation",
+        "rain",
+        "snow",
+        "sleet",
+        "hail",
+        "drizzle",
+        "thunderstorm",
+        "duration",
+        "intensity",
+        "accumulation"
+      ],
+      "answer": "Look at precipitation type, probability, intensity, duration, and expected accumulation. Rain can make trails slippery and streams dangerous, while snow can obscure paths and greatly reduce visibility."
+    },
+    {
+      "id": "visibility",
+      "label": "Visibility",
+      "phrases": [
+        "low visibility",
+        "poor visibility",
+        "reduced visibility",
+        "foggy conditions"
+      ],
+      "synonyms": [
+        "fog",
+        "mist",
+        "haze",
+        "whiteout",
+        "low cloud",
+        "limited visibility"
+      ],
+      "keywords": [
+        "fog",
+        "mist",
+        "haze",
+        "cloud base",
+        "whiteout",
+        "blowing snow",
+        "navigation",
+        "route finding"
+      ],
+      "answer": "Poor visibility makes route finding difficult and can cause disorientation, especially in fog, low cloud, or blowing snow. Carry a map, compass, and GPS, and be prepared to turn back."
+    },
+    {
+      "id": "cloud-cover",
+      "label": "Cloud cover",
+      "phrases": [
+        "cloudy sky",
+        "cloud cover",
+        "clear skies",
+        "overcast"
+      ],
+      "synonyms": [
+        "sky condition",
+        "cloudiness",
+        "overcast sky",
+        "broken clouds"
+      ],
+      "keywords": [
+        "clear",
+        "scattered clouds",
+        "broken clouds",
+        "overcast",
+        "cloud base",
+        "cloud ceiling",
+        "sunshine"
+      ],
+      "answer": "Cloud cover affects temperature, visibility, and navigation. Low cloud can hide landmarks and summits, while clear skies may bring stronger nighttime cooling."
+    },
+    {
+      "id": "freezing-level",
+      "label": "Freezing level",
+      "phrases": [
+        "freezing level",
+        "snow line",
+        "freezing altitude",
+        "will it snow"
+      ],
+      "synonyms": [
+        "zero-degree level",
+        "snow level",
+        "frost line"
+      ],
+      "keywords": [
+        "altitude",
+        "snow",
+        "ice",
+        "rain-snow transition",
+        "temperature",
+        "mountain elevation"
+      ],
+      "answer": "The freezing level is the altitude at which air temperature reaches 0°C. If it is near or below your route, expect a transition from rain to snow, icy surfaces, and colder feels-like temperatures."
+    },
+    {
+      "id": "thunderstorms",
+      "label": "Thunderstorms",
+      "phrases": [
+        "thunderstorm risk",
+        "lightning risk",
+        "storm forecast",
+        "afternoon storms"
+      ],
+      "synonyms": [
+        "electrical storm",
+        "lightning storm",
+        "convective weather",
+        "thunder and lightning"
+      ],
+      "keywords": [
+        "lightning",
+        "thunder",
+        "convective activity",
+        "afternoon heating",
+        "exposed terrain",
+        "shelter",
+        "turnaround time"
+      ],
+      "answer": "Avoid exposed ridges, summits, and open terrain when thunderstorms are likely. Start early, watch cloud development, and choose a safe descent or shelter option before conditions deteriorate."
+    },
+    {
+      "id": "snow-and-ice",
+      "label": "Snow and ice",
+      "phrases": [
+        "snow conditions",
+        "icy trail",
+        "snow cover",
+        "winter hiking"
+      ],
+      "synonyms": [
+        "snowpack",
+        "ice",
+        "frozen ground",
+        "winter conditions"
+      ],
+      "keywords": [
+        "snow depth",
+        "fresh snow",
+        "blowing snow",
+        "ice",
+        "black ice",
+        "crampons",
+        "microspikes",
+        "avalanche"
+      ],
+      "answer": "Snow and ice can hide the trail, make footing unreliable, and increase navigation difficulty. Use appropriate traction, insulation, and navigation tools, and reassess the route if conditions are worse than forecast."
+    },
+    {
+      "id": "avalanche-risk",
+      "label": "Avalanche risk",
+      "phrases": [
+        "avalanche danger",
+        "avalanche forecast",
+        "snow stability",
+        "avalanche terrain"
+      ],
+      "synonyms": [
+        "snow avalanche",
+        "slab avalanche",
+        "avalanche hazard",
+        "snow instability"
+      ],
+      "keywords": [
+        "avalanche bulletin",
+        "danger level",
+        "slope angle",
+        "wind-loaded slope",
+        "fresh snow",
+        "weak layer",
+        "terrain choice"
+      ],
+      "answer": "In winter, check the regional avalanche bulletin in addition to the weather forecast. Avoid known avalanche terrain when danger is elevated, and base route choices on slope angle, snowpack, and recent weather."
+    },
+    {
+      "id": "mountain-winds",
+      "label": "Mountain and valley winds",
+      "phrases": [
+        "valley wind",
+        "upslope wind",
+        "downslope wind",
+        "mountain breeze"
+      ],
+      "synonyms": [
+        "anabatic wind",
+        "katabatic wind",
+        "drainage wind",
+        "slope wind"
+      ],
+      "keywords": [
+        "anabatic",
+        "katabatic",
+        "foehn",
+        "chinook",
+        "daytime heating",
+        "nighttime cooling",
+        "valley"
+      ],
+      "answer": "Mountain terrain creates local wind patterns: heated air often moves upslope during the day, while cooler air drains downhill at night. These winds can change temperature, cloud formation, and fire behavior."
+    },
+    {
+      "id": "foehn-effect",
+      "label": "Foehn effect",
+      "phrases": [
+        "foehn wind",
+        "foehn effect",
+        "warm downslope wind",
+        "chinook wind"
+      ],
+      "synonyms": [
+        "föhn",
+        "chinook",
+        "downslope windstorm",
+        "warm dry wind"
+      ],
+      "keywords": [
+        "lee side",
+        "adiabatic warming",
+        "dry air",
+        "rapid temperature rise",
+        "strong gusts",
+        "mountain range"
+      ],
+      "answer": "A foehn is a warm, dry wind descending the lee side of a mountain range. It can cause rapid temperature rises, very low humidity, and strong or gusty conditions."
+    },
+    {
+      "id": "weather-warnings",
+      "label": "Weather warnings",
+      "phrases": [
+        "weather warning",
+        "weather alert",
+        "storm warning",
+        "high wind warning"
+      ],
+      "synonyms": [
+        "weather advisory",
+        "hazard warning",
+        "severe weather alert",
+        "meteo warning"
+      ],
+      "keywords": [
+        "warning",
+        "advisory",
+        "watch",
+        "wind warning",
+        "snow warning",
+        "thunderstorm warning",
+        "flood warning"
+      ],
+      "answer": "Treat official weather warnings as a planning threshold, not optional information. If a warning covers your route or time window, postpone, choose a lower alternative, or turn back early."
+    },
+    {
+      "id": "forecast-checklist",
+      "label": "Mountain forecast checklist",
+      "phrases": [
+        "what to check before hiking",
+        "mountain weather checklist",
+        "pre-hike weather check",
+        "hiking weather planning"
+      ],
+      "synonyms": [
+        "trip planning checklist",
+        "route planning checklist",
+        "weather assessment"
+      ],
+      "keywords": [
+        "wind",
+        "temperature",
+        "precipitation",
+        "visibility",
+        "freezing level",
+        "sunrise",
+        "sunset",
+        "escape route",
+        "turnaround time"
+      ],
+      "answer": "Before a mountain trip, check wind and gusts, feels-like temperature, precipitation, visibility, freezing level, sunrise and sunset, and official warnings. Identify a turnaround time and a lower or shorter backup route."
+    },
+    {
+      "id": "layering",
+      "label": "Clothing layers",
+      "phrases": [
+        "what to wear hiking",
+        "mountain clothing",
+        "layering system",
+        "cold weather clothing"
+      ],
+      "synonyms": [
+        "outdoor clothing",
+        "hiking layers",
+        "technical clothing",
+        "insulation"
+      ],
+      "keywords": [
+        "base layer",
+        "mid layer",
+        "shell jacket",
+        "waterproof",
+        "windproof",
+        "gloves",
+        "hat",
+        "spare clothes"
+      ],
+      "answer": "Use a layering system: a moisture-wicking base layer, insulating mid layer, and wind- and water-resistant shell. Carry extra insulation, gloves, a hat, and dry clothes for delays or worsening weather."
+    },
+    {
+      "id": "turnaround-time",
+      "label": "Turnaround time",
+      "phrases": [
+        "turnaround time",
+        "when to turn back",
+        "route decision",
+        "weather turnaround"
+      ],
+      "synonyms": [
+        "turn-back point",
+        "retreat decision",
+        "time limit",
+        "safety margin"
+      ],
+      "keywords": [
+        "summit fever",
+        "backup plan",
+        "daylight",
+        "weather change",
+        "escape route",
+        "group decision"
+      ],
+      "answer": "Set a turnaround time before leaving and respect it even if the summit is close. Weather, fatigue, darkness, and route conditions can change faster than expected in mountains."
+    },
+  {
+    "id": "humidity",
+    "label": "Humidity",
+    "phrases": [
+      "humidity forecast",
+      "high humidity",
+      "air moisture",
+      "dew point"
+    ],
+    "synonyms": [
+      "relative humidity",
+      "moisture level",
+      "water vapor",
+      "dewpoint"
+    ],
+    "keywords": [
+      "relative humidity",
+      "absolute humidity",
+      "dew point",
+      "condensation",
+      "fog",
+      "heat stress",
+      "evaporation"
+    ],
+    "answer": "High humidity reduces evaporative cooling, so hot and humid conditions can increase heat illness risk. It can also contribute to fog, condensation, and wet gear."
+  },
+  {
+    "id": "dew-point",
+    "label": "Dew point",
+    "phrases": [
+      "dew point forecast",
+      "what is dew point",
+      "dew point and humidity"
+    ],
+    "synonyms": [
+      "dewpoint temperature",
+      "saturation temperature",
+      "condensation point"
+    ],
+    "keywords": [
+      "dew",
+      "condensation",
+      "saturation",
+      "fog formation",
+      "humidity",
+      "comfort"
+    ],
+    "answer": "Dew point is the temperature at which air becomes saturated and moisture begins to condense. A dew point close to the air temperature often means humid, muggy conditions and a higher chance of fog or dew."
+  },
+  {
+    "id": "air-pressure",
+    "label": "Air pressure",
+    "phrases": [
+      "barometric pressure",
+      "pressure forecast",
+      "falling pressure",
+      "high pressure"
+    ],
+    "synonyms": [
+      "atmospheric pressure",
+      "barometer reading",
+      "pressure system"
+    ],
+    "keywords": [
+      "high pressure",
+      "low pressure",
+      "pressure trend",
+      "storm system",
+      "weather change",
+      "altimeter"
+    ],
+    "answer": "Falling pressure can signal an approaching low-pressure system and deteriorating weather. Rising pressure is more often associated with settling conditions, though local terrain can modify both."
+  },
+  {
+    "id": "uv-index",
+    "label": "UV index",
+    "phrases": [
+      "UV index",
+      "sun protection",
+      "sunburn risk",
+      "UV forecast"
+    ],
+    "synonyms": [
+      "ultraviolet index",
+      "solar radiation",
+      "sun exposure"
+    ],
+    "keywords": [
+      "sunscreen",
+      "sunglasses",
+      "altitude",
+      "snow reflection",
+      "sunburn",
+      "shade"
+    ],
+    "answer": "UV exposure increases with altitude and can be intensified by reflection from snow. Use sunscreen, sunglasses, a hat, and shade, even on cool or cloudy days."
+  },
+  {
+    "id": "sunrise-sunset",
+    "label": "Daylight and twilight",
+    "phrases": [
+      "sunrise time",
+      "sunset time",
+      "daylight hours",
+      "how much daylight"
+    ],
+    "synonyms": [
+      "day length",
+      "twilight",
+      "civil twilight",
+      "darkness"
+    ],
+    "keywords": [
+      "sunrise",
+      "sunset",
+      "golden hour",
+      "twilight",
+      "headlamp",
+      "navigation",
+      "turnaround time"
+    ],
+    "answer": "Plan your route around sunrise, sunset, and twilight. Darkness increases navigation difficulty and cold stress, so carry a headlamp and set a turnaround time with enough margin."
+  },
+  {
+    "id": "altitude-effect",
+    "label": "Altitude effect",
+    "phrases": [
+      "temperature at altitude",
+      "altitude weather",
+      "temperature lapse rate",
+      "how cold at elevation"
+    ],
+    "synonyms": [
+      "elevation effect",
+      "mountain temperature gradient",
+      "vertical temperature change"
+    ],
+    "keywords": [
+      "elevation",
+      "lapse rate",
+      "temperature drop",
+      "summit",
+      "valley",
+      "oxygen",
+      "acclimatization"
+    ],
+    "answer": "Temperature generally falls as elevation increases, so summit conditions can be much colder and windier than at the trailhead. Check an elevation-specific forecast rather than relying on the valley forecast."
+  },
+  {
+    "id": "rain-shadow",
+    "label": "Rain shadow",
+    "phrases": [
+      "rain shadow",
+      "dry side of mountain",
+      "lee side precipitation"
+    ],
+    "synonyms": [
+      "precipitation shadow",
+      "orographic effect",
+      "windward-leeward difference"
+    ],
+    "keywords": [
+      "windward side",
+      "leeward side",
+      "orographic lift",
+      "precipitation",
+      "dry air",
+      "mountain range"
+    ],
+    "answer": "Mountains can force moist air to rise and release precipitation on the windward side, leaving the downwind side drier. Nearby areas can therefore have very different weather at the same time."
+  },
+  {
+    "id": "orographic-clouds",
+    "label": "Orographic clouds",
+    "phrases": [
+      "orographic clouds",
+      "clouds over mountains",
+      "mountain cloud formation",
+      "cap cloud"
+    ],
+    "synonyms": [
+      "orographic lift",
+      "mountain wave cloud",
+      "lenticular cloud",
+      "summit cloud"
+    ],
+    "keywords": [
+      "lenticular",
+      "cap cloud",
+      "upslope fog",
+      "windward",
+      "turbulence",
+      "wind"
+    ],
+    "answer": "Air forced upward by mountains can form clouds directly over ridges and summits. Rapidly building or persistent summit clouds can indicate strengthening wind, moisture, or an approaching weather change."
+  },
+  {
+    "id": "hypothermia",
+    "label": "Hypothermia",
+    "phrases": [
+      "hypothermia risk",
+      "cold exposure",
+      "hypothermia symptoms",
+      "cold weather safety"
+    ],
+    "synonyms": [
+      "exposure",
+      "core cooling",
+      "cold stress",
+      "dangerous body cooling"
+    ],
+    "keywords": [
+      "shivering",
+      "wet clothing",
+      "wind",
+      "exhaustion",
+      "confusion",
+      "dry layers",
+      "shelter",
+      "warm fluids"
+    ],
+    "answer": "Hypothermia can occur in any season when cold, wind, and wet clothing combine. Watch for uncontrollable shivering, clumsiness, confusion, or fatigue; stop, shelter from wind, remove wet layers, and warm the person."
+  },
+  {
+    "id": "heat-illness",
+    "label": "Heat illness",
+    "phrases": [
+      "heat exhaustion",
+      "heat stroke",
+      "overheating",
+      "hot weather hiking"
+    ],
+    "synonyms": [
+      "heat stress",
+      "heat-related illness",
+      "dehydration",
+      "sun exposure illness"
+    ],
+    "keywords": [
+      "hydration",
+      "shade",
+      "electrolytes",
+      "nausea",
+      "headache",
+      "fatigue",
+      "confusion",
+      "early start"
+    ],
+    "answer": "In heat, start early, rest in shade, drink regularly, and replace electrolytes. Stop and cool down if someone develops headache, nausea, fatigue, cramps, confusion, or reduced sweating."
+  },
+  {
+    "id": "flash-flood",
+    "label": "Flash flood",
+    "phrases": [
+      "flash flood risk",
+      "heavy rain warning",
+      "river crossing",
+      "flooded trail"
+    ],
+    "synonyms": [
+      "sudden flooding",
+      "flash flooding",
+      "rising water",
+      "flood hazard"
+    ],
+    "keywords": [
+      "heavy rain",
+      "thunderstorm",
+      "canyon",
+      "gully",
+      "river",
+      "stream",
+      "runoff",
+      "evacuation"
+    ],
+    "answer": "Avoid narrow canyons, gullies, and stream crossings during or after heavy rain. Water levels can rise quickly, so move to higher ground and never attempt to cross fast-moving water."
+  },
+  {
+    "id": "whiteout",
+    "label": "Whiteout",
+    "phrases": [
+      "whiteout conditions",
+      "snow blindness",
+      "lost in snow",
+      "blizzard visibility"
+    ],
+    "synonyms": [
+      "white-out",
+      "flat light",
+      "zero visibility",
+      "blizzard"
+    ],
+    "keywords": [
+      "blowing snow",
+      "fog",
+      "navigation",
+      "compass bearing",
+      "GPS",
+      "marked route",
+      "turn back"
+    ],
+    "answer": "In a whiteout, visual references disappear and route finding becomes extremely difficult. Navigate by compass bearing and known features, stay on a marked route if possible, and turn back early if visibility continues to fall."
+  },
+  {
+    "id": "lightning-safety",
+    "label": "Lightning safety",
+    "phrases": [
+      "what to do in lightning",
+      "lightning safety",
+      "thunderstorm safety",
+      "caught in a storm"
+    ],
+    "synonyms": [
+      "electrical storm safety",
+      "storm shelter",
+      "lightning risk reduction"
+    ],
+    "keywords": [
+      "summit",
+      "ridge",
+      "isolated tree",
+      "open field",
+      "lower elevation",
+      "dense forest",
+      "metal objects",
+      "group spacing"
+    ],
+    "answer": "If lightning threatens, leave summits, ridges, open ground, isolated trees, and water. Move to lower terrain with denser smaller trees, avoid shallow caves and overhangs, remove exposed metal, and keep the group spaced out."
+  },
+  {
+    "id": "rapid-weather-change",
+    "label": "Rapid weather change",
+    "phrases": [
+      "weather changed suddenly",
+      "rapid deterioration",
+      "unexpected storm",
+      "mountain weather changes fast"
+    ],
+    "synonyms": [
+      "sudden weather shift",
+      "deteriorating conditions",
+      "weather window",
+      "changing conditions"
+    ],
+    "keywords": [
+      "cloud build-up",
+      "wind increase",
+      "temperature drop",
+      "pressure fall",
+      "escape route",
+      "turnaround"
+    ],
+    "answer": "Mountain weather can deteriorate quickly, especially in the afternoon. Watch for building clouds, rising wind, falling temperature, and falling pressure; be ready to shorten or abandon the route."
+  },
+  {
+    "id": "weather-decision",
+    "label": "Go or no-go decision",
+    "phrases": [
+      "should I hike today",
+      "go no-go decision",
+      "is it safe to hike",
+      "weather risk assessment"
+    ],
+    "synonyms": [
+      "trip decision",
+      "route assessment",
+      "safety decision",
+      "conditions assessment"
+    ],
+    "keywords": [
+      "forecast",
+      "warnings",
+      "experience",
+      "group ability",
+      "route exposure",
+      "escape options",
+      "turnaround time"
+    ],
+    "answer": "Make a go or no-go decision using the forecast, official warnings, route exposure, daylight, group experience, and available escape options. If key conditions are uncertain or worse than planned, choose a safer alternative."
+  },
+  {
+    "id": "emergency-weather-plan",
+    "label": "Emergency weather plan",
+    "phrases": [
+      "emergency plan",
+      "bad weather plan",
+      "what if weather gets worse",
+      "mountain emergency"
+    ],
+    "synonyms": [
+      "contingency plan",
+      "retreat plan",
+      "bailout route",
+      "safety plan"
+    ],
+    "keywords": [
+      "escape route",
+      "shelter",
+      "communication",
+      "emergency contact",
+      "first aid",
+      "warm layer",
+      "navigation"
+    ],
+    "answer": "Identify escape routes, shelter options, and communication coverage before departure. Carry navigation tools, insulation, a first-aid kit, and a way to call for help; share your plan and expected return time."
+  }
+  ]
+}

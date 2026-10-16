@@ -1,0 +1,769 @@
+{
+  "topic": "navigation",
+  "nodes": [
+    {
+      "id": "mountain-navigation",
+      "label": "Mountain navigation",
+      "phrases": [
+        "mountain navigation",
+        "hiking navigation",
+        "navigation skills",
+        "route finding",
+        "how to navigate"
+      ],
+      "synonyms": [
+        "wayfinding",
+        "orienteering",
+        "route finding",
+        "land navigation",
+        "wilderness navigation"
+      ],
+      "keywords": [
+        "map",
+        "compass",
+        "GPS",
+        "bearing",
+        "contour lines",
+        "waypoint",
+        "route plan",
+        "visibility",
+        "getting lost",
+        "escape route"
+      ],
+      "answer": "Use a paper map and compass together with GPS or a phone app, but never rely on electronics alone. Plan the route in advance, track your position against terrain features, and know when to turn back."
+    },
+    {
+      "id": "topographic-map",
+      "label": "Topographic map",
+      "phrases": [
+        "topographic map",
+        "topo map",
+        "paper map",
+        "map reading"
+      ],
+      "synonyms": [
+        "contour map",
+        "terrain map",
+        "hiking map",
+        "orienteering map"
+      ],
+      "keywords": [
+        "scale",
+        "legend",
+        "contour lines",
+        "grid reference",
+        "north",
+        "terrain",
+        "route",
+        "landmarks"
+      ],
+      "answer": "Carry a current topographic paper map and learn its scale, legend, contour lines, and grid system. A map shows the wider terrain and escape options that a small phone screen can easily hide."
+    },
+    {
+      "id": "map-legend",
+      "label": "Map legend",
+      "phrases": [
+        "map legend",
+        "map symbols",
+        "map key",
+        "what do map symbols mean"
+      ],
+      "synonyms": [
+        "legend",
+        "map key",
+        "symbol key",
+        "map explanation"
+      ],
+      "keywords": [
+        "symbols",
+        "colors",
+        "trails",
+        "roads",
+        "rivers",
+        "buildings",
+        "scale",
+        "contour interval"
+      ],
+      "answer": "Read the map legend before setting out so you understand trails, water, cliffs, vegetation, buildings, and contour intervals. Map symbols differ between map publishers and countries."
+    },
+    {
+      "id": "map-scale",
+      "label": "Map scale",
+      "phrases": [
+        "map scale",
+        "map distance",
+        "how far is it",
+        "measure distance"
+      ],
+      "synonyms": [
+        "scale",
+        "distance ratio",
+        "map measurement",
+        "distance calculation"
+      ],
+      "keywords": [
+        "1:25000",
+        "1:50000",
+        "kilometers",
+        "miles",
+        "romer",
+        "measuring distance",
+        "route length"
+      ],
+      "answer": "Use the map scale to convert map distance into real-world distance. For example, on a 1:25,000 map, 4 centimeters represents 1 kilometer on the ground."
+    },
+    {
+      "id": "contour-lines",
+      "label": "Contour lines",
+      "phrases": [
+        "contour lines",
+        "read contours",
+        "steepness",
+        "terrain shape"
+      ],
+      "synonyms": [
+        "isolines",
+        "elevation lines",
+        "relief lines",
+        "contours"
+      ],
+      "keywords": [
+        "elevation",
+        "slope",
+        "steep ground",
+        "ridge",
+        "valley",
+        "saddle",
+        "summit",
+        "contour interval"
+      ],
+      "answer": "Contour lines show elevation and terrain shape. Closely spaced contours mean steep ground, while V- or U-shaped contours can indicate valleys and re-entrants; use them to anticipate cliffs, ridges, and difficult descents."
+    },
+    {
+      "id": "terrain-features",
+      "label": "Terrain features",
+      "phrases": [
+        "terrain features",
+        "landforms",
+        "ridge and valley",
+        "identify terrain"
+      ],
+      "synonyms": [
+        "landforms",
+        "landscape features",
+        "natural features",
+        "topographic features"
+      ],
+      "keywords": [
+        "peak",
+        "ridge",
+        "spur",
+        "valley",
+        "re-entrant",
+        "saddle",
+        "col",
+        "cliff",
+        "watercourse"
+      ],
+      "answer": "Learn to recognize peaks, ridges, spurs, valleys, re-entrants, saddles, cliffs, and watercourses on both the map and the ground. Matching visible terrain to the map is one of the most reliable ways to confirm your location."
+    },
+    {
+      "id": "compass",
+      "label": "Compass",
+      "phrases": [
+        "compass",
+        "use a compass",
+        "compass navigation",
+        "magnetic compass"
+      ],
+      "synonyms": [
+        "magnetic compass",
+        "baseplate compass",
+        "compass needle",
+        "bearing compass"
+      ],
+      "keywords": [
+        "needle",
+        "north",
+        "bearing",
+        "declination",
+        "orienting arrow",
+        "direction of travel",
+        "baseplate"
+      ],
+      "answer": "A compass works without batteries and is essential for taking bearings, orienting the map, and navigating in poor visibility. Learn to use it with a paper map before you need it in an emergency."
+    },
+    {
+      "id": "compass-basics",
+      "label": "Compass basics",
+      "phrases": [
+        "compass parts",
+        "how does a compass work",
+        "compass needle",
+        "compass housing"
+      ],
+      "synonyms": [
+        "compass anatomy",
+        "compass components",
+        "compass functions",
+        "compass use"
+      ],
+      "keywords": [
+        "magnetic needle",
+        "orienting arrow",
+        "orienting lines",
+        "rotating bezel",
+        "direction-of-travel arrow",
+        "baseplate",
+        "declination adjustment"
+      ],
+      "answer": "Learn the main compass parts: magnetic needle, rotating bezel, orienting arrow and lines, direction-of-travel arrow, and baseplate. Practice taking and following bearings in familiar terrain before relying on them in mountains."
+    },
+    {
+      "id": "taking-a-bearing",
+      "label": "Taking a bearing",
+      "phrases": [
+        "take a bearing",
+        "compass bearing",
+        "follow a bearing",
+        "bearing to destination"
+      ],
+      "synonyms": [
+        "azimuth",
+        "direction bearing",
+        "course",
+        "heading"
+      ],
+      "keywords": [
+        "map bearing",
+        "field bearing",
+        "degrees",
+        "declination",
+        "compass housing",
+        "landmark",
+        "back bearing"
+      ],
+      "answer": "To take a bearing, align the compass baseplate between your position and destination on the map, rotate the bezel to match north, apply declination if needed, then follow the direction-of-travel arrow on the ground. Use intermediate landmarks and check the bearing regularly."
+    },
+    {
+      "id": "magnetic-declination",
+      "label": "Magnetic declination",
+      "phrases": [
+        "magnetic declination",
+        "magnetic variation",
+        "declination adjustment",
+        "true north vs magnetic north"
+      ],
+      "synonyms": [
+        "variation",
+        "declination",
+        "magnetic offset",
+        "compass correction"
+      ],
+      "keywords": [
+        "true north",
+        "magnetic north",
+        "grid north",
+        "east declination",
+        "west declination",
+        "map datum",
+        "compass adjustment"
+      ],
+      "answer": "Magnetic declination is the angle between true or grid north and magnetic north. Apply the correct local correction when converting between map bearings and compass bearings, or set the compass declination in advance."
+    },
+    {
+      "id": "orienting-map",
+      "label": "Orienting the map",
+      "phrases": [
+        "orient the map",
+        "set the map",
+        "align map with terrain",
+        "map orientation"
+      ],
+      "synonyms": [
+        "setting the map",
+        "map alignment",
+        "thumbing the map",
+        "map to ground"
+      ],
+      "keywords": [
+        "north",
+        "compass",
+        "terrain",
+        "landmarks",
+        "map reading",
+        "location",
+        "route"
+      ],
+      "answer": "Orient the map so its north aligns with north on the ground, using visible landmarks or your compass. A correctly oriented map makes it much easier to match terrain features and choose the correct route."
+    },
+    {
+      "id": "gps-navigation",
+      "label": "GPS navigation",
+      "phrases": [
+        "GPS navigation",
+        "GPS device",
+        "GPS coordinates",
+        "satellite navigation"
+      ],
+      "synonyms": [
+        "satnav",
+        "GNSS",
+        "GPS unit",
+        "electronic navigation"
+      ],
+      "keywords": [
+        "waypoints",
+        "track",
+        "coordinates",
+        "battery",
+        "satellites",
+        "offline maps",
+        "backup"
+      ],
+      "answer": "Use GPS for position, tracks, and waypoints, but carry a map and compass as backup. Batteries can fail, screens can become unreadable in cold or rain, and satellite reception can be poor in deep valleys or dense forest."
+    },
+    {
+      "id": "smartphone-navigation",
+      "label": "Smartphone navigation",
+      "phrases": [
+        "phone navigation",
+        "offline maps",
+        "navigation app",
+        "phone GPS"
+      ],
+      "synonyms": [
+        "mobile navigation",
+        "smartphone GPS",
+        "mapping app",
+        "digital map"
+      ],
+      "keywords": [
+        "offline map",
+        "download map",
+        "battery",
+        "power bank",
+        "airplane mode",
+        "screen brightness",
+        "waterproof case"
+      ],
+      "answer": "Download offline maps before leaving, enable airplane mode to save battery, and carry a power bank. A phone is useful, but cold, rain, damage, or a dead battery can make it unavailable when you need it most."
+    },
+    {
+      "id": "waypoints",
+      "label": "Waypoints",
+      "phrases": [
+        "waypoint",
+        "GPS waypoint",
+        "mark location",
+        "navigation point"
+      ],
+      "synonyms": [
+        "checkpoint",
+        "reference point",
+        "location marker",
+        "coordinate point"
+      ],
+      "keywords": [
+        "trailhead",
+        "junction",
+        "summit",
+        "camp",
+        "escape route",
+        "coordinates",
+        "bearing"
+      ],
+      "answer": "Mark key waypoints such as the trailhead, major junctions, water sources, camps, escape routes, and the summit. Waypoints help you navigate back, confirm progress, and find a safe exit if conditions change."
+    },
+    {
+      "id": "route-planning",
+      "label": "Route planning",
+      "phrases": [
+        "route planning",
+        "plan a hike",
+        "route card",
+        "trip plan"
+      ],
+      "synonyms": [
+        "route preparation",
+        "journey planning",
+        "itinerary",
+        "navigation plan"
+      ],
+      "keywords": [
+        "distance",
+        "elevation gain",
+        "time",
+        "junctions",
+        "hazards",
+        "escape routes",
+        "turnaround time"
+      ],
+      "answer": "Plan the route in segments, noting distance, elevation gain, expected time, hazards, junctions, water sources, and escape options. Share the plan with someone reliable and set a firm turnaround time."
+    },
+    {
+      "id": "route-card",
+      "label": "Route card",
+      "phrases": [
+        "route card",
+        "navigation card",
+        "route notes",
+        "leg description"
+      ],
+      "synonyms": [
+        "route plan",
+        "navigation notes",
+        "trip card",
+        "route log"
+      ],
+      "keywords": [
+        "start",
+        "finish",
+        "bearing",
+        "distance",
+        "time",
+        "description",
+        "escape route"
+      ],
+      "answer": "A route card breaks a journey into legs with a start point, bearing, distance, time estimate, terrain description, and escape option. It is especially useful in poor visibility or on complex mountain terrain."
+    },
+    {
+      "id": "handrails",
+      "label": "Handrails",
+      "phrases": [
+        "handrail navigation",
+        "follow a handrail",
+        "linear feature",
+        "natural guide"
+      ],
+      "synonyms": [
+        "guiding feature",
+        "linear feature",
+        "navigation handrail",
+        "terrain guide"
+      ],
+      "keywords": [
+        "stream",
+        "ridge",
+        "trail",
+        "fence",
+        "road",
+        "shoreline",
+        "forest edge"
+      ],
+      "answer": "A handrail is a long, easy-to-follow feature such as a stream, ridge, trail, fence, road, or shoreline. Where possible, plan legs along handrails to reduce the chance of drifting off course."
+    },
+    {
+      "id": "catching-features",
+      "label": "Catching features",
+      "phrases": [
+        "catching feature",
+        "backstop",
+        "overshoot",
+        "navigation safety feature"
+      ],
+      "synonyms": [
+        "backstop",
+        "error boundary",
+        "limiting feature",
+        "stop feature"
+      ],
+      "keywords": [
+        "road",
+        "river",
+        "lake",
+        "ridge",
+        "cliff",
+        "boundary",
+        "turnaround"
+      ],
+      "answer": "A catching feature is an unmistakable feature beyond your destination that tells you that you have gone too far, such as a road, river, lake, or major ridge. Identify it before starting each navigation leg."
+    },
+    {
+      "id": "attack-point",
+      "label": "Attack point",
+      "phrases": [
+        "attack point",
+        "navigation checkpoint",
+        "approach feature",
+        "final approach"
+      ],
+      "synonyms": [
+        "staging point",
+        "reference point",
+        "aiming-off point",
+        "checkpoint"
+      ],
+      "keywords": [
+        "distinct feature",
+        "bearing",
+        "distance",
+        "final leg",
+        "visibility",
+        "target"
+      ],
+      "answer": "Use an attack point—a clear, easy-to-find feature near your destination—to simplify the final, more difficult leg. Navigate accurately to the attack point first, then take a short bearing or carefully follow terrain to the target."
+    },
+    {
+      "id": "aiming-off",
+      "label": "Aiming off",
+      "phrases": [
+        "aiming off",
+        "deliberate offset",
+        "navigate to a line",
+        "find a feature"
+      ],
+      "synonyms": [
+        "offset navigation",
+        "deliberate error",
+        "line feature navigation",
+        "bias navigation"
+      ],
+      "keywords": [
+        "stream",
+        "trail",
+        "ridge",
+        "left",
+        "right",
+        "bearing",
+        "catching feature"
+      ],
+      "answer": "Aim slightly to one side of a linear feature so you know which direction to turn when you reach it. This technique reduces the chance of missing a trail, stream, or ridge in poor visibility."
+    },
+    {
+      "id": "dead-reckoning",
+      "label": "Dead reckoning",
+      "phrases": [
+        "dead reckoning",
+        "estimate position",
+        "distance and time",
+        "navigate without landmarks"
+      ],
+      "synonyms": [
+        "estimated navigation",
+        "position estimation",
+        "time-distance navigation",
+        "deduced reckoning"
+      ],
+      "keywords": [
+        "bearing",
+        "distance",
+        "pace",
+        "time",
+        "speed",
+        "terrain",
+        "drift"
+      ],
+      "answer": "Dead reckoning estimates your position from a known starting point using bearing, distance, pace, and time. In fog, snow, or featureless terrain, combine it with careful compass work and frequent reality checks."
+    },
+    {
+      "id": "pace-counting",
+      "label": "Pace counting",
+      "phrases": [
+        "pace counting",
+        "count paces",
+        "measure distance walking",
+        "pace count"
+      ],
+      "synonyms": [
+        "pace count",
+        "step counting",
+        "distance estimation",
+        "stride counting"
+      ],
+      "keywords": [
+        "paces",
+        "double paces",
+        "distance",
+        "slope",
+        "fatigue",
+        "terrain",
+        "calibration"
+      ],
+      "answer": "Calibrate your normal pace count over a known distance, then use it to estimate how far you have traveled. Slope, snow, fatigue, wind, and heavy packs can change your pace, so treat it as an estimate rather than an exact measurement."
+    },
+    {
+      "id": "timing-navigation",
+      "label": "Timing and distance",
+      "phrases": [
+        "how long will it take",
+        "hiking time",
+        "Naismith rule",
+        "estimate hiking time"
+      ],
+      "synonyms": [
+        "time estimation",
+        "journey time",
+        "walking time",
+        "route timing"
+      ],
+      "keywords": [
+        "distance",
+        "elevation gain",
+        "pace",
+        "breaks",
+        "weather",
+        "daylight",
+        "turnaround time"
+      ],
+      "answer": "Estimate hiking time from distance, elevation gain, terrain, fitness, pack weight, and breaks. Build in extra time for navigation, poor weather, and rest, and use timing to notice when you may have missed a feature."
+    },
+    {
+      "id": "poor-visibility-navigation",
+      "label": "Poor visibility navigation",
+      "phrases": [
+        "navigate in fog",
+        "navigate in whiteout",
+        "low visibility navigation",
+        "night navigation"
+      ],
+      "synonyms": [
+        "limited visibility navigation",
+        "fog navigation",
+        "whiteout navigation",
+        "dark navigation"
+      ],
+      "keywords": [
+        "fog",
+        "whiteout",
+        "night",
+        "bearing",
+        "compass",
+        "handrails",
+        "catching features",
+        "turn back"
+      ],
+      "answer": "In fog, whiteout, or darkness, slow down, use a compass bearing, follow handrails, and use catching features to prevent overshooting. If you cannot maintain an accurate position, stop safely or retreat by the route you know."
+    },
+    {
+      "id": "getting-lost",
+      "label": "Getting lost",
+      "phrases": [
+        "I am lost",
+        "what to do if lost",
+        "lost in mountains",
+        "stop and think"
+      ],
+      "synonyms": [
+        "disoriented",
+        "uncertain position",
+        "navigation failure",
+        "lost"
+      ],
+      "keywords": [
+        "stop",
+        "think",
+        "observe",
+        "plan",
+        "last known position",
+        "retrace",
+        "call for help"
+      ],
+      "answer": "If you become unsure of your position, stop before making the error worse. Use the STOP method—Stop, Think, Observe, Plan—retrace to your last known point if safe, and call for help early if conditions or daylight are deteriorating."
+    },
+    {
+      "id": "retracing-route",
+      "label": "Retracing a route",
+      "phrases": [
+        "retrace your steps",
+        "go back the way you came",
+        "return route",
+        "backtrack"
+      ],
+      "synonyms": [
+        "backtrack",
+        "reverse route",
+        "return journey",
+        "retreat route"
+      ],
+      "keywords": [
+        "track",
+        "waypoints",
+        "landmarks",
+        "back bearing",
+        "escape route",
+        "daylight"
+      ],
+      "answer": "Retracing is often safer than continuing into unfamiliar terrain, especially in poor weather or fading light. Use recorded tracks, waypoints, back bearings, and recognizable landmarks to return to a known position."
+    },
+    {
+      "id": "navigation-checkpoints",
+      "label": "Navigation checkpoints",
+      "phrases": [
+        "navigation checkpoint",
+        "confirm location",
+        "check position",
+        "where am I"
+      ],
+      "synonyms": [
+        "position check",
+        "location confirmation",
+        "terrain check",
+        "navigation fix"
+      ],
+      "keywords": [
+        "landmark",
+        "bearing",
+        "contours",
+        "GPS",
+        "time",
+        "distance",
+        "map"
+      ],
+      "answer": "Check your position regularly using a combination of terrain, compass bearing, distance or time, and GPS if available. Frequent small checks are safer than trying to relocate after you have traveled far off route."
+    },
+    {
+      "id": "navigation-equipment",
+      "label": "Navigation equipment",
+      "phrases": [
+        "navigation gear",
+        "navigation kit",
+        "what navigation tools",
+        "navigation essentials"
+      ],
+      "synonyms": [
+        "navigation equipment",
+        "navigation tools",
+        "navigation kit",
+        "navigation essentials"
+      ],
+      "keywords": [
+        "paper map",
+        "compass",
+        "GPS",
+        "phone",
+        "power bank",
+        "watch",
+        "altimeter",
+        "headlamp"
+      ],
+      "answer": "Carry a waterproof paper map, reliable compass, charged phone or GPS, power bank, watch, and headlamp. Keep electronics protected from cold and moisture, and know how to use every item without relying on mobile data."
+    },
+    {
+      "id": "navigation-practice",
+      "label": "Navigation practice",
+      "phrases": [
+        "practice navigation",
+        "learn map and compass",
+        "navigation training",
+        "improve navigation"
+      ],
+      "synonyms": [
+        "navigation training",
+        "orienteering practice",
+        "skill practice",
+        "map practice"
+      ],
+      "keywords": [
+        "local map",
+        "bearing",
+        "contours",
+        "handrails",
+        "visibility",
+        "confidence",
+        "practice"
+      ],
+      "answer": "Practice navigation regularly in familiar, low-risk terrain. Start with simple map-and-compass exercises, then gradually practice bearings, contour interpretation, and poor-visibility techniques before relying on them in mountains."
+    }
+  ]
+}

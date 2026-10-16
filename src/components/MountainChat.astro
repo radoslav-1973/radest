@@ -1,0 +1,905 @@
+---
+---
+
+<details class="group mx-auto max-w-225 rounded-lg border border-(--border-color) bg-(--panel-bg) shadow-md transition-all duration-300 open:shadow-lg">
+    <summary class="flex cursor-pointer items-center justify-between p-4 list-none select-none text-(--text-main) hover:bg-(--chat-bg) transition-colors duration-200 rounded-t-lg">
+        <div class="flex items-center gap-3 font-semibold">
+            <span>🏔️ Open Mountain Adviser</span>
+        </div>
+    </summary>
+
+    <div class="border-t border-(--border-color) p-2 md:p-4 bg-(--chat-bg)">
+        <div class="chat-container border-none my-0 rounded-none shadow-none">
+            <!-- Menu -->
+            <div class="control-panel">
+                <h3>Mountain Adviser</h3>
+
+                <!-- Settings -->
+                <div class="control-group">
+                    <label class="group-label">Operating mode:</label>
+                    <div class="radio-options">
+                        <label>
+                            <input
+                                type="radio"
+                                name="engineMode"
+                                value="auto"
+                            />{" "}
+                            Auto (WebGPU/Fallback)
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="engineMode"
+                                value="webllm"
+                            />{" "}
+                            WebLLM (AI)
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="engineMode"
+                                value="hybrid"
+                            />{" "}
+                            WebLLM + JSON
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="engineMode"
+                                value="json"
+                                checked
+                            />{" "}
+                            JSON knowledge
+                        </label>
+                    </div>
+                    <div id="status" class="status-indicator">
+                        Initialisation...
+                    </div>
+                </div>
+
+                <!-- AI mode setting -->
+                <div class="control-group">
+                    <label class="group-label" for="model-select">
+                        AI model:
+                    </label>
+                    <select id="model-select" class="model-dropdown">
+                        <option
+                            value="Llama-3.2-1B-Instruct-q4f16_1-MLC"
+                            selected
+                        >
+                            Llama 3.2 1B
+                        </option>
+                        <option value="Qwen2.5-1.5B-Instruct-q4f16_1-MLC">
+                            Qwen 2.5 1.5B
+                        </option>
+                        <option value="Phi-3.5-mini-instruct-q4f16_1-MLC">
+                            Phi 3.5 3.8B
+                        </option>
+                    </select>
+                </div>
+
+                <!-- AI role setting -->
+                <div id="roleSelectionGroup" class="control-group">
+                    <label class="group-label">AI Role:</label>
+                    <div class="radio-options">
+                        <label>
+                            <input
+                                type="radio"
+                                name="aiRole"
+                                value="guide"
+                                checked
+                            />{" "}
+                            🧭 Mountain guide
+                        </label>
+                        <label>
+                            <input type="radio" name="aiRole" value="rescue" />{" "}
+                            🚨 Lifeguard
+                        </label>
+                        <label>
+                            <input type="radio" name="aiRole" value="nature" />{" "}
+                            🌿 Environment
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-window">
+                <div id="chat-log" class="chat-messages">
+                    <div class="message bot">
+                        Hello! I’m your mountain guide.
+                        <br />
+                        Can I help you?
+                    </div>
+                </div>
+
+                <form id="chat-form" class="chat-input-area">
+                    <input
+                        type="text"
+                        id="chat-input"
+                        placeholder="Ask a question about the weather, clothing, routes..."
+                        required
+                    />
+                    <button type="submit" id="send" disabled>
+                        Send
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</details>
+
+<style>
+    :root {
+        --chat-bg: #ffffff;
+        --panel-bg: #f5f5f5;
+        --border-color: #cccccc;
+        --text-main: #333333;
+        --text-muted: #666666;
+        --bot-msg-bg: #f0f0f0;
+        --bot-msg-text: #000000;
+        --input-bg: #ffffff;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --chat-bg: #ffffff;
+            --panel-bg: #f5f5f5;
+            --border-color: #cccccc;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --bot-msg-bg: #f0f0f0;
+            --bot-msg-text: #000000;
+            --input-bg: #ffffff;
+        }
+    }
+
+    :global(html[data-theme="dark"]) {
+        --chat-bg: #1e1e1e;
+        --panel-bg: #2d2d2d;
+        --border-color: #444444;
+        --text-main: #e0e0e0;
+        --text-muted: #aaaaaa;
+        --bot-msg-bg: #2a2a2a;
+        --bot-msg-text: #ffffff;
+        --input-bg: #2d2d2d;
+    }
+
+    .source-badge.ai {
+        background-color: #e3f2fd;
+        color: #0d47a1;
+    }
+    .source-badge.hybrid {
+        background-color: #e8f5e9;
+        color: #1b5e20;
+    } /* Зелен етикет за AI + JSON */
+    .source-badge.json {
+        background-color: #fff3e0;
+        color: #e65100;
+    }
+
+    :global(html[data-theme="dark"]) .source-badge.ai {
+        background-color: #0d47a1;
+        color: #e3f2fd;
+    }
+    :global(html[data-theme="dark"]) .source-badge.hybrid {
+        background-color: #1b5e20;
+        color: #e8f5e9;
+    }
+    :global(html[data-theme="dark"]) .source-badge.json {
+        background-color: #e65100;
+        color: #fff3e0;
+    }
+
+    .chat-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 900px;
+        margin: 10px auto;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-family: sans-serif;
+        overflow: hidden;
+        height: 85vh;
+        background: var(--chat-bg);
+        color: var(--text-main);
+    }
+
+    .control-panel {
+        padding: 12px;
+        background: var(--panel-bg);
+        border-bottom: 1px solid var(--border-color);
+        width: 100%;
+        box-sizing: border-box;
+        color: var(--text-main);
+        flex-shrink: 0;
+    }
+    .control-panel h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.2em;
+    }
+    .control-group {
+        margin-bottom: 12px;
+    }
+
+    .radio-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .radio-options label {
+        margin-bottom: 0;
+        font-size: 0.8em;
+        background: var(--chat-bg);
+        padding: 4px 8px;
+        border-radius: 4px;
+        border: 1px solid var(--border-color);
+    }
+
+    .chat-window {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: var(--chat-bg);
+        overflow: hidden;
+    }
+
+    .chat-messages {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: var(--chat-bg);
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .message {
+        padding: 10px 14px;
+        border-radius: 6px;
+        max-width: 85%;
+        font-size: 0.9em;
+        line-height: 1.4;
+        word-break: break-word;
+    }
+    .message.user {
+        background: #0076ff;
+        color: white;
+        align-self: flex-end;
+    }
+    .message.bot {
+        background: var(--bot-msg-bg);
+        color: var(--bot-msg-text);
+        align-self: flex-start;
+        border: 1px solid var(--border-color);
+    }
+
+    .chat-input-area {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid var(--border-color);
+        background: var(--chat-bg);
+        flex-shrink: 0;
+    }
+    .chat-input-area input {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        outline: none;
+        background: var(--input-bg);
+        color: var(--text-main);
+        font-size: 16px;
+    }
+    .chat-input-area button {
+        padding: 10px 16px;
+        margin-left: 8px;
+        background: #0076ff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9em;
+    }
+
+    @media (min-width: 768px) {
+        .chat-container {
+            flex-direction: row;
+            height: 600px;
+            margin: 20px auto;
+        }
+
+        .control-panel {
+            border-bottom: none;
+            border-right: 1px solid var(--border-color);
+            width: 280px;
+            max-width: 280px;
+        }
+
+        .radio-options {
+            display: block;
+        }
+        .radio-options label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.85em;
+            background: transparent;
+            padding: 0;
+            border: none;
+        }
+
+        .message {
+            max-width: 80%;
+            font-size: 0.95em;
+        }
+        .chat-input-area input {
+            font-size: 14px;
+        }
+    }
+
+    .source-badge {
+        position: absolute;
+        bottom: 4px;
+        right: 8px;
+        font-size: 0.7em;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .model-dropdown {
+        width: 100%;
+        padding: 8px 10px;
+        border-radius: 4px;
+        border: 1px solid var(--border-color);
+        background: var(--input-bg);
+        color: var(--text-main);
+        font-size: 0.85em;
+        outline: none;
+        cursor: pointer;
+        box-sizing: border-box;
+        display: block;
+        margin-top: 4px;
+    }
+
+    .model-dropdown:disabled {
+        background: var(--panel-bg);
+        color: var(--text-muted);
+        cursor: not-allowed;
+    }
+
+    .control-group {
+        margin-bottom: 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+    summary {
+        display: flex !important;
+    }
+</style>
+
+<script>
+    import { CreateMLCEngine } from "@mlc-ai/web-llm";
+    import Fuse from "fuse.js";
+
+    type Message = {
+        role: "system" | "user" | "assistant";
+        content: string;
+    };
+
+    type KnowledgeNode = {
+        id: string;
+        label: string;
+        phrases: string[];
+        synonyms: string[];
+        keywords: string[];
+        answer: string;
+    };
+
+    type TopicFile = {
+        topic: string;
+        nodes: KnowledgeNode[];
+    };
+
+    type SearchRecord = KnowledgeNode & {
+        searchText: string;
+    };
+
+    let currentModelId = "Llama-3.2-1B-Instruct-q4f16_1-MLC";
+    const modelSelectElement = document.getElementById(
+        "model-select",
+    ) as HTMLSelectElement;
+    const TOPICS = ["weather", "clothing", "food", "navigation", "routes"];
+    const FALLBACK =
+        "I don't have a specific answer for that. Try asking about weather, clothing, food and water, navigation, or routes.";
+
+    const systemPrompts = {
+        guide: "You are an experienced mountain guide (Astro Mountain Bot). Help hikers with balanced, practical, and friendly advice about trekking, trails, and gear. Answer strictly in English.",
+        rescue: "You are a dispatcher from the Mountain Rescue Service. Your responses must be highly serious, strict, and focused entirely on safety, winter markers, avalanche hazards, and survival. Do not encourage risks. Answer strictly in English.",
+        nature: "You are an ecologist and biologist in a national park. Inform and inspire users about flora, fauna, biodiversity, environmental protection, and leave-no-trace camping rules. Answer strictly in English.",
+    };
+
+    const statusElement = document.getElementById("status")!;
+    const logElement = document.getElementById("chat-log")!;
+    const formElement = document.getElementById("chat-form") as HTMLFormElement;
+    const inputElement = document.getElementById(
+        "chat-input",
+    ) as HTMLInputElement;
+    const submitElement = document.getElementById("send") as HTMLButtonElement;
+    const roleSelectionGroup = document.getElementById("roleSelectionGroup")!;
+
+    let engine: Awaited<ReturnType<typeof CreateMLCEngine>> | null = null;
+    let hasWebGPU = "gpu" in navigator;
+    let activeEngine: "webllm" | "json" | "hybrid" = "json";
+    let isEngineInitializing = false;
+
+    const topicCache = new Map<string, KnowledgeNode[]>();
+    let fusePromise: Promise<Fuse<SearchRecord>> | undefined;
+
+    const messages: Message[] = [];
+
+    function addMessage(
+        text: string,
+        role: "user" | "bot",
+        source?: "ai" | "json" | "hybrid",
+    ) {
+        const element = document.createElement("div");
+        element.className = `message ${role}`;
+
+        const textSpan = document.createElement("span");
+        textSpan.textContent = text;
+        element.appendChild(textSpan);
+
+        if (role === "bot" && source) {
+            const badge = document.createElement("span");
+            badge.className = `source-badge ${source}`;
+
+            if (source === "json") {
+                badge.textContent = "🔒 Verified JSON Data";
+            } else if (source === "hybrid") {
+                badge.textContent = "🧠 AI + JSON Context";
+            } else {
+                badge.textContent = "🤖 Pure AI Thought";
+            }
+
+            element.appendChild(badge);
+        }
+
+        logElement.append(element);
+        logElement.scrollTop = logElement.scrollHeight;
+        return textSpan;
+    }
+
+    async function loadTopic(topic: string): Promise<KnowledgeNode[]> {
+        const cached = topicCache.get(topic);
+        if (cached) return cached;
+
+        const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+            ? import.meta.env.BASE_URL
+            : `${import.meta.env.BASE_URL}/`;
+
+        const url = `${baseUrl}data/mountain/${topic}.json`;
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(
+                `Failed to load topic "${topic}": ${response.status} ${response.statusText}`,
+            );
+        }
+
+        const data = (await response.json()) as TopicFile;
+        if (!Array.isArray(data.nodes)) {
+            throw new Error(`Topic "${topic}" has no valid nodes array.`);
+        }
+
+        topicCache.set(topic, data.nodes);
+        return data.nodes;
+    }
+
+    async function createFuseIndex(): Promise<Fuse<SearchRecord>> {
+        statusElement.textContent = "Loading mountaineering topics…";
+
+        const topicResults = await Promise.all(
+            TOPICS.map((topic) => loadTopic(topic)),
+        );
+
+        const nodes = topicResults.flat();
+
+        const records: SearchRecord[] = nodes.map((node) => ({
+            ...node,
+            searchText: [
+                node.label,
+                ...node.phrases,
+                ...node.synonyms,
+                ...node.keywords,
+            ].join(" "),
+        }));
+
+        return new Fuse(records, {
+            keys: [
+                { name: "label", weight: 3 },
+                { name: "phrases", weight: 2.5 },
+                { name: "synonyms", weight: 2 },
+                { name: "keywords", weight: 1.5 },
+                { name: "searchText", weight: 1 },
+            ],
+            includeScore: true,
+            threshold: 0.5,
+            ignoreLocation: true,
+            minMatchCharLength: 3,
+            useExtendedSearch: true,
+        });
+    }
+
+    function getFuse(): Promise<Fuse<SearchRecord>> {
+        fusePromise ??= createFuseIndex();
+        return fusePromise;
+    }
+
+    async function getAnswer(query: string): Promise<string> {
+        const fuse = await getFuse();
+
+        const stopWords = new Set([
+            "give",
+            "me",
+            "advice",
+            "about",
+            "what",
+            "is",
+            "the",
+            "a",
+            "an",
+            "how",
+            "do",
+            "i",
+            "can",
+            "you",
+            "tell",
+            "please",
+            "for",
+            "to",
+            "in",
+            "any",
+            "should",
+            "eat",
+            "take",
+            "bring",
+            "need",
+            "have",
+            "with",
+            "my",
+            "we",
+            "must",
+        ]);
+
+        const cleanWords = query
+            .toLowerCase()
+            .replace(/[?.,!]/g, "")
+            .split(/\s+/)
+            .filter((word) => !stopWords.has(word) && word.length >= 3);
+
+        if (cleanWords.length === 0) return FALLBACK;
+
+        const fullQuery = cleanWords.join(" ");
+        let results = fuse.search(fullQuery);
+
+        if (results.length > 0 && (results[0].score ?? 1) <= 0.55) {
+            return results[0].item.answer;
+        }
+
+        console.log("Word-by-word search...");
+
+        let bestIndividualMatch: any = null;
+        let lowestScore = 1.0;
+
+        for (const word of cleanWords) {
+            const individualResults = fuse.search(word);
+            if (individualResults.length > 0) {
+                const currentScore = individualResults[0].score ?? 1;
+                if (currentScore < lowestScore && currentScore <= 0.35) {
+                    lowestScore = currentScore;
+                    bestIndividualMatch = individualResults[0].item;
+                }
+            }
+        }
+
+        if (bestIndividualMatch) {
+            console.log(`An exact match: "${bestIndividualMatch.label}"`);
+            return bestIndividualMatch.answer;
+        }
+
+        return FALLBACK;
+    }
+
+    function updateEngineState() {
+        const selectedMode = (
+            document.querySelector(
+                'input[name="engineMode"]:checked',
+            ) as HTMLInputElement
+        ).value;
+
+        if (selectedMode === "auto") {
+            if (hasWebGPU) {
+                activeEngine = "webllm";
+                roleSelectionGroup.style.display = "block";
+                if (!engine && !isEngineInitializing) initEngine();
+            } else {
+                activeEngine = "json";
+                roleSelectionGroup.style.display = "none";
+                statusElement.textContent =
+                    "自由 Active: JSON Rule Bot (Auto-Fallback)";
+            }
+        } else if (selectedMode === "webllm") {
+            activeEngine = "webllm";
+            roleSelectionGroup.style.display = "block";
+            if (!hasWebGPU) {
+                statusElement.textContent =
+                    "🔴 Warning: WebLLM forced, but browser does not support WebGPU!";
+            } else if (!engine && !isEngineInitializing) {
+                initEngine();
+            } else if (engine) {
+                statusElement.textContent = "🟢 Active: Manual WebLLM mode.";
+            }
+        } else if (selectedMode === "hybrid") {
+            activeEngine = "hybrid";
+            roleSelectionGroup.style.display = "block";
+            if (!hasWebGPU) {
+                statusElement.textContent =
+                    "🔴 Warning: Hybrid forced, but browser does not support WebGPU!";
+                inputElement.disabled = true;
+                submitElement.disabled = true;
+            } else if (!engine && !isEngineInitializing) {
+                initEngine();
+            } else if (engine) {
+                statusElement.textContent =
+                    "🤖 Active: WebLLM + JSON Knowledge Base.";
+                inputElement.disabled = false;
+                submitElement.disabled = false;
+            }
+        } else {
+            activeEngine = "json";
+            roleSelectionGroup.style.display = "none";
+            statusElement.textContent = "🔵 Active: Manual JSON Rule Bot.";
+            inputElement.disabled = false;
+            submitElement.disabled = false;
+        }
+    }
+
+    document.querySelectorAll('input[name="engineMode"]').forEach((radio) => {
+        radio.addEventListener("change", () => {
+            updateEngineState();
+        });
+    });
+
+    if (modelSelectElement) {
+        modelSelectElement.addEventListener("change", async () => {
+            currentModelId = modelSelectElement.value;
+            messages.length = 0;
+            if (activeEngine === "webllm" || activeEngine === "hybrid") {
+                await initEngine();
+            }
+        });
+    }
+
+    formElement.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const question = inputElement.value.trim();
+        if (!question) return;
+
+        addMessage(question, "user");
+        inputElement.value = "";
+        inputElement.disabled = true;
+        submitElement.disabled = true;
+
+        const isAiReady =
+            (activeEngine === "webllm" || activeEngine === "hybrid") &&
+            engine !== null;
+
+        if (isAiReady) {
+            statusElement.textContent = "AI is thinking…";
+
+            const selectedRole = (
+                document.querySelector(
+                    'input[name="aiRole"]:checked',
+                ) as HTMLInputElement
+            ).value as keyof typeof systemPrompts;
+            let currentSystemPrompt = systemPrompts[selectedRole];
+
+            if (activeEngine === "hybrid") {
+                const localKnowledge = await getAnswer(question);
+                if (localKnowledge !== FALLBACK) {
+                    currentSystemPrompt += `\n\nCRITICAL CONTEXT FROM TRUSTED LOCAL KNOWLEDGE BASE:\n"${localKnowledge}"...`;
+                }
+            }
+
+            if (messages.length === 0 || messages[0].role !== "system") {
+                messages.unshift({
+                    role: "system",
+                    content: currentSystemPrompt,
+                });
+            } else {
+                messages[0].content = currentSystemPrompt;
+            }
+
+            messages.push({ role: "user", content: question });
+            const currentSource = activeEngine === "hybrid" ? "hybrid" : "ai";
+            const botMessage = addMessage("…", "bot", currentSource);
+
+            try {
+                const stream = await engine!.chat.completions.create({
+                    messages,
+                    stream: true,
+                    temperature: activeEngine === "hybrid" ? 0.2 : 0.6,
+                    max_tokens: 512,
+                });
+
+                let reply = "";
+                for await (const chunk of stream) {
+                    const delta = chunk.choices[0]?.delta?.content ?? "";
+                    reply += delta;
+                    botMessage.textContent = reply;
+                    logElement.scrollTop = logElement.scrollHeight;
+                }
+
+                // Bypass WebLLM
+                messages.push({ role: "assistant", content: reply });
+
+                const alignmentKeywords = [
+                    "cannot provide",
+                    "i am sorry, but i can't",
+                    "i'm sorry, but i cannot",
+                    "dangerous or illegal",
+                ];
+                const isRefusal = alignmentKeywords.some((keyword) =>
+                    reply.toLowerCase().includes(keyword),
+                );
+
+                if (isRefusal && activeEngine === "hybrid") {
+                    console.log(
+                        "WebLLM отказа отговор поради цензура. Задействане на JSON спасителен пояс...",
+                    );
+                    const safeLocalAnswer = await getAnswer(question);
+                    botMessage.textContent = `[Local Guide Data] ${safeLocalAnswer}`;
+                }
+
+                statusElement.textContent = "Ready.";
+
+                //End of bypass fragment
+
+                messages.push({ role: "assistant", content: reply });
+                statusElement.textContent = "Ready.";
+            } catch (error) {
+                console.error(error);
+                botMessage.textContent = "Sorry, generating a response failed.";
+            } finally {
+                inputElement.disabled = false;
+                submitElement.disabled = false;
+                inputElement.focus();
+            }
+        } else {
+            if (activeEngine === "webllm" || activeEngine === "hybrid") {
+                statusElement.textContent =
+                    "AI is still loading. Answering from local knowledge base...";
+            } else {
+                statusElement.textContent =
+                    "Searching the mountaineering topics…";
+            }
+
+            const botMessage = addMessage("…", "bot", "json");
+
+            try {
+                const answer = await getAnswer(question);
+                botMessage.textContent = answer;
+
+                if (
+                    (activeEngine === "webllm" || activeEngine === "hybrid") &&
+                    !engine
+                ) {
+                } else {
+                    statusElement.textContent = "Ready.";
+                }
+            } catch (error) {
+                console.error("MountainChat error:", error);
+                botMessage.textContent =
+                    "Sorry, I could not load the mountaineering knowledge.";
+            } finally {
+                inputElement.disabled = false;
+                submitElement.disabled = false;
+                inputElement.focus();
+            }
+        }
+    });
+
+    updateEngineState();
+
+    getFuse()
+        .then(() => {
+            console.log("Fuse.js index loaded successfully");
+            const selectedMode = (
+                document.querySelector(
+                    'input[name="engineMode"]:checked',
+                ) as HTMLInputElement
+            ).value;
+            if (
+                selectedMode === "json" ||
+                (!hasWebGPU && selectedMode === "auto")
+            ) {
+                statusElement.textContent = "Ready.";
+            }
+        })
+        .catch((err) => {
+            console.error("Error during background loading of Fuse.js:", err);
+        });
+
+    // --- ЛОГИКА НА WEBLLM ---
+    async function initEngine() {
+        if (!hasWebGPU) {
+            statusElement.textContent =
+                "WebGPU is not available. The browser is running in JSON Fallback mode.";
+            return;
+        }
+
+        if (isEngineInitializing) return;
+
+        try {
+            isEngineInitializing = true;
+            statusElement.textContent = `Downloading and initializing ${currentModelId}. You can still chat via JSON Bot...`;
+
+            inputElement.disabled = false;
+            submitElement.disabled = false;
+
+            modelSelectElement.disabled = true;
+
+            if (!engine) {
+                engine = await CreateMLCEngine(currentModelId, {
+                    initProgressCallback: (report) => {
+                        statusElement.textContent = `${report.text ?? "Loading model…"}`;
+                    },
+                });
+            } else {
+                await engine.reload(currentModelId);
+            }
+
+            isEngineInitializing = false;
+            statusElement.textContent =
+                "🟢 Model ready. Your messages stay in this browser.";
+            modelSelectElement.disabled = false;
+
+            updateEngineState();
+        } catch (error) {
+            console.error(error);
+            isEngineInitializing = false;
+            modelSelectElement.disabled = false;
+            updateEngineState();
+            statusElement.textContent = "Could not initialize selected model.";
+        }
+    }
+
+    updateEngineState();
+
+    inputElement.disabled = false;
+    submitElement.disabled = false;
+
+    getFuse()
+        .then(() => {
+            console.log("Fuse.js has loaded in the background and is ready.");
+            const selectedMode = (
+                document.querySelector(
+                    'input[name="engineMode"]:checked',
+                ) as HTMLInputElement
+            ).value;
+            if (selectedMode === "json") {
+                statusElement.textContent = "Ready.";
+            }
+        })
+        .catch((err) => {
+            console.error("Error during background loading of Fuse.js:", err);
+        });
+</script>

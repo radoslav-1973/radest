@@ -1,0 +1,684 @@
+{
+  "topic": "routes",
+  "nodes": [
+    {
+      "id": "altitude disease",
+      "label": "Altitude disease",
+      "phrases": [
+        "altitude disease",
+        "acute mountain sickness",
+        "ams",
+        "altitude sickness"
+      ],
+      "synonyms": [
+        "altitude disease",
+        "altitude sickness"
+      ],
+      "keywords": [
+        "altitude disease",
+        "altitude sickness"
+      ],
+      "answer": "Move to a lower altitude immediately if symptoms like headache, nausea, or dizziness occur. Hydrate, rest, and descend at least 500-1000 meters if conditions worsen."
+    },
+
+    {
+      "id": "mountain-routes",
+      "label": "Mountain routes",
+      "phrases": [
+        "mountain routes",
+        "hiking routes",
+        "walking routes",
+        "alpine routes",
+        "trail routes"
+      ],
+      "synonyms": [
+        "trails",
+        "paths",
+        "tracks",
+        "itineraries",
+        "routes"
+      ],
+      "keywords": [
+        "distance",
+        "elevation gain",
+        "difficulty",
+        "terrain",
+        "waymarks",
+        "navigation",
+        "weather",
+        "escape route",
+        "turnaround time"
+      ],
+      "answer": "Choose a route that matches the group’s fitness, experience, equipment, weather window, and daylight. Study the route in segments, identify hazards and escape options, and set a turnaround time before departing."
+    },
+    {
+      "id": "route-types",
+      "label": "Route types",
+      "phrases": [
+        "types of hiking routes",
+        "route categories",
+        "trail types",
+        "mountain route types"
+      ],
+      "synonyms": [
+        "route classifications",
+        "trail categories",
+        "route styles",
+        "itinerary types"
+      ],
+      "keywords": [
+        "loop route",
+        "out-and-back",
+        "point-to-point",
+        "traverse",
+        "summit route",
+        "ridge route",
+        "valley route",
+        "via ferrata"
+      ],
+      "answer": "Common route types include loops, out-and-back routes, point-to-point traverses, summit routes, ridge routes, valley routes, and via ferratas. Each has different navigation, escape, transport, and weather considerations."
+    },
+    {
+      "id": "loop-route",
+      "label": "Loop route",
+      "phrases": [
+        "loop route",
+        "circular route",
+        "circular hike",
+        "loop trail"
+      ],
+      "synonyms": [
+        "circuit",
+        "round trip",
+        "circular walk",
+        "loop"
+      ],
+      "keywords": [
+        "start point",
+        "finish point",
+        "navigation",
+        "escape route",
+        "distance",
+        "elevation",
+        "weather"
+      ],
+      "answer": "A loop route starts and finishes at the same place but returns by a different path. It can be efficient, but poor weather or a navigation error may leave you far from the simplest retreat."
+    },
+    {
+      "id": "out-and-back-route",
+      "label": "Out-and-back route",
+      "phrases": [
+        "out and back",
+        "there and back",
+        "return route",
+        "there-and-back hike"
+      ],
+      "synonyms": [
+        "out-and-back",
+        "return route",
+        "there and back",
+        "retrace route"
+      ],
+      "keywords": [
+        "same path",
+        "retreat",
+        "navigation",
+        "summit",
+        "turnaround",
+        "weather"
+      ],
+      "answer": "An out-and-back route follows the same path in both directions. It makes retreat straightforward, but conditions can change between the ascent and descent, so reassess snow, ice, visibility, and daylight on the return."
+    },
+    {
+      "id": "point-to-point-route",
+      "label": "Point-to-point route",
+      "phrases": [
+        "point to point",
+        "linear route",
+        "traverse route",
+        "one-way hike"
+      ],
+      "synonyms": [
+        "linear route",
+        "through-hike",
+        "traverse",
+        "one-way route"
+      ],
+      "keywords": [
+        "transport",
+        "shuttle",
+        "escape route",
+        "navigation",
+        "distance",
+        "water",
+        "finish point"
+      ],
+      "answer": "A point-to-point route starts and finishes in different places, so plan transport or a shuttle in advance. Identify escape routes carefully, because returning the way you came may not be practical."
+    },
+    {
+      "id": "summit-route",
+      "label": "Summit route",
+      "phrases": [
+        "summit route",
+        "peak route",
+        "mountain ascent",
+        "climb a summit"
+      ],
+      "synonyms": [
+        "ascent",
+        "peak route",
+        "summit hike",
+        "mountain climb"
+      ],
+      "keywords": [
+        "elevation gain",
+        "ridge",
+        "exposure",
+        "weather",
+        "descent",
+        "turnaround time",
+        "navigation"
+      ],
+      "answer": "Summit routes often involve greater elevation gain, exposure, and rapidly changing weather. Plan the descent as carefully as the ascent, and remember that reaching the top is only halfway."
+    },
+    {
+      "id": "ridge-route",
+      "label": "Ridge route",
+      "phrases": [
+        "ridge route",
+        "ridge walk",
+        "exposed ridge",
+        "crest route"
+      ],
+      "synonyms": [
+        "ridge line",
+        "crest route",
+        "arête",
+        "ridge traverse"
+      ],
+      "keywords": [
+        "exposure",
+        "wind",
+        "navigation",
+        "escape routes",
+        "lightning",
+        "visibility",
+        "scrambling"
+      ],
+      "answer": "Ridge routes can offer excellent views but may be exposed to wind, lightning, poor visibility, and difficult escape. Check the forecast carefully and have a lower alternative if conditions deteriorate."
+    },
+    {
+      "id": "valley-route",
+      "label": "Valley route",
+      "phrases": [
+        "valley route",
+        "valley walk",
+        "river route",
+        "low-level route"
+      ],
+      "synonyms": [
+        "valley trail",
+        "low route",
+        "river path",
+        "valley hike"
+      ],
+      "keywords": [
+        "river",
+        "flood",
+        "shade",
+        "navigation",
+        "escape",
+        "weather",
+        "water source"
+      ],
+      "answer": "Valley routes are often gentler and provide easier retreat, but they can be affected by flooding, river crossings, mud, and heat. Check water levels and weather upstream before relying on a valley route."
+    },
+    {
+      "id": "via-ferrata",
+      "label": "Via ferrata",
+      "phrases": [
+        "via ferrata",
+        "fixed rope route",
+        "cable route",
+        "protected climbing route"
+      ],
+      "synonyms": [
+        "via ferrata",
+        "klettersteig",
+        "fixed-line route",
+        "protected route"
+      ],
+      "keywords": [
+        "harness",
+        "lanyard",
+        "helmet",
+        "carabiners",
+        "exposure",
+        "grading",
+        "weather"
+      ],
+      "answer": "A via ferrata uses fixed cables, ladders, and anchors, but still requires a harness, energy-absorbing lanyard, helmet, and appropriate training. Check the route grading, weather, and exit options before committing."
+    },
+    {
+      "id": "route-difficulty",
+      "label": "Route difficulty",
+      "phrases": [
+        "route difficulty",
+        "hiking difficulty",
+        "trail grade",
+        "how hard is the route"
+      ],
+      "synonyms": [
+        "difficulty rating",
+        "grade",
+        "trail classification",
+        "route standard"
+      ],
+      "keywords": [
+        "distance",
+        "elevation gain",
+        "terrain",
+        "exposure",
+        "scrambling",
+        "navigation",
+        "fitness",
+        "experience"
+      ],
+      "answer": "Route difficulty depends on distance, elevation gain, terrain, exposure, navigation demands, and technical sections—not only on length. Compare the route’s hardest section with your group’s experience and current conditions."
+    },
+    {
+      "id": "easy-route",
+      "label": "Easy route",
+      "phrases": [
+        "easy hike",
+        "easy route",
+        "beginner hike",
+        "family walk"
+      ],
+      "synonyms": [
+        "easy trail",
+        "beginner route",
+        "simple hike",
+        "family route"
+      ],
+      "keywords": [
+        "marked path",
+        "gentle slope",
+        "short distance",
+        "clear navigation",
+        "escape route",
+        "facilities"
+      ],
+      "answer": "An easy route usually follows a clear, well-marked path with limited exposure and straightforward navigation. Even easy routes require suitable footwear, water, weather awareness, and a plan for delays."
+    },
+    {
+      "id": "moderate-route",
+      "label": "Moderate route",
+      "phrases": [
+        "moderate hike",
+        "intermediate route",
+        "moderate difficulty",
+        "mountain hike"
+      ],
+      "synonyms": [
+        "intermediate route",
+        "moderate trail",
+        "intermediate hike",
+        "moderate mountain route"
+      ],
+      "keywords": [
+        "uneven terrain",
+        "elevation gain",
+        "navigation",
+        "rocky sections",
+        "exposure",
+        "fitness",
+        "map"
+      ],
+      "answer": "A moderate route may include steeper sections, uneven ground, longer distance, or basic navigation challenges. Carry a map, check the forecast, and allow extra time for rough terrain and rest stops."
+    },
+    {
+      "id": "difficult-route",
+      "label": "Difficult route",
+      "phrases": [
+        "difficult hike",
+        "challenging route",
+        "advanced route",
+        "technical route"
+      ],
+      "synonyms": [
+        "challenging route",
+        "advanced trail",
+        "demanding route",
+        "technical hike"
+      ],
+      "keywords": [
+        "exposure",
+        "scrambling",
+        "pathless terrain",
+        "navigation",
+        "snow",
+        "scree",
+        "experience",
+        "escape route"
+      ],
+      "answer": "Difficult routes can include exposure, loose rock, pathless sections, scrambling, snow, or complex navigation. Do not attempt them without relevant experience, suitable equipment, a reliable forecast, and a clear retreat plan."
+    },
+    {
+      "id": "scrambling-route",
+      "label": "Scrambling route",
+      "phrases": [
+        "scrambling route",
+        "scramble",
+        "hands-on route",
+        "rocky route"
+      ],
+      "synonyms": [
+        "scramble",
+        "easy climbing",
+        "rock scramble",
+        "technical hiking"
+      ],
+      "keywords": [
+        "hands",
+        "rock",
+        "exposure",
+        "helmet",
+        "route finding",
+        "wet rock",
+        "descent"
+      ],
+      "answer": "Scrambling involves using your hands for balance or movement on rock. Assess the descent as well as the ascent, avoid wet or icy rock, and consider a helmet where rockfall or exposure is possible."
+    },
+    {
+      "id": "route-planning",
+      "label": "Route planning",
+      "phrases": [
+        "route planning",
+        "plan a route",
+        "route preparation",
+        "plan a mountain route"
+      ],
+      "synonyms": [
+        "trip planning",
+        "route preparation",
+        "journey planning",
+        "itinerary planning"
+      ],
+      "keywords": [
+        "start",
+        "finish",
+        "distance",
+        "elevation gain",
+        "checkpoints",
+        "hazards",
+        "escape routes",
+        "turnaround time"
+      ],
+      "answer": "Plan a route by recording the start and finish, distance, elevation gain, key checkpoints, hazards, escape routes, expected timings, and turnaround time. Check the weather and route conditions immediately before departure."
+    },
+    {
+      "id": "route-card",
+      "label": "Route card",
+      "phrases": [
+        "route card",
+        "route plan",
+        "route description",
+        "route notes"
+      ],
+      "synonyms": [
+        "itinerary",
+        "trip card",
+        "navigation card",
+        "route log"
+      ],
+      "keywords": [
+        "waypoint",
+        "grid reference",
+        "bearing",
+        "distance",
+        "time",
+        "escape route",
+        "emergency contact"
+      ],
+      "answer": "A route card lists each leg with its start point, bearing, distance, estimated time, terrain description, and escape option. Share it with a trusted person and update it if you change the plan."
+    },
+    {
+      "id": "route-hazards",
+      "label": "Route hazards",
+      "phrases": [
+        "route hazards",
+        "trail hazards",
+        "mountain hazards",
+        "route risks"
+      ],
+      "synonyms": [
+        "hazards",
+        "risks",
+        "dangers",
+        "route obstacles"
+      ],
+      "keywords": [
+        "cliffs",
+        "exposure",
+        "river crossings",
+        "rockfall",
+        "loose rock",
+        "snow",
+        "ice",
+        "avalanche",
+        "weather"
+      ],
+      "answer": "Identify route-specific hazards such as cliffs, exposure, rockfall, loose terrain, river crossings, snow, ice, and avalanche terrain. Decide in advance which conditions would make you turn back or choose an alternative."
+    },
+    {
+      "id": "escape-route",
+      "label": "Escape route",
+      "phrases": [
+        "escape route",
+        "bailout route",
+        "retreat route",
+        "emergency exit"
+      ],
+      "synonyms": [
+        "bailout",
+        "retreat option",
+        "exit route",
+        "alternative descent"
+      ],
+      "keywords": [
+        "descent",
+        "shelter",
+        "road",
+        "village",
+        "transport",
+        "weather",
+        "daylight"
+      ],
+      "answer": "Identify real escape routes before you need them, including where they lead, how long they take, and whether they are safe in the current conditions. Do not assume every path or valley provides a practical exit."
+    },
+    {
+      "id": "turnaround-point",
+      "label": "Turnaround point",
+      "phrases": [
+        "turnaround point",
+        "turnaround time",
+        "when to turn back",
+        "summit turnaround"
+      ],
+      "synonyms": [
+        "turn-back point",
+        "retreat point",
+        "time limit",
+        "decision point"
+      ],
+      "keywords": [
+        "daylight",
+        "weather",
+        "fatigue",
+        "conditions",
+        "descent time",
+        "summit fever"
+      ],
+      "answer": "Set a turnaround time or point before leaving, based on daylight, weather, descent time, and a safety margin. Turn around on schedule even if the objective is close."
+    },
+    {
+      "id": "route-conditions",
+      "label": "Route conditions",
+      "phrases": [
+        "route conditions",
+        "trail conditions",
+        "current conditions",
+        "is the route open"
+      ],
+      "synonyms": [
+        "trail status",
+        "route status",
+        "ground conditions",
+        "conditions report"
+      ],
+      "keywords": [
+        "snow",
+        "ice",
+        "mud",
+        "rockfall",
+        "closure",
+        "water level",
+        "recent reports",
+        "weather"
+      ],
+      "answer": "Check recent trip reports, official notices, webcams, and local sources for current route conditions. A route that was straightforward in summer may require different skills and equipment after snow, rain, or thaw."
+    },
+    {
+      "id": "route-markings",
+      "label": "Route markings",
+      "phrases": [
+        "route markings",
+        "trail markers",
+        "waymarks",
+        "trail signs"
+      ],
+      "synonyms": [
+        "waymarks",
+        "blazes",
+        "cairns",
+        "signposts"
+      ],
+      "keywords": [
+        "painted marks",
+        "cairns",
+        "signposts",
+        "colored markings",
+        "junction",
+        "map",
+        "GPS"
+      ],
+      "answer": "Use route markings as confirmation, not as a substitute for navigation. Markings can be missing, damaged, snow-covered, or misleading, so keep checking the map, compass, and terrain."
+    },
+    {
+      "id": "water-crossings",
+      "label": "Water crossings",
+      "phrases": [
+        "river crossing",
+        "stream crossing",
+        "ford",
+        "water crossing safety"
+      ],
+      "synonyms": [
+        "river ford",
+        "stream crossing",
+        "water crossing",
+        "river route"
+      ],
+      "keywords": [
+        "water level",
+        "current",
+        "rain",
+        "snowmelt",
+        "crossing point",
+        "turn back",
+        "footwear"
+      ],
+      "answer": "Assess water depth, speed, footing, and downstream hazards before crossing. If the water is fast, murky, above knee depth, or rising, find an alternative route or wait rather than crossing."
+    },
+    {
+      "id": "route-alternatives",
+      "label": "Route alternatives",
+      "phrases": [
+        "alternative route",
+        "backup route",
+        "plan B route",
+        "lower alternative"
+      ],
+      "synonyms": [
+        "backup plan",
+        "alternative itinerary",
+        "contingency route",
+        "plan B"
+      ],
+      "keywords": [
+        "weather",
+        "conditions",
+        "shorter route",
+        "lower route",
+        "escape route",
+        "turnaround"
+      ],
+      "answer": "Choose a lower, shorter, or more sheltered alternative before setting out. A good Plan B should still be enjoyable, achievable in the forecast conditions, and have reliable navigation and escape options."
+    },
+    {
+      "id": "route-description",
+      "label": "Route description",
+      "phrases": [
+        "route description",
+        "describe a route",
+        "route notes",
+        "how to write a route"
+      ],
+      "synonyms": [
+        "route summary",
+        "route profile",
+        "route information",
+        "trip description"
+      ],
+      "keywords": [
+        "start",
+        "finish",
+        "distance",
+        "elevation gain",
+        "terrain",
+        "waypoints",
+        "hazards",
+        "season"
+      ],
+      "answer": "A useful route description includes start and finish points, distance, elevation gain and loss, terrain type, navigation difficulty, water sources, hazards, best season, and escape options."
+    },
+    {
+      "id": "route-example",
+      "label": "Example route node",
+      "phrases": [
+        "example mountain route",
+        "sample route",
+        "route template",
+        "route data example"
+      ],
+      "synonyms": [
+        "sample itinerary",
+        "route template",
+        "example trail",
+        "route pattern"
+      ],
+      "keywords": [
+        "name",
+        "start",
+        "finish",
+        "distance",
+        "elevation gain",
+        "difficulty",
+        "season",
+        "hazards"
+      ],
+      "answer": "Use a consistent structure for each real route: name, region, start and finish, distance, elevation gain, difficulty, terrain, season, water sources, hazards, escape routes, and navigation requirements."
+    }
+  ]
+}

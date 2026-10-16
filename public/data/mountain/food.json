@@ -1,0 +1,751 @@
+{
+  "topic": "food",
+  "nodes": [
+    {
+      "id": "mountain-food",
+      "label": "Mountain food",
+      "phrases": [
+        "mountain food",
+        "high-altitude food",
+        "hiking food",
+        "trail food",
+        "alpine nutrition"
+      ],
+      "synonyms": [
+        "food",
+        "nutrients",
+        "nourishment",
+        "provisions",
+        "rations",
+        "trail meals"
+      ],
+      "keywords": [
+        "protein bars",
+        "energy bars",
+        "vitamins",
+        "nuts",
+        "carbohydrates",
+        "protein",
+        "fats",
+        "hydration",
+        "electrolytes",
+        "calories"
+      ],
+      "answer": "Eat small amounts frequently, prioritize carbohydrates during sustained effort, use calorie-dense foods for multi-day trips, and maintain hydration and electrolyte balance."
+    },
+    {
+      "id": "hiking-nutrition",
+      "label": "Hiking nutrition",
+      "phrases": [
+        "hiking nutrition",
+        "what to eat hiking",
+        "trail nutrition",
+        "energy for hiking"
+      ],
+      "synonyms": [
+        "outdoor nutrition",
+        "exercise nutrition",
+        "endurance nutrition",
+        "mountain nutrition"
+      ],
+      "keywords": [
+        "carbohydrates",
+        "protein",
+        "fat",
+        "calories",
+        "hydration",
+        "electrolytes",
+        "snacking",
+        "energy"
+      ],
+      "answer": "Fuel hiking with a mix of carbohydrates for immediate energy, protein for recovery, and fats for sustained calorie density. Eat small portions regularly and match food and fluid intake to the duration, intensity, and weather."
+    },
+    {
+      "id": "calories",
+      "label": "Calories",
+      "phrases": [
+        "how many calories hiking",
+        "calorie needs",
+        "energy expenditure",
+        "daily calories"
+      ],
+      "synonyms": [
+        "energy intake",
+        "caloric needs",
+        "food energy",
+        "energy requirement"
+      ],
+      "keywords": [
+        "calorie density",
+        "energy balance",
+        "hiking intensity",
+        "pack weight",
+        "cold weather",
+        "long hike",
+        "extra food"
+      ],
+      "answer": "Calorie needs rise with distance, elevation gain, pack weight, cold weather, and exertion. For demanding mountain days, plan generous high-calorie food and always carry a reserve in case of delays or an emergency."
+    },
+    {
+      "id": "carbohydrates",
+      "label": "Carbohydrates",
+      "phrases": [
+        "carbohydrates for hiking",
+        "carbs",
+        "energy snacks",
+        "quick energy"
+      ],
+      "synonyms": [
+        "carbs",
+        "sugars",
+        "starches",
+        "glycogen"
+      ],
+      "keywords": [
+        "dried fruit",
+        "bread",
+        "wraps",
+        "oats",
+        "rice",
+        "pasta",
+        "energy bars",
+        "gels",
+        "30-60 grams per hour"
+      ],
+      "answer": "Carbohydrates are the main fast fuel for sustained hiking. Eat roughly 30-60 grams of carbohydrates per hour on longer or harder efforts, using foods such as dried fruit, bread, wraps, oats, rice, or energy bars."
+    },
+    {
+      "id": "protein",
+      "label": "Protein",
+      "phrases": [
+        "protein for hiking",
+        "protein snacks",
+        "recovery food",
+        "protein bars"
+      ],
+      "synonyms": [
+        "protein",
+        "amino acids",
+        "muscle repair",
+        "recovery nutrition"
+      ],
+      "keywords": [
+        "nuts",
+        "seeds",
+        "cheese",
+        "jerky",
+        "nut butter",
+        "beans",
+        "eggs",
+        "recovery"
+      ],
+      "answer": "Include protein in meals and snacks to support satiety and muscle repair. Good trail options include nuts, seeds, cheese, jerky, nut butter, eggs, and beans, though fresh foods need careful packing and temperature management."
+    },
+    {
+      "id": "fats",
+      "label": "Fats",
+      "phrases": [
+        "healthy fats",
+        "fat for hiking",
+        "calorie-dense food",
+        "nuts and seeds"
+      ],
+      "synonyms": [
+        "lipids",
+        "dietary fat",
+        "healthy fats",
+        "energy-dense fats"
+      ],
+      "keywords": [
+        "nuts",
+        "seeds",
+        "nut butter",
+        "olive oil",
+        "cheese",
+        "chocolate",
+        "calorie density",
+        "slow energy"
+      ],
+      "answer": "Fats provide more than twice the energy per gram of carbohydrate or protein, making them useful for lightweight, calorie-dense mountain food. Combine nuts, seeds, nut butter, cheese, or oil with carbohydrate sources for balanced energy."
+    },
+    {
+      "id": "hydration",
+      "label": "Hydration",
+      "phrases": [
+        "how much water to drink",
+        "hydration hiking",
+        "drink water",
+        "dehydration"
+      ],
+      "synonyms": [
+        "fluid intake",
+        "water intake",
+        "drinking",
+        "rehydration"
+      ],
+      "keywords": [
+        "water",
+        "thirst",
+        "sipping",
+        "water bottles",
+        "hydration reservoir",
+        "water filter",
+        "heat",
+        "altitude"
+      ],
+      "answer": "Drink regularly throughout the day rather than waiting until you are very thirsty. Sip small amounts every 15-30 minutes, increase intake in heat or at altitude, and check that your urine remains pale rather than dark."
+    },
+    {
+      "id": "electrolytes",
+      "label": "Electrolytes",
+      "phrases": [
+        "electrolytes",
+        "sports drink",
+        "sodium potassium",
+        "electrolyte tablets"
+      ],
+      "synonyms": [
+        "minerals",
+        "salts",
+        "electrolyte replacement",
+        "isotonic drink"
+      ],
+      "keywords": [
+        "sodium",
+        "potassium",
+        "magnesium",
+        "calcium",
+        "sweat",
+        "cramps",
+        "electrolyte powder",
+        "sports drink"
+      ],
+      "answer": "On long, hot, or high-sweat outings, replace sodium and other electrolytes as well as water. Use electrolyte tablets, powder, or a sports drink, especially if you are drinking large volumes of plain water."
+    },
+    {
+      "id": "trail-snacks",
+      "label": "Trail snacks",
+      "phrases": [
+        "hiking snacks",
+        "energy snacks",
+        "trail food snacks",
+        "what snacks to bring"
+      ],
+      "synonyms": [
+        "snacks",
+        "trail bites",
+        "energy food",
+        "quick food"
+      ],
+      "keywords": [
+        "nuts",
+        "dried fruit",
+        "energy bars",
+        "chocolate",
+        "trail mix",
+        "jerky",
+        "crackers",
+        "nut butter"
+      ],
+      "answer": "Pack a variety of snacks you enjoy and can eat while moving: nuts, dried fruit, trail mix, energy bars, chocolate, crackers, cheese, or jerky. Aim for small, frequent snacks rather than one heavy lunch."
+    },
+    {
+      "id": "energy-bars",
+      "label": "Energy bars",
+      "phrases": [
+        "energy bars",
+        "protein bars",
+        "granola bars",
+        "best hiking bars"
+      ],
+      "synonyms": [
+        "nutrition bars",
+        "snack bars",
+        "meal bars",
+        "sports bars"
+      ],
+      "keywords": [
+        "carbohydrates",
+        "protein",
+        "calories",
+        "ingredients",
+        "sugar",
+        "fiber",
+        "digestibility",
+        "spare bar"
+      ],
+      "answer": "Energy bars are convenient, but choose ones you can digest comfortably and that provide useful carbohydrates, some protein, and enough calories. Carry at least one spare bar for delays, cold weather, or an unplanned bivouac."
+    },
+    {
+      "id": "trail-breakfast",
+      "label": "Trail breakfast",
+      "phrases": [
+        "hiking breakfast",
+        "breakfast before hiking",
+        "morning meal",
+        "what to eat before a hike"
+      ],
+      "synonyms": [
+        "morning nutrition",
+        "pre-hike meal",
+        "breakfast",
+        "first meal"
+      ],
+      "keywords": [
+        "oats",
+        "porridge",
+        "bread",
+        "eggs",
+        "fruit",
+        "carbohydrates",
+        "protein",
+        "hydration"
+      ],
+      "answer": "Eat a familiar, balanced breakfast with carbohydrates, some protein, and a little fat, and start hydrating early. Oats, bread, eggs, fruit, yogurt, or nut butter are practical options depending on trip length and facilities."
+    },
+    {
+      "id": "trail-lunch",
+      "label": "Trail lunch",
+      "phrases": [
+        "hiking lunch",
+        "lunch on the trail",
+        "packed lunch",
+        "mountain lunch"
+      ],
+      "synonyms": [
+        "midday meal",
+        "packed meal",
+        "trail meal",
+        "lunch"
+      ],
+      "keywords": [
+        "wraps",
+        "bread",
+        "cheese",
+        "hummus",
+        "nut butter",
+        "dried fruit",
+        "sausages",
+        "no-cook lunch"
+      ],
+      "answer": "Choose a lunch that is easy to eat in wind, cold, or rain, such as wraps, bread with cheese or nut butter, dried fruit, and nuts. On hot days, avoid foods that spoil quickly and keep perishables shaded and cool."
+    },
+    {
+      "id": "trail-dinner",
+      "label": "Trail dinner",
+      "phrases": [
+        "backpacking dinner",
+        "camp dinner",
+        "dehydrated meals",
+        "hot meal hiking"
+      ],
+      "synonyms": [
+        "evening meal",
+        "camp meal",
+        "dinner",
+        "cooked meal"
+      ],
+      "keywords": [
+        "pasta",
+        "rice",
+        "couscous",
+        "dehydrated meal",
+        "stove",
+        "fuel",
+        "protein",
+        "hot drink"
+      ],
+      "answer": "For overnight trips, plan a hot, calorie-rich dinner with a carbohydrate base plus protein and fat, such as pasta, rice, or couscous with cheese, sausage, beans, or dehydrated meal ingredients. A warm meal and drink also help with morale and thermoregulation."
+    },
+    {
+      "id": "calorie-density",
+      "label": "Calorie density",
+      "phrases": [
+        "calorie density",
+        "lightweight food",
+        "high-calorie food",
+        "food weight"
+      ],
+      "synonyms": [
+        "energy density",
+        "calories per gram",
+        "food efficiency",
+        "lightweight nutrition"
+      ],
+      "keywords": [
+        "nuts",
+        "oil",
+        "cheese",
+        "chocolate",
+        "nut butter",
+        "dehydrated food",
+        "pack weight"
+      ],
+      "answer": "For long trips, favor calorie-dense foods such as nuts, oil, cheese, chocolate, nut butter, and dehydrated meals to reduce weight and bulk. Balance them with enough carbohydrate and fiber for comfortable digestion and steady energy."
+    },
+    {
+      "id": "food-packing",
+      "label": "Food packing",
+      "phrases": [
+        "how to pack food",
+        "food storage hiking",
+        "bear-safe food storage",
+        "food protection"
+      ],
+      "synonyms": [
+        "food storage",
+        "provisions packing",
+        "food organization",
+        "wildlife-safe storage"
+      ],
+      "keywords": [
+        "resealable bags",
+        "dry bags",
+        "bear canister",
+        "bear hang",
+        "odor control",
+        "trash",
+        "food safety"
+      ],
+      "answer": "Pack food in durable, resealable bags or containers, keep it accessible during the day, and protect it from rain and crushing. In wildlife areas, follow local rules for bear canisters, hangs, or other approved storage, and pack out all waste."
+    },
+    {
+      "id": "food-safety",
+      "label": "Food safety",
+      "phrases": [
+        "food safety hiking",
+        "perishable food",
+        "food poisoning",
+        "safe water"
+      ],
+      "synonyms": [
+        "food hygiene",
+        "food handling",
+        "water treatment",
+        "sanitation"
+      ],
+      "keywords": [
+        "perishables",
+        "cooling",
+        "spoilage",
+        "hand hygiene",
+        "water filter",
+        "water purification",
+        "cross-contamination"
+      ],
+      "answer": "Keep perishable food cool, discard anything that has spoiled, and wash or sanitize hands before eating. Treat or filter water from natural sources unless you are certain it is safe, and avoid cross-contamination between raw and ready-to-eat food."
+    },
+    {
+      "id": "water-treatment",
+      "label": "Water treatment",
+      "phrases": [
+        "water filter",
+        "purify water",
+        "safe drinking water",
+        "stream water"
+      ],
+      "synonyms": [
+        "water purification",
+        "water treatment",
+        "filtration",
+        "disinfection"
+      ],
+      "keywords": [
+        "filter",
+        "chemical treatment",
+        "boiling",
+        "UV purifier",
+        "backup method",
+        "water source",
+        "contamination"
+      ],
+      "answer": "Treat water from streams, lakes, or unreliable taps with a filter, chemical treatment, boiling, or UV purification. Carry a backup method, because filters can freeze, clog, break, or fail when you need them most."
+    },
+    {
+      "id": "altitude-appetite",
+      "label": "Altitude and appetite",
+      "phrases": [
+        "appetite at altitude",
+        "eating at high altitude",
+        "altitude nutrition",
+        "loss of appetite"
+      ],
+      "synonyms": [
+        "high-altitude nutrition",
+        "altitude feeding",
+        "reduced appetite",
+        "mountain nutrition"
+      ],
+      "keywords": [
+        "appetite loss",
+        "nausea",
+        "hydration",
+        "easy-to-digest food",
+        "frequent snacks",
+        "acclimatization",
+        "carbohydrates"
+      ],
+      "answer": "At altitude, appetite and digestion can decrease even as energy needs remain high. Eat familiar, easy-to-digest foods in small frequent portions, prioritize fluids and carbohydrates, and do not skip meals because you feel less hungry."
+    },
+    {
+      "id": "cold-weather-food",
+      "label": "Cold weather food",
+      "phrases": [
+        "winter hiking food",
+        "cold weather nutrition",
+        "hot drinks",
+        "food in cold weather"
+      ],
+      "synonyms": [
+        "winter nutrition",
+        "cold-weather rations",
+        "winter food",
+        "cold conditions food"
+      ],
+      "keywords": [
+        "warm meal",
+        "hot drink",
+        "insulated bottle",
+        "calories",
+        "fats",
+        "frozen food",
+        "stove fuel"
+      ],
+      "answer": "In cold weather, plan extra calories, warm meals, and hot drinks, and keep food close to your body so it does not freeze. Choose foods that remain edible when cold and carry sufficient stove fuel for melting snow if needed."
+    },
+    {
+      "id": "hot-weather-food",
+      "label": "Hot weather food",
+      "phrases": [
+        "summer hiking food",
+        "hot weather nutrition",
+        "heat hydration",
+        "food in hot weather"
+      ],
+      "synonyms": [
+        "warm-weather nutrition",
+        "summer food",
+        "heat nutrition",
+        "hot conditions food"
+      ],
+      "keywords": [
+        "water",
+        "electrolytes",
+        "salty snacks",
+        "fruit",
+        "heat illness",
+        "spoilage",
+        "shade"
+      ],
+      "answer": "In hot weather, drink consistently, replace electrolytes, and choose foods that will not spoil quickly. Salty snacks can help maintain sodium balance, while fruit and moist foods can contribute useful fluids."
+    },
+    {
+      "id": "eating-schedule",
+      "label": "Eating schedule",
+      "phrases": [
+        "how often to eat hiking",
+        "snack schedule",
+        "eat every hour",
+        "fueling schedule"
+      ],
+      "synonyms": [
+        "fueling plan",
+        "nutrition schedule",
+        "snacking routine",
+        "meal timing"
+      ],
+      "keywords": [
+        "every 30-60 minutes",
+        "small portions",
+        "steady energy",
+        "bonking",
+        "breaks",
+        "carbohydrates"
+      ],
+      "answer": "Eat a small snack every 30-60 minutes during sustained hiking instead of waiting until you feel exhausted. Regular fueling helps prevent energy crashes, poor decision-making, and the heavy fatigue often called bonking."
+    },
+    {
+      "id": "emergency-food",
+      "label": "Emergency food",
+      "phrases": [
+        "emergency food",
+        "extra food",
+        "reserve food",
+        "what if I get delayed"
+      ],
+      "synonyms": [
+        "reserve rations",
+        "backup food",
+        "survival food",
+        "emergency provisions"
+      ],
+      "keywords": [
+        "energy bars",
+        "nuts",
+        "dried fruit",
+        "chocolate",
+        "extra calories",
+        "delay",
+        "bivouac"
+      ],
+      "answer": "Always carry extra high-calorie, shelf-stable food beyond your planned meals. Energy bars, nuts, dried fruit, and chocolate are compact reserves for delays, route changes, cold weather, or an unexpected night outdoors."
+    },
+    {
+      "id": "food-allergies",
+      "label": "Food allergies and diets",
+      "phrases": [
+        "food allergies hiking",
+        "vegan hiking food",
+        "gluten-free trail food",
+        "dietary restrictions"
+      ],
+      "synonyms": [
+        "special diet",
+        "allergy-safe food",
+        "plant-based nutrition",
+        "dietary needs"
+      ],
+      "keywords": [
+        "allergies",
+        "vegan",
+        "vegetarian",
+        "gluten-free",
+        "lactose-free",
+        "labels",
+        "group food"
+      ],
+      "answer": "Plan around allergies and dietary needs before leaving, read labels carefully, and carry safe alternatives for every meal and snack. If hiking in a group, agree on shared-food rules to prevent accidental exposure."
+    },
+    {
+      "id": "food-planning",
+      "label": "Food planning",
+      "phrases": [
+        "meal planning hiking",
+        "food for a day hike",
+        "backpacking meal plan",
+        "how much food to bring"
+      ],
+      "synonyms": [
+        "menu planning",
+        "rations planning",
+        "trip nutrition plan",
+        "food budget"
+      ],
+      "keywords": [
+        "trip length",
+        "calories",
+        "meals",
+        "snacks",
+        "water",
+        "stove fuel",
+        "reserve food"
+      ],
+      "answer": "Plan food by trip length, expected exertion, weather, water availability, and cooking facilities. Make a simple menu of breakfast, lunch, dinner, snacks, drinks, and emergency reserves, then check that the total calories and weight are realistic."
+    },
+    {
+      "id": "leave-no-trace-food",
+      "label": "Leave No Trace food",
+      "phrases": [
+        "leave no trace food",
+        "pack out trash",
+        "food waste",
+        "wildlife and food"
+      ],
+      "synonyms": [
+        "minimum-impact food",
+        "waste management",
+        "responsible food practices",
+        "outdoor ethics"
+      ],
+      "keywords": [
+        "pack out",
+        "food scraps",
+        "wrappers",
+        "wildlife",
+        "odor",
+        "trash bag",
+        "campsite"
+      ],
+      "answer": "Pack out all food wrappers, scraps, and waste, and never feed wildlife. Store food securely, minimize odors, and leave campsites and rest stops cleaner than you found them."
+    },
+    {
+      "id": "cooking-equipment",
+      "label": "Cooking equipment",
+      "phrases": [
+        "camping stove",
+        "cooking gear",
+        "backpacking kitchen",
+        "stove fuel"
+      ],
+      "synonyms": [
+        "cooking system",
+        "camp kitchen",
+        "stove kit",
+        "cookware"
+      ],
+      "keywords": [
+        "stove",
+        "fuel",
+        "pot",
+        "mug",
+        "spork",
+        "lighter",
+        "matches",
+        "windscreen"
+      ],
+      "answer": "Choose a cooking system appropriate for the trip: no-cook food for short outings, a compact stove for hot meals, and a reliable stove plus windscreen for winter or exposed camps. Always carry an independent ignition backup and enough fuel."
+    },
+    {
+      "id": "caffeine",
+      "label": "Caffeine",
+      "phrases": [
+        "caffeine hiking",
+        "coffee on trail",
+        "energy drinks",
+        "caffeine and hydration"
+      ],
+      "synonyms": [
+        "coffee",
+        "tea",
+        "stimulant",
+        "caffeinated drink"
+      ],
+      "keywords": [
+        "coffee",
+        "tea",
+        "energy drink",
+        "hydration",
+        "sleep",
+        "jitters",
+        "moderation"
+      ],
+      "answer": "Caffeine can improve alertness, but use it in moderation and do not let it replace water, food, or sleep. Avoid excessive caffeine late in the day if it may interfere with recovery or overnight sleep."
+    },
+    {
+      "id": "recovery-nutrition",
+      "label": "Recovery nutrition",
+      "phrases": [
+        "recovery food",
+        "after hiking meal",
+        "post-hike nutrition",
+        "muscle recovery"
+      ],
+      "synonyms": [
+        "post-exercise nutrition",
+        "recovery meal",
+        "recovery drink",
+        "refueling"
+      ],
+      "keywords": [
+        "carbohydrates",
+        "protein",
+        "fluids",
+        "electrolytes",
+        "rehydration",
+        "meal",
+        "rest"
+      ],
+      "answer": "After a long hike, rehydrate, replace electrolytes, and eat a meal containing carbohydrates and protein. This supports fluid balance, glycogen replenishment, and muscle recovery before the next day’s activity."
+    }
+  ]
+}

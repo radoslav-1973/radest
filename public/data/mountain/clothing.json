@@ -1,0 +1,534 @@
+{
+  "topic": "clothing",
+  "nodes": [
+    {
+      "id": "mountain-clothing",
+      "label": "Mountain clothing",
+      "phrases": [
+        "mountain clothing",
+        "alpine clothing",
+        "high-altitude clothing",
+        "hiking clothing",
+        "outdoor clothing"
+      ],
+      "synonyms": [
+        "habiliment",
+        "apparel",
+        "garments",
+        "outdoor gear",
+        "technical clothing"
+      ],
+      "keywords": [
+        "gloves",
+        "jacket",
+        "underwear",
+        "underclothing",
+        "trousers",
+        "pants",
+        "layers",
+        "waterproof",
+        "windproof",
+        "insulation"
+      ],
+      "answer": "Always use appropriate clothing in layers. Choose moisture-wicking base layers, insulating mid layers, and a wind- and water-resistant shell so you can adjust to changing temperature, wind, rain, and exertion."
+    },
+    {
+      "id": "layering-system",
+      "label": "Layering system",
+      "phrases": [
+        "layering system",
+        "how to layer clothes",
+        "three-layer system",
+        "clothing layers"
+      ],
+      "synonyms": [
+        "layered clothing",
+        "clothing system",
+        "thermal layering",
+        "onion layering"
+      ],
+      "keywords": [
+        "base layer",
+        "mid layer",
+        "outer layer",
+        "shell",
+        "moisture management",
+        "insulation",
+        "weather protection",
+        "ventilation"
+      ],
+      "answer": "Use a base layer to move sweat away from your skin, a mid layer to retain warmth, and an outer shell to block wind and precipitation. Add or remove layers during activity and rest stops to avoid overheating or chilling."
+    },
+    {
+      "id": "base-layer",
+      "label": "Base layer",
+      "phrases": [
+        "base layer",
+        "thermal underwear",
+        "next-to-skin layer",
+        "moisture-wicking shirt"
+      ],
+      "synonyms": [
+        "first layer",
+        "underlayer",
+        "skin layer",
+        "wicking layer"
+      ],
+      "keywords": [
+        "merino wool",
+        "synthetic fabric",
+        "polyester",
+        "moisture wicking",
+        "breathable",
+        "long underwear",
+        "avoid cotton"
+      ],
+      "answer": "Wear a close-fitting base layer made from merino wool or synthetic fabric to wick sweat and keep skin dry. Avoid cotton next to the skin because it absorbs moisture, dries slowly, and can make you cold."
+    },
+    {
+      "id": "mid-layer",
+      "label": "Mid layer",
+      "phrases": [
+        "mid layer",
+        "insulating layer",
+        "fleece jacket",
+        "warm layer"
+      ],
+      "synonyms": [
+        "middle layer",
+        "thermal layer",
+        "insulation layer",
+        "warmth layer"
+      ],
+      "keywords": [
+        "fleece",
+        "down jacket",
+        "synthetic insulation",
+        "puffy jacket",
+        "softshell",
+        "warmth",
+        "breathability"
+      ],
+      "answer": "Use a fleece, softshell, or insulated jacket as a mid layer to trap warm air. Choose synthetic insulation for damp conditions, and add it during breaks, on exposed ridges, or when temperatures fall."
+    },
+    {
+      "id": "outer-shell",
+      "label": "Outer shell",
+      "phrases": [
+        "outer layer",
+        "shell jacket",
+        "rain jacket",
+        "windproof jacket"
+      ],
+      "synonyms": [
+        "hardshell",
+        "weatherproof layer",
+        "rain shell",
+        "wind shell"
+      ],
+      "keywords": [
+        "waterproof",
+        "windproof",
+        "breathable",
+        "rain jacket",
+        "rain trousers",
+        "hood",
+        "vents",
+        "sealed seams"
+      ],
+      "answer": "Carry a breathable waterproof and windproof shell for rain, snow, and wind. A hood, adjustable cuffs, pit zips or vents, and compatible shell trousers make it much more useful in mountain conditions."
+    },
+    {
+      "id": "hiking-trousers",
+      "label": "Hiking trousers",
+      "phrases": [
+        "hiking trousers",
+        "hiking pants",
+        "walking trousers",
+        "mountain pants"
+      ],
+      "synonyms": [
+        "trousers",
+        "pants",
+        "bottoms",
+        "legwear"
+      ],
+      "keywords": [
+        "quick-drying",
+        "stretch fabric",
+        "softshell trousers",
+        "waterproof overtrousers",
+        "thermal leggings",
+        "vents",
+        "articulated knees"
+      ],
+      "answer": "Choose quick-drying, stretchy hiking trousers with good freedom of movement. In cold or wet weather, add thermal leggings underneath and waterproof overtrousers rather than relying on one heavy pair of trousers."
+    },
+    {
+      "id": "gloves",
+      "label": "Gloves and mittens",
+      "phrases": [
+        "hiking gloves",
+        "winter gloves",
+        "waterproof gloves",
+        "mountaineering gloves"
+      ],
+      "synonyms": [
+        "mittens",
+        "handwear",
+        "gloves",
+        "overmitts"
+      ],
+      "keywords": [
+        "liner gloves",
+        "insulated gloves",
+        "waterproof gloves",
+        "windproof gloves",
+        "spare pair",
+        "dexterity",
+        "frostbite"
+      ],
+      "answer": "Carry gloves suited to the forecast, plus a spare dry pair. Use thin liner gloves for dexterity and warmer insulated or waterproof gloves for cold, wind, rain, or snow."
+    },
+    {
+      "id": "headwear",
+      "label": "Headwear",
+      "phrases": [
+        "hiking hat",
+        "beanie",
+        "sun hat",
+        "head protection"
+      ],
+      "synonyms": [
+        "cap",
+        "hat",
+        "headwear",
+        "balaclava"
+      ],
+      "keywords": [
+        "beanie",
+        "sun hat",
+        "buff",
+        "balaclava",
+        "sun protection",
+        "heat retention",
+        "hood"
+      ],
+      "answer": "Bring both sun protection and warmth for your head: a wide-brimmed or peaked hat in sunny weather and a beanie or buff for cold, wind, and rain. A large proportion of body heat can be lost through an unprotected head in cold conditions."
+    },
+    {
+      "id": "footwear",
+      "label": "Footwear",
+      "phrases": [
+        "hiking boots",
+        "trail shoes",
+        "mountain footwear",
+        "winter boots"
+      ],
+      "synonyms": [
+        "boots",
+        "shoes",
+        "footwear",
+        "mountaineering boots"
+      ],
+      "keywords": [
+        "ankle support",
+        "grip",
+        "waterproof",
+        "breathable",
+        "stiff sole",
+        "crampon-compatible",
+        "gaiters"
+      ],
+      "answer": "Choose footwear for the terrain, season, and load: flexible trail shoes for dry paths, supportive boots for rough or rocky ground, and insulated or crampon-compatible boots for winter terrain. Keep footwear dry and carry spare socks."
+    },
+    {
+      "id": "socks",
+      "label": "Socks",
+      "phrases": [
+        "hiking socks",
+        "thermal socks",
+        "spare socks",
+        "blister prevention"
+      ],
+      "synonyms": [
+        "socks",
+        "hosiery",
+        "footwear liners",
+        "thermal hosiery"
+      ],
+      "keywords": [
+        "merino wool",
+        "synthetic blend",
+        "cushioning",
+        "blister prevention",
+        "spare pair",
+        "waterproof socks",
+        "fit"
+      ],
+      "answer": "Wear well-fitting hiking socks made from wool or a synthetic blend, and carry at least one spare dry pair. Avoid cotton socks, which stay wet and increase the risk of blisters and cold feet."
+    },
+    {
+      "id": "rainwear",
+      "label": "Rainwear",
+      "phrases": [
+        "rain gear",
+        "waterproof clothing",
+        "rain jacket",
+        "rain trousers"
+      ],
+      "synonyms": [
+        "wet-weather clothing",
+        "waterproofs",
+        "rain protection",
+        "shell clothing"
+      ],
+      "keywords": [
+        "waterproof jacket",
+        "waterproof trousers",
+        "hood",
+        "taped seams",
+        "ventilation",
+        "pack cover",
+        "dry bags"
+      ],
+      "answer": "Use a waterproof jacket and trousers when sustained rain is likely. Keep spare clothing and electronics in dry bags, and prioritize ventilation to reduce sweat buildup inside waterproofs."
+    },
+    {
+      "id": "winter-clothing",
+      "label": "Winter clothing",
+      "phrases": [
+        "winter hiking clothes",
+        "cold weather clothing",
+        "winter mountain clothing",
+        "snow clothing"
+      ],
+      "synonyms": [
+        "cold-weather apparel",
+        "winter gear",
+        "insulated clothing",
+        "snow clothing"
+      ],
+      "keywords": [
+        "insulated jacket",
+        "thermal base layer",
+        "fleece",
+        "shell",
+        "gloves",
+        "hat",
+        "gaiters",
+        "spare dry clothes"
+      ],
+      "answer": "For winter mountain travel, carry more insulation than you expect to need, protect extremities, and keep a dry set of clothes for emergencies. Wet clothing loses insulation, so manage sweat and precipitation carefully."
+    },
+    {
+      "id": "summer-clothing",
+      "label": "Summer clothing",
+      "phrases": [
+        "summer hiking clothes",
+        "hot weather clothing",
+        "sun protection clothing",
+        "light hiking clothes"
+      ],
+      "synonyms": [
+        "warm-weather apparel",
+        "lightweight clothing",
+        "breathable clothing",
+        "sun-protective clothing"
+      ],
+      "keywords": [
+        "lightweight",
+        "breathable",
+        "long sleeves",
+        "sun hat",
+        "sunglasses",
+        "sunscreen",
+        "rain shell"
+      ],
+      "answer": "In summer, choose lightweight, breathable clothing that protects against sun and abrasion. Even in warm weather, carry a light insulating layer and rain shell for sudden mountain weather changes."
+    },
+    {
+      "id": "spare-clothes",
+      "label": "Spare clothing",
+      "phrases": [
+        "spare clothes",
+        "emergency clothing",
+        "dry clothes",
+        "what to pack"
+      ],
+      "synonyms": [
+        "backup clothing",
+        "reserve clothing",
+        "emergency layers",
+        "change of clothes"
+      ],
+      "keywords": [
+        "dry base layer",
+        "warm hat",
+        "gloves",
+        "socks",
+        "insulated jacket",
+        "dry bag",
+        "hypothermia prevention"
+      ],
+      "answer": "Pack a dry base layer, warm hat, gloves, socks, and an insulating layer in a waterproof bag. Dry spare clothing is essential if you get wet, delayed, injured, or caught in worsening weather."
+    },
+    {
+      "id": "clothing-materials",
+      "label": "Clothing materials",
+      "phrases": [
+        "best hiking fabrics",
+        "merino vs synthetic",
+        "cotton hiking clothes",
+        "technical fabrics"
+      ],
+      "synonyms": [
+        "textiles",
+        "fabrics",
+        "material choice",
+        "performance fabrics"
+      ],
+      "keywords": [
+        "merino wool",
+        "polyester",
+        "nylon",
+        "down",
+        "synthetic insulation",
+        "cotton",
+        "moisture management"
+      ],
+      "answer": "Merino wool and synthetic fabrics are usually better than cotton for active mountain use because they manage moisture more effectively. Down is very warm when dry, while synthetic insulation continues to insulate better when damp."
+    },
+    {
+      "id": "adjusting-layers",
+      "label": "Adjusting layers",
+      "phrases": [
+        "when to add layers",
+        "when to remove layers",
+        "overheating",
+        "getting cold"
+      ],
+      "synonyms": [
+        "temperature regulation",
+        "layer management",
+        "clothing adjustment",
+        "thermal comfort"
+      ],
+      "keywords": [
+        "start cool",
+        "rest stops",
+        "summit",
+        "wind chill",
+        "sweat",
+        "ventilation",
+        "hypothermia"
+      ],
+      "answer": "Start slightly cool, ventilate while moving uphill, and add insulation immediately at rest stops, summits, or exposed sections. Removing a layer before you overheat helps prevent sweat from chilling you later."
+    },
+    {
+      "id": "sun-protection-clothing",
+      "label": "Sun protection clothing",
+      "phrases": [
+        "sun protective clothing",
+        "UV protection clothing",
+        "sun hat",
+        "sunscreen clothing"
+      ],
+      "synonyms": [
+        "UV clothing",
+        "sun-safe apparel",
+        "protective clothing",
+        "sun gear"
+      ],
+      "keywords": [
+        "UPF",
+        "long sleeves",
+        "wide-brimmed hat",
+        "sunglasses",
+        "neck gaiter",
+        "sunscreen",
+        "altitude"
+      ],
+      "answer": "Use long sleeves, a wide-brimmed hat, sunglasses, and sunscreen for high UV exposure. Protection matters more at altitude and around snow, where reflected sunlight can be intense."
+    },
+    {
+      "id": "wind-protection",
+      "label": "Wind protection",
+      "phrases": [
+        "windproof clothing",
+        "wind jacket",
+        "wind protection",
+        "windy weather clothing"
+      ],
+      "synonyms": [
+        "wind-resistant clothing",
+        "wind shell",
+        "windbreaker",
+        "storm clothing"
+      ],
+      "keywords": [
+        "windbreaker",
+        "softshell",
+        "hardshell",
+        "hood",
+        "cuffs",
+        "wind chill",
+        "exposed ridge"
+      ],
+      "answer": "Use a wind-resistant shell on exposed ridges, summits, and cold descents. Blocking wind reduces wind chill and helps preserve the insulation provided by your other layers."
+    },
+    {
+      "id": "moisture-management",
+      "label": "Moisture management",
+      "phrases": [
+        "stay dry hiking",
+        "sweat management",
+        "wet clothing",
+        "moisture control"
+      ],
+      "synonyms": [
+        "sweat control",
+        "dampness management",
+        "moisture control",
+        "perspiration management"
+      ],
+      "keywords": [
+        "wicking",
+        "ventilation",
+        "breathability",
+        "dry spare clothes",
+        "waterproof",
+        "cotton",
+        "hypothermia"
+      ],
+      "answer": "Stay dry by ventilating during hard effort, changing out of wet clothing promptly, and keeping spare layers in waterproof bags. Wet clothing loses insulation and substantially increases the risk of hypothermia."
+    },
+    {
+      "id": "clothing-packing-list",
+      "label": "Mountain clothing packing list",
+      "phrases": [
+        "mountain packing list",
+        "hiking clothing checklist",
+        "what clothes to bring",
+        "day hike clothing"
+      ],
+      "synonyms": [
+        "gear checklist",
+        "clothing checklist",
+        "packing checklist",
+        "equipment list"
+      ],
+      "keywords": [
+        "base layer",
+        "mid layer",
+        "shell",
+        "trousers",
+        "gloves",
+        "hat",
+        "socks",
+        "spare clothes"
+      ],
+      "answer": "For a mountain day trip, carry a moisture-wicking base layer, insulating mid layer, waterproof shell, suitable trousers, gloves, hat, spare socks, and dry emergency clothing. Adjust the list for season, forecast, route exposure, and trip length."
+    }
+  ]
+}
