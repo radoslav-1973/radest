@@ -54,8 +54,9 @@ import Layout from '../layouts/Layout.astro';
       function loadPagefind() {
         const container = document.querySelector('#search-page-container');
 
-        if (container && !container.querySelector('.pagefind-ui')) {
-          const pagefindPath = "/pagefind/";
+        if (container && !container.querySelector('.pagefind-ui')) {   
+          const pagefindPath = new URL('/pagefind/', window.location.origin).toString();
+          
           const script = document.createElement('script');
           script.src = pagefindPath + "pagefind-ui.js";
 
