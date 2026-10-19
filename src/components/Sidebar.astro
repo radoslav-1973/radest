@@ -36,6 +36,13 @@ const isActive = (href: string) => {
       <a class="socials__link" href={social.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
         <Icon name="github" />
       </a>
+
+      <a class="socials__link" href="/search" aria-label="Search" title="Search the site">
+        <svg xmlns="http://w3.org" width="1.25em" height="1.25em" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </a>
+
       <button class="socials__link theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
         <Icon name="moon" class="theme-toggle__moon" />
         <Icon name="sun" class="theme-toggle__sun" />
@@ -68,7 +75,7 @@ const isActive = (href: string) => {
 
 <script>
   const sidebar = document.querySelector<HTMLElement>('.sidebar');
-  
+
   const toggle = sidebar?.querySelector<HTMLButtonElement>('.nav-toggle');
   const label = toggle?.querySelector('.nav-toggle__label');
   const menu = sidebar?.querySelector<HTMLElement>('.nav');
