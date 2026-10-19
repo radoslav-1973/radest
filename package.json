@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && node scripts/strip-unreferenced-assets.mjs",
+    "build": "astro build && node scripts/strip-unreferenced-assets.mjs && pagefind --site dist",
     "postbuild": "pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
