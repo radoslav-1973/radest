@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Search the site">
-<link rel="stylesheet" href="./pagefind/pagefind-ui.css" />
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
 
     <div class="mx-auto! max-w-5xl! px-4!">
         <h1 class="text-3xl mb-6!">Search the site</h1>
@@ -55,13 +55,7 @@ import Layout from '../layouts/Layout.astro';
         const container = document.querySelector('#search-page-container');
 
         if (container && !container.querySelector('.pagefind-ui')) {
-
-          const baseUrl = window.location.pathname.endsWith('/')
-            ? window.location.pathname
-            : window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
-
-          const pagefindPath = (baseUrl + "/pagefind/").replace(/\/+/g, '/');
-
+          const pagefindPath = "/pagefind/";
           const script = document.createElement('script');
           script.src = pagefindPath + "pagefind-ui.js";
 
@@ -101,5 +95,4 @@ import Layout from '../layouts/Layout.astro';
       }
       document.addEventListener("astro:after-swap", loadPagefind);
     </script>
-
 </Layout>
