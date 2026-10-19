@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Search the site">
-<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+<link rel="stylesheet" href="./pagefind/pagefind-ui.css" />
 
     <div class="mx-auto! max-w-5xl! px-4!">
         <h1 class="text-3xl mb-6!">Search the site</h1>
@@ -50,51 +50,56 @@ import Layout from '../layouts/Layout.astro';
       }
     </style>
 
-  <script is:inline>
-    function loadPagefind() {
-      const container = document.querySelector('#search-page-container');
+    <script is:inline>
+      function loadPagefind() {
+        const container = document.querySelector('#search-page-container');
 
-      if (container && !container.querySelector('.pagefind-ui')) {
+        if (container && !container.querySelector('.pagefind-ui')) {
 
-        const script = document.createElement('script');
-        script.src = "/pagefind/pagefind-ui.js";
+          const baseUrl = window.location.pathname.endsWith('/')
+            ? window.location.pathname
+            : window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
 
-        script.onload = () => {
-          if (typeof PagefindUI !== 'undefined') {
-            new PagefindUI({
-              element: "#search-page-container",
-              showImages: true,
-              translations: {
-                placeholder: "Enter a keyword...",
-                clear_search: "Clearing",
-                load_more: "Load more results",
-                search_label: "Search this site",
-                filters_label: "Filters",
-                zero_results: "No results were found for [SEARCH_TERM]",
-                many_results: "Have been found [COUNT] results for [SEARCH_TERM]",
-                one_result: "One result found for [SEARCH_TERM]"
-              }
-            });
-          } else {
-            console.error("PagefindUI is not defined, even though the script has loaded.");
-          }
-        };
+          const pagefindPath = (baseUrl + "/pagefind/").replace(/\/+/g, '/');
 
-        script.onerror = () => {
-          console.warn("The folder /pagefind/ was not found. This is normal in DEV mode. Use 'npm run build && npm run preview' for test.");
-          container.innerHTML = "<p style='color: #666;'>The search engine is preparing for compilation... (Available only in production mode)</p>";
-        };
+          const script = document.createElement('script');
+          script.src = pagefindPath + "pagefind-ui.js";
 
-        document.head.appendChild(script);
+          script.onload = () => {
+            if (typeof PagefindUI !== 'undefined') {
+              new PagefindUI({
+                element: "#search-page-container",
+                showImages: true,
+                bundlePath: pagefindPath,
+                translations: {
+                  placeholder: "Enter a keyword...",
+                  clear_search: "Clearing",
+                  load_more: "Load more results",
+                  search_label: "Search this site",
+                  filters_label: "Filters",
+                  zero_results: "No results were found for [SEARCH_TERM]",
+                  many_results: "Have been found [COUNT] results for [SEARCH_TERM]",
+                  one_result: "One result found for [SEARCH_TERM]"
+                }
+              });
+            }
+          };
+
+          script.onerror = () => {
+            console.warn("The folder /pagefind/ was not found on path: " + pagefindPath);
+            container.innerHTML = "<p style='color: #666;'>The search engine is preparing for compilation... (Available only in production mode)</p>";
+          };
+
+          document.head.appendChild(script);
+        }
       }
-    }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', loadPagefind);
-    } else {
-      loadPagefind();
-    }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadPagefind);
+      } else {
+        loadPagefind();
+      }
+      document.addEventListener("astro:after-swap", loadPagefind);
+    </script>
 
-    document.addEventListener("astro:after-swap", loadPagefind);
-  </script>
 </Layout>
