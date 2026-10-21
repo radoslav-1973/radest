@@ -14,6 +14,15 @@ export default defineConfig({
     }),
     svelte(),
   ],
+  markdown: {
+    syntaxHighlight: 'shiki',
+    shikiConfig: {
+      themes: {
+        light: "solarized-light",
+        dark: "one-dark-pro",
+      },
+    },
+  },
   compressHTML: true,
   vite: {
     plugins: [tailwindcss()],

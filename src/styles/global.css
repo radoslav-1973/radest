@@ -1583,3 +1583,208 @@ a {
 		@apply hidden!;
   }
 }
+
+/* Toggle between light and dark mode for Shiki */
+
+/* Light mode (default) */
+/* Let Shiki handle the inline colours of the words on its own (No .astro-code span rules here) */
+.astro-code {
+  background-color: var(--shiki-light-bg) !important;
+  color: var(--shiki-light) !important;
+}
+
+/* Dark mode, only when the button is pressed (data-theme="dark") */
+/* Using !important to force the light colours to be replaced by the dark theme */
+html[data-theme="dark"] .astro-code {
+  background-color: var(--shiki-dark-bg) !important;
+  color: var(--shiki-dark) !important;
+}
+
+html[data-theme="dark"] .astro-code span {
+  color: var(--shiki-dark) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+
+/*  Setting the Copy buttons     */
+
+/* Light mode */
+html,
+html[data-theme="light"] {
+  --btn-bg: rgba(0, 0, 0, 0.04);
+  --btn-border: rgba(0, 0, 0, 0.08);
+  --btn-text: rgba(0, 0, 0, 0.55);
+  --btn-hover-text: #000000;
+}
+
+/* Dark mode */
+html[data-theme="dark"] {
+  --btn-bg: rgba(255, 255, 255, 0.08);
+  --btn-border: rgba(255, 255, 255, 0.15);
+  --btn-text: rgba(255, 255, 255, 0.7);
+  --btn-hover-text: #ffffff;
+}
+
+/* Applying styles to buttons */
+.code-action-btn {
+  background-color: var(--btn-bg) !important;
+  border: 1px solid var(--btn-border) !important;
+  color: var(--btn-text) !important;
+}
+
+.code-action-btn:hover {
+  background-color: var(--btn-border) !important;
+  color: var(--btn-hover-text) !important;
+}
+
+/* ---------- Copy button layout ---------- */
+
+.code-block-wrapper {
+  position: relative;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border: 1px solid var(--copy-button-border);
+  border-radius: 0.25rem;
+  background: var(--copy-button-bg);
+  color: var(--copy-button-color);
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  border-color: var(--copy-button-color);
+}
+
+/* ---------- Copy button: light mode ---------- */
+
+:root {
+  --copy-button-bg: rgba(0, 0, 0, 0.06);
+  --copy-button-color: #111;
+  --copy-button-border: rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- Copy button: manual dark mode ---------- */
+
+html[data-theme="dark"] {
+  --copy-button-bg: rgba(255, 255, 255, 0.08);
+  --copy-button-color: #fff;
+  --copy-button-border: rgba(255, 255, 255, 0.3);
+}
+
+/* ---------- Copy button: system dark mode ---------- */
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --copy-button-bg: rgba(255, 255, 255, 0.08);
+    --copy-button-color: #fff;
+    --copy-button-border: rgba(255, 255, 255, 0.3);
+  }
+}
+
+
+/* ---------- Horizontal scrolling for code snippets ---------- */
+
+
+/* Ensure that the main container elements on the site do NOT extend beyond the screen */
+html, 
+body {
+    max-width: 100vw !important;
+    overflow-x: hidden !important; /* It completely stops any global scrolling of the page to the sides */
+}
+
+/* if the content is in the ‘main’ or ‘article’ section, ensure that these are covered too */
+
+main, 
+article {
+    min-width: 0 !important; /* Allows flex/grid children to shrink below the size specified in the code */
+    max-width: 100% !important;
+}
+
+/* Specific and secure settings for the code block element itself */
+pre.astro-code {
+    position: relative !important;
+    padding-top: 2.5rem !important; /* The button area */
+    
+    /*  Isolating the scroll HERE and nowhere else */
+    display: block !important;
+    width: 100% !important;         /* It is only as wide as its parent */
+    max-width: 100% !important;     /* Stops the container from being opened */
+    overflow-x: auto !important;    /* Allows scrolling only within the container */
+    overflow-y: hidden !important;
+}
+
+/* Internal code settings */
+pre.astro-code code {
+    display: block !important;
+    width: max-content !important;  /* Overflow the text only within the hidden scroll window */
+    white-space: pre !important;    /* Keep the code on a single line without breaking it */
+}
+
+pre.astro-code::-webkit-scrollbar {
+    height: 5px;
+}
+pre.astro-code::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+html[data-theme="light"] pre.astro-code::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+
+/* ---------- Horizontal scrolling for markdown tables ---------- */
+
+
+/* Make the table tobehave like a block that can be collapsed */
+table {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;    /* Enables horizontal scrolling only when necessary */
+    overflow-y: hidden !important;
+    white-space: nowrap !important; /* Prevents words from being squeezed into the cells */
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+/* Scrollbar for tables  */
+table::-webkit-scrollbar {
+    height: 5px;
+}
+
+table::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+html[data-theme="light"] table::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+table th {
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid var(--btn-border, rgba(255, 255, 255, 0.15));
+}
+
+table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--btn-border, rgba(255, 255, 255, 0.15));
+}
+
+/* Background for even-numbered lines in dark and light modes */
+html[data-theme="dark"] table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+html[data-theme="light"] table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
