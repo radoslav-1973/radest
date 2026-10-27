@@ -1,0 +1,518 @@
+---
+title: 'From a Simple Demo Chart to a Reliable Data Model'
+description: 'How an Astro, React, Recharts, TypeScript, and Zod workflow turned a simple radar chart into a maintainable, validated, and user-friendly data visualization.'
+pubDate: 2026-10-25
+tags: ['Zod', 'TypeScript', 'Recharts', 'React', 'Astro']
+---
+
+import TestRadar from "../../components/TestRadar";
+
+The idea for the article came to me whilst I was playing around with the demo version of [Recharts](https://recharts.github.io/en-US/examples/). Comparing the marks of several students in certain subjects is actually a very easy task. What if our data is more extensive, including: one or more schools with different subjects?!
+
+Of course, there are many visualization options which are beyond the scope of this article. The more valuable outcome was architectural. The chart became a small case study in separating **raw data**, **validation**, **derived chart data**, and **presentation** into clear layers.
+
+A radar chart is useful here because it displays several related quantitative variables on axes radiating from a common center. This type of chart is particularly useful for teachers who wish to compare individual students’ results with the average scores for the class or school. It makes the overall “shape” of each student’s evaluation profile easy to recognize. The challenge was ensuring that the data feeding chart was correct, consistently shaped, and safe to render.
+
+A little further down, you can see a fully functional [React](https://react.dev/) component that uses [Zod](https://zod.dev/) schemas for data validation and another React component as warning modal.
+
+
+## Table of contents
+
+- [The problem with inline data](#the-problem-with-inline-data)
+- [Separate data from presentation](#separate-data-from-presentation)
+- [Derive chart data once](#derive-chart-data-once)
+- [TypeScript catches compile-time errors](#typescript-catches-compile-time-errors)
+- [Why JSON needs runtime validation](#why-json-needs-runtime-validation)
+- [Define the contract with Zod](#define-the-contract-with-zod)
+- [Choose parse or safeParse](#choose-parse-or-safeparse)
+- [Warn without breaking the chart](#warn-without-breaking-the-chart)
+- [Custom UI improves comprehension](#custom-ui-improves-comprehension)
+- [Theme-aware components](#theme-aware-components)
+- [Errors found earlier](#errors-found-earlier)
+- [The main takeaway](#the-main-takeaway)
+
+## The problem with inline data
+
+The Recharts demo version placed the dataset directly inside the React component:
+
+```tsx
+const data = [
+  {
+    subject: "Math",
+    Ema: 62,
+    Ivo: 75,
+    "Average School Score": 88,
+  },
+  {
+    subject: "Informatics",
+    Ema: 65,
+    Ivo: 88,
+    "Average School Score": 95,
+  },
+  // ...
+];
+```
+
+This works well for a quick experiment, but it mixes concerns. The component knows both **how to draw** the chart and **what the domain data means**.
+
+Adding a student, changing a subject category, or later loading data from a CMS would require editing presentation code.
+
+| Approach | Strength | Weakness |
+| --- | --- | --- |
+| Inline data in component | Fast to prototype | Data, validation, and UI are coupled |
+| Separate typed data module | Clear source of truth; reusable | Still assumes the data is correct |
+| JSON + Zod validation | Safe for external or editable data | Requires a validation step |
+| Zod + derived chart data | Strong boundaries and testable transformations | Slightly more upfront structure |
+
+## Separate data from presentation
+
+The improved structure moves the domain model into `src/lib/data/`:
+
+```ts
+export type SubjectCategories =
+  | "Chemistry"
+  | "Biology"
+  | "Math"
+  | "Geography"
+  | "Physics"
+  | "Informatics";
+  
+export type StudentName = 
+  | "Ema"
+  | "Ivo"
+  | "AverageSchoolScore";
+  
+export type SubjectGrade = Record<SubjectCategory, number>;
+
+export type subjectGrades = Record<StudentName, SubjectGrade>;
+```
+
+This gives every student the same required fields and prevents common mistakes such as:
+
+- A misspelled category.
+- A missing student.
+- A string where scores should be a number.
+- An accidentally incomplete student record.
+
+TypeScript is a static type checker. It detects many errors before the program runs, based on the kinds of values being used.
+
+The React component then imports only what it needs:
+
+```tsx
+import { radarData, series } from "$lib/data/students-grades";
+```
+
+The component no longer knows whether the data was hardcoded, loaded from JSON, or later fetched from an API. That separation makes the chart easier to test, reuse, and maintain.
+
+## Derive chart data once
+
+Recharts expects data in a particular shape: one object per radar axis, with a property for each series.
+
+Instead of maintaining a second, manually duplicated array, derive it from the source data:
+
+```ts
+export const radarData = subjectCategories.map((category) => {
+  const row: Record<string, string | number> = {
+    subject: category,
+  };
+
+  for (const student of selectedStudents) {
+    row[student] = subjectGrades[student][category];
+  }
+
+  return row;
+});
+```
+
+Now adding a student means updating the source data. The chart data and component update automatically.
+
+| Layer | Responsibility | Example |
+| --- | --- | --- |
+| Source data | Domain truth: students, categories, grades | `subjectGrades` |
+| Derived data | Shape required by the chart library | `radarData`, `series` |
+| UI component | Rendering and interaction | `RadarChart`, tooltips, modal |
+| Validation | Trust boundary between file/API and application | Zod schema |
+
+## TypeScript catches compile-time errors
+
+TypeScript is valuable during development and build time. It can catch incorrect property names, missing fields, and incompatible assignments before the application runs.
+
+For example, this is rejected at compile time:
+
+```ts
+subjectGrades.Ivo.Informatcs = 10;
+```
+
+The property is misspelled, and TypeScript knows that `Informatcs` does not exist on `SubjectGrade`.
+
+However, TypeScript types are erased during compilation. The generated JavaScript contains no type information, and TypeScript does not add runtime checks based on those types.
+
+That limitation matters when data comes from outside the application.
+
+## Why JSON needs runtime validation
+
+Importing JSON may feel safe because the file is part of the repository, but it is still external data from the application’s perspective.
+
+A manual edit, CMS export, API response, or build-time transformation can introduce an unexpected shape.
+
+This TypeScript annotation does **not** validate the actual JSON:
+
+```ts
+const data: SubjectGrades = JSON.parse(jsonText);
+```
+
+`JSON.parse()` returns `any`, so TypeScript trusts whatever type the developer assigns. A value such as `"Informatics": "10"` or a missing `Math` field can still reach the chart.
+
+Zod solves this by validating the actual value at runtime.
+
+## Define the contract with Zod
+
+```ts
+import { z } from "zod";
+
+import rawStudentsGrades from "./students-grades.json";
+
+const subjectCategoriesSchema = z.enum([
+  "Chemistry",
+  "Biology",
+  "Math",
+  "Informatics",
+  "Physics",
+  "Geography",
+]);
+
+const studentsGradesSchema = z.object({
+  subjectCategories: z.array(subjectCategoriesSchema).min(1),
+  subjectGrades: z.record(
+    z.string(),
+    z.record(z.string(), z.number())
+  ),
+});
+
+const parsed = studentsGradesSchema.safeParse(rawStudentsGrades);
+
+if (!parsed.success) {
+  throw new Error(
+    "Invalid training requirements JSON structure. Check training-requirements.json."
+  );
+}
+```
+
+This schema does more than a TypeScript type. It enforces both structure and business rules:
+
+- Every student must contain all six subject categories.
+- Every value must be a number.
+- Every value must be an integer.
+- Every value must remain between `1` and `100`.
+- Category names must be one of the allowed values.
+
+Zod also supports type inference, so the schema can be the single source of truth for both validation and TypeScript types:
+
+```ts
+type SubjectGrade = z.infer<typeof subjectGradeSchema>;
+```
+
+This avoids maintaining a separate TypeScript interface and a manually written validation function that can drift apart.
+
+| Check | TypeScript type | Zod schema |
+| --- | --- | --- |
+| Property exists | Yes, at compile time | Yes, at runtime |
+| Value is a number | Yes, at compile time | Yes, at runtime |
+| Value is an integer | Can be modeled, but not enforced on external data | Yes, at runtime |
+| Value is between 0 and 100 | No | Yes, at runtime |
+| Unknown category name | Can be prevented with a union type | Yes, at runtime |
+| Clear validation errors | No | Yes |
+
+## Choose `parse` or `safeParse`
+
+Both methods apply the same validation rules. The difference is failure behavior.
+
+| Method | Invalid data behavior | Best use |
+| --- | --- | --- |
+| `schema.parse(data)` | Throws `ZodError` | Critical configuration or data where failing fast is correct |
+| `schema.safeParse(data)` | Returns `{ success, data }` or `{ success: false, error }` | User-facing pages, optional content, graceful fallbacks |
+
+```ts
+const parsed = studentsGradesSchema.safeParse(rawStudentsGrades);
+
+if (!parsed.success) {
+  throw new Error(
+    "Invalid training requirements JSON structure. Check training-requirements.json."
+  );
+}
+```
+
+After this check, TypeScript narrows the result and knows that `SubjectGrades` is valid.
+
+## Warn without breaking the chart
+
+For an demo chart, rejecting the whole page because one value is incorrect may be too strict.
+
+A better user experience is to clamp the value, record a warning, and continue rendering.
+
+```ts
+const MIN_SCORES = 0;
+const MAX_SCORES = 100;
+
+const warnings: string[] = [];
+
+function clampGrades(value: unknown, studentName: string, category: string) {
+  const grades = Number(value);
+
+  if (!Number.isFinite(grades)) {
+    warnings.push(`${studentName}.${category}: invalid value "${value}"; using 0.`);
+    return 0;
+  }
+
+  if (grades < MIN_SCORES) {
+    warnings.push(
+      `${studentName}.${category}: ${grades} is below ${MIN_SCORES}; using ${MIN_SCORES}.`
+    );
+    return MIN_SCORES;
+  }
+
+  if (grades > MAX_SCORES) {
+    warnings.push(
+      `${studentName}.${category}: ${grades} is above ${MAX_SCORES}; using ${MAX_SCORES}.`
+    );
+    return MAX_SCORES;
+  }
+
+  return grades;
+}
+
+const validatedSubjectGrades = Object.fromEntries(
+  Object.entries(parsed.data.subjectGrades).map(([studentName, subjectCategories]) => [
+    studentName,
+    Object.fromEntries(
+      Object.entries(subjectCategories).map(([category, grades]) => [
+        category,
+        clampGrades(grades, studentName, category),
+      ])
+    ),
+  ])
+);
+
+export const validatedCategories = parsed.data.subjectCategories;
+
+export const selectedSubjectGrades = Object.keys(validatedSubjectGrades);
+
+export const validationWarnings = warnings;
+
+export const radarData = validatedCategories.map((category) => {
+  const row: Record<string, string | number> = {
+    subject: category,
+  };
+
+  for (const studentName of selectedSubjectGrades) {
+    row[studentName] = validatedSubjectGrades[studentName][category];
+  }
+
+  return row;
+});
+```
+
+This creates a deliberate validation policy:
+
+| Invalid input | Behavior | User experience |
+| --- | --- | --- |
+| Missing required structure | Fail fast | Clear build/runtime error |
+| Wrong category name | Fail fast | Prevents silent chart errors |
+| Number below 0 | Clamp to 0 and warn | Chart remains visible |
+| Number above 100 | Clamp to 100 and warn | Chart remains visible |
+| Non-numeric value | Clamp to 0 and warn | Chart remains visible |
+
+The important distinction is that clamping does not modify the JSON file. It creates a cleaned in-memory copy for rendering, while the warning explains what was adjusted.
+
+
+<TestRadar client:visible />
+
+
+## Custom UI improves comprehension
+
+The default chart tooltip was replaced with a custom React component.
+
+Recharts supports custom tooltip content through its `content` prop. It passes the active state, the hovered axis label, and the values for all visible series.
+
+```tsx
+<Tooltip content={<SubjectTooltip />} />
+```
+
+The custom tooltip displays the selected subject as a title and the scores for every student in a small table.
+
+```tsx
+type TooltipEntry = {
+  name?: string;
+  value?: number | string;
+  color?: string;
+  dataKey?: string | number;
+};
+
+type SubjectTooltipProps = {
+  active?: boolean;
+  label?: string | number;
+  payload?: TooltipEntry[];
+};
+
+function SubjectTooltip({
+  active,
+  label,
+  payload,
+}: SubjectTooltipProps) {
+  if (!active || !payload?.length) {
+    return null;
+  }
+
+  return (
+    <div className="not-prose pointer-events-none min-w-44 rounded-xl border border-slate-200 bg-white/95 p-3 shadow-lg backdrop-blur dark:border-slate-700 dark:bg-slate-900/95">
+      <p className="mb-2 border-b border-slate-200 pb-2 text-sm font-semibold text-slate-900 dark:text-slate-100">
+        {label}
+      </p>
+
+      <table className="w-full text-sm">
+        <tbody>
+          {payload.map((entry) => (
+            <tr
+              key={entry.dataKey}
+              className="text-slate-700 dark:text-slate-300"
+            >
+              <td className="py-1 pr-3">
+                <span className="flex items-center gap-2">
+                  <span
+                    className="inline-block h-2.5 w-2.5 rounded-full"
+                    style={{ backgroundColor: entry.color }}
+                  />
+
+                  {entry.name}
+                </span>
+              </td>
+
+              <td className="py-1 text-right font-semibold text-slate-900 dark:text-slate-100">
+                {entry.value}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+```
+
+| UI element | Purpose |
+| --- | --- |
+| Radar polygons | Show the overall scores profile |
+| Custom tooltip | Show exact values for the selected category |
+| Legend | Identify each students’s color |
+| Warning modal | Explain data adjustments without hiding the chart |
+
+The modal uses the native `<dialog>` element and `showModal()`. It opens only when validation warnings exist and closes with an accessible **OK** button.
+
+```tsx
+<dialog
+  ref={dialogRef}
+  aria-labelledby="validation-warnings-title"
+  className="fixed inset-0 m-auto h-fit w-[calc(100%-2rem)] max-w-lg rounded-2xl border border-amber-200 bg-white p-0 text-slate-900 shadow-2xl backdrop:bg-slate-900/50 dark:border-amber-500/30 dark:bg-slate-900 dark:text-slate-100"
+  onClick={(event) => {
+    if (event.target === dialogRef.current) {
+      dialogRef.current?.close();
+    }
+  }}
+>
+  <div className="p-6">
+    <h2
+      id="validation-warnings-title"
+      className="text-lg font-semibold text-amber-700 dark:text-amber-400"
+    >
+      Some training values were adjusted
+    </h2>
+
+    <ul className="mt-4 max-h-56 list-disc space-y-1 overflow-y-auto pl-5 text-sm text-slate-700 dark:text-slate-300">
+      {warnings.map((warning) => (
+        <li key={warning}>{warning}</li>
+      ))}
+    </ul>
+
+    <div className="mt-6 flex justify-end">
+      <button
+        type="button"
+        autoFocus
+        onClick={() => dialogRef.current?.close()}
+        className="rounded-lg bg-amber-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-amber-700 dark:bg-amber-500 dark:text-slate-950 dark:hover:bg-amber-400"
+      >
+        OK
+      </button>
+    </div>
+  </div>
+</dialog>
+```
+
+## Theme-aware components
+
+The modal and tooltip also needed to work in both light and dark themes.
+
+Because the Astro theme toggle sets `data-theme="dark"` on the document root, Tailwind’s dark variant can be configured to respond to that attribute:
+
+```css
+@variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+```
+
+Then the modal uses paired utility classes:
+
+```tsx
+className="bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100"
+```
+
+No React theme context or extra props are required inside the modal. It follows the document-level theme automatically.
+
+One subtle issue appeared when the chart was embedded in MDX: typography styles from the surrounding article could override tooltip text colors in dark mode.
+
+Marking the tooltip root with `not-prose` and giving every text element explicit light and dark colors made its appearance consistent in both contexts.
+
+## Errors found earlier
+
+The process also demonstrated why small architectural boundaries pay off. Several errors became easy to diagnose because the responsibilities were separated.
+
+| Error | Likely layer | Lesson |
+| --- | --- | --- |
+| `data is not defined` | Component/data boundary | The chart’s `data` prop must match the actual exported variable |
+| Missing exported `radarData` | Module exports | Keep one canonical data module and a clear export contract |
+| Multiple default exports | Component file | A module can have only one default export |
+| Invisible tooltip text in MDX | CSS/cascade boundary | Give embedded UI explicit light and dark styles |
+| Out-of-range JSON value | Validation boundary | Decide whether to fail, clamp, or skip the record |
+
+Each error was not merely a bug to fix. It revealed a missing contract between layers.
+
+## The main takeaway
+
+A chart component is easy to build. A trustworthy chart requires a data contract.
+
+The final architecture looks like this:
+
+```text
+JSON data
+  ↓
+Zod schema validation
+  ↓
+Typed domain data
+  ↓
+Derived Recharts data
+  ↓
+React radar chart
+  ↓
+Accessible, theme-aware UI
+```
+
+TypeScript reduces discovery time for mistakes in the code you write. Zod reduces discovery time for mistakes in the data your code receives.
+
+Together, they move many failures earlier:
+
+- From silent visual bugs to compile-time errors.
+- From runtime crashes to explicit validation messages.
+- From confusing chart behavior to controlled user-facing warnings.
+
+That is the most important result of this work: the radar chart is not just visually better. It is backed by a predictable, testable, and resilient data layer.
+
+So keep an open mind. Be curious and ready to learn of every mistake.
+
+Visit also my personal page, [Radoslav](https://radoslav.xyz/)

@@ -5,15 +5,13 @@ import tailwindcss from "@tailwindcss/vite";
 import svelte from '@astrojs/svelte';
 import { fileURLToPath } from 'node:url';
 
+import react from '@astrojs/react';
+
 export default defineConfig({
   site: 'https://radest.top',
-  integrations: [
-    mdx(),
-    sitemap({
-      filter: (page) => !page.endsWith('/robots.txt') && !page.endsWith('/llms.txt'),
-    }),
-    svelte(),
-  ],
+  integrations: [mdx(), sitemap({
+    filter: (page) => !page.endsWith('/robots.txt') && !page.endsWith('/llms.txt'),
+  }), svelte(), react()],
   markdown: {
     syntaxHighlight: 'shiki',
     shikiConfig: {

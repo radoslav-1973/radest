@@ -1,0 +1,36 @@
+{
+  "subjectCategories": [
+    "Chemistry",
+    "Physics",
+    "Math",
+    "Informatics",
+    "Biology",
+    "Geography"
+  ],
+  "subjectGrades": {
+    "Average School Score": {
+      "Chemistry": 78,
+      "Physics": 95,
+      "Math": 88,
+      "Informatics": 95,
+      "Biology": 78,
+      "Geography": 95
+      },
+      "Ema": {
+      "Chemistry": 60,
+      "Physics": 68,
+      "Math": 62,
+      "Informatics": 65,
+      "Biology": 620,
+      "Geography": 80
+      },
+    "Ivo": {
+      "Chemistry": 192,
+      "Physics": 88,
+      "Math": 75,
+      "Informatics": 88,
+      "Biology": 92,
+      "Geography": 90
+      }
+    }
+}
