@@ -43,7 +43,7 @@ export const kilimanjaro: TripMapData = {
 
   markers: [
     {
-      latlng: [-21.0652, 55.3157],
+      latlng: [-21.099455, 55.480032],
       popup: "<a href='https://en.reunion.fr/organize/our-experiences/the-piton-des-neiges-hike/' target='_blank' rel='noopener noreferrer'>Piton des Neiges, 3071 m</a>"
     },
     {
@@ -78,7 +78,7 @@ export const kilimanjaro: TripMapData = {
     },
     {
       id: "Kilimanjaro",
-      latlng: [-3.0758, 37.3533],
+      latlng: [-3.076752, 37.354031],
       radius: 200000,
       color: "orange",
       fillColor: "",
@@ -91,9 +91,9 @@ export const kilimanjaro: TripMapData = {
     {
       id: "route-1",
       latlngs: [
-        [-21.0652, 55.3157],
+        [-21.099455, 55.480032],
         [-12.956741, 45.13433],
-        [-3.0758, 37.3533]
+        [-3.076752, 37.354031]
       ],
       color: "gray",
       weight: 2,

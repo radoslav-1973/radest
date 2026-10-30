@@ -7,6 +7,11 @@
   import { hub, destinations, extraArcs } from "../data/globe_arcs";
   import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
   
+  // Coarse pointer = touch-first device (phones/tablets)
+  const isTouchDevice =
+    typeof window !== "undefined" &&
+    window.matchMedia("(pointer: coarse)").matches;
+  
   if (typeof window !== "undefined") {
     maplibregl.setWorkerUrl(workerUrl);
   }
@@ -28,7 +33,7 @@
       projection={{ type: "globe" }}
       options={{
         scrollZoom: false,
-        touchZoomRotate: false
+        dragPan: !isTouchDevice
         }}
   >
     <WorldArcsLabels
