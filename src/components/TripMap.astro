@@ -1,0 +1,100 @@
+---
+import { Leaflet, Marker, Popup, Circle, Polyline } from "astro-leaflet";
+import { getTrip } from "../data/trips";
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+
+const trip = getTrip(id);
+
+if (!trip) {
+  throw new Error(`Unknown trip map id: ${id}`);
+}
+
+const {
+  center,
+  zoom,
+  scrollWheelZoom = false,
+  markers = [],
+  circles = [],
+  polylines = []
+} = trip;
+---
+
+<Leaflet
+  id={trip.id}
+  data-scroll-wheel-zoom={scrollWheelZoom ? "true" : "false"}
+  options={{
+    center,
+    zoom
+  }}
+>
+ {markers.map((marker) => (
+  <Marker latlng={marker.latlng}>
+    {marker.popup && <Popup content={marker.popup} />}
+  </Marker>
+))}
+
+{circles.map((circle) => (
+  <Circle
+    latlng={circle.latlng}
+    options={{
+      radius: circle.radius,
+      color: circle.color ?? "gray",
+      fillColor: circle.fillColor ?? "yellow",
+      fillOpacity: circle.fillOpacity ?? 0
+    }}
+  >
+    {circle.popup && <Popup content={circle.popup} />}
+  </Circle>
+))}
+
+{polylines.map((polyline) => (
+  <Polyline
+    latlngs={polyline.latlngs}
+    options={{
+      color: polyline.color ?? "gray",
+      weight: polyline.weight ?? 3,
+      opacity: polyline.opacity ?? 1
+    }}
+  >
+    {polyline.popup && <Popup content={polyline.popup} />}
+  </Polyline>
+))}
+</Leaflet>
+
+<script>
+  import { getMapFromId } from "astro-leaflet";
+  import L from "astro-leaflet/leaflet";
+  
+  window.addEventListener("load", () => {
+    document
+      .querySelectorAll<HTMLElement>("[data-scroll-wheel-zoom='false']")
+      .forEach((element) => {
+        const mapId = element.id;
+
+        if (!mapId) return;
+
+        const map = getMapFromId(mapId);
+
+        if (!map) return;
+
+        map.scrollWheelZoom.disable();
+
+        if (L.Browser.mobile) {
+          map.dragging.disable();
+        }
+      });
+  });
+</script>
+
+
+<style is:global>
+  .leaflet-container {
+    width: 100%;
+    height: 400px;
+  }
+</style>

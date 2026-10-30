@@ -30,6 +30,7 @@ export default defineConfig({
           },
         },
     optimizeDeps: {
+      include: ['astro-leaflet > leaflet'],
       exclude: ['maplibre-gl'],
     },
     ssr: {

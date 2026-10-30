@@ -1744,7 +1744,7 @@ html[data-theme="light"] pre.astro-code::-webkit-scrollbar-thumb {
 /* ---------- Horizontal scrolling for markdown tables ---------- */
 
 
-/* Make the table tobehave like a block that can be collapsed */
+/* Make the table to behave like a block that can be collapsed */
 table {
     display: block !important;
     width: 100% !important;
@@ -1796,3 +1796,47 @@ dialog[open]:modal {
   height: fit-content;
 }
 
+/* Toggle between light and dark mode for astro-leaflet map */
+
+:root[data-theme="dark"] .leaflet-container {
+  background: #111827;
+}
+
+:root[data-theme="dark"] .leaflet-tile {
+  filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg)
+    saturate(0.3) brightness(0.7);
+}
+
+:root[data-theme="dark"] .leaflet-popup-content-wrapper,
+:root[data-theme="dark"] .leaflet-popup-tip {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+:root[data-theme="dark"] .leaflet-popup-content-wrapper a {
+  color: #93c5fd;
+}
+
+:root[data-theme="dark"] .leaflet-bar a,
+:root[data-theme="dark"] .leaflet-bar a:hover {
+  background: #111827;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+
+
+.leaflet-container .leaflet-tile,
+.leaflet-container .leaflet-overlay-pane svg {
+  max-width: none !important;
+  max-height: none !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.leaflet-container .leaflet-marker-icon {
+  max-width: none !important;
+  max-height: none !important;
+}

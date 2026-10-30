@@ -26,6 +26,10 @@
       center={[hub.lng, hub.lat]}
       zoom={currentZoom}
       projection={{ type: "globe" }}
+      options={{
+        scrollZoom: false,
+        touchZoomRotate: false
+        }}
   >
     <WorldArcsLabels
       {hub}
