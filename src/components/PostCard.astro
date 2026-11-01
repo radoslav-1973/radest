@@ -37,15 +37,16 @@ const updatedISO = updatedDate?.toISOString().slice(0, 10);
   </a>
 
   <p class="post-card__meta">
-    <time datetime={dateISO}>{dateLabel}</time>
+  <time datetime={dateISO}>{dateLabel}</time>
 
-    {updatedDate && updatedISO && (
-      <span class="post-card__updated text-blue-700 dark:text-blue-300">
-        · Updated
+  {updatedDate && updatedISO && (
+      <span class="post-card__updated text-blue-600 dark:text-blue-400">
+        Updated
         <time datetime={updatedISO}>{updatedLabel}</time>
       </span>
-    )}
-  </p>
+    
+  )}
+</p>
 
   <p class="post-card__excerpt">{post.data.description}</p>
 
@@ -57,4 +58,5 @@ const updatedISO = updatedDate?.toISOString().slice(0, 10);
     </ul>
   )}
 </li>
+
 
