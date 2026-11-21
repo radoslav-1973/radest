@@ -30,6 +30,7 @@ export const nav: NavItem[] = [
   { label: 'Tech Blog', href: '/blog/tech' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
+  { label: 'Peace Initiative', href: '/letter' },
   { label: 'License', href: '/license' },
 ];
 

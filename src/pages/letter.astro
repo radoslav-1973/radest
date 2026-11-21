@@ -1,0 +1,173 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../config";
+
+const facts = [
+    {
+        label: "Ester",
+        line: "Mountain guide & mother",
+        text: "Always learning",
+        country: "Tanzania",
+    },
+    {
+        label: "Radoslav",
+        line: "Developer & psychologist",
+        text: "Always learning",
+        country: "Bulgaria",
+    },  
+];
+---
+
+<Layout
+    title="About"
+    description={`About ${site.name} — Mountaineering and Technology.`}
+>
+    <article class="page prose">
+        <h1 class="page__title">Peace Initiative</h1>
+
+        <p class="lede">
+            <i>This is a personal, non-political initiative.<br /> Together with my 
+            partner, a citizen of Tanzania, I have written to the Ukrainian and 
+            Russian embassies in Sofia and to Bulgaria’s Ministry of Foreign Affairs. 
+            Our purpose is not to represent any government or take a side in the conflict, 
+            but to encourage humanitarian contact, dialogue, and a peaceful, 
+            negotiated end to the war.</i>
+        </p>
+        
+        <p>
+            Status of the letter: <b>Sent to the Embassy of Ukraine, the Embassy of Russia, 
+            and the Bulgarian Ministry of Foreign Affairs on 21 November 2026.</b>
+        </p>
+        
+        <p>
+            The letter:
+        </p>
+        
+        <p>Dear Excellency,</p>
+
+        <p>
+            I am writing to you as a private citizen of Bulgaria, together with my partner, 
+            who is a citizen of Tanzania. We are writing in a spirit of complete neutrality 
+            and goodwill, with no political affiliation and no mandate from any government 
+            or organisation.
+        </p>
+
+        <p>
+            Our sole purpose is to express our deep concern about the continuing human, 
+            economic, and geopolitical cost of the war between Russia and Ukraine, and to 
+            encourage both sides to consider every possible path toward a ceasefire, negotiations, 
+            and a durable peace.
+        </p>
+
+        <p>
+           We recognise that this conflict involves profound questions of security, sovereignty, 
+           international law, territorial integrity, and historical grievance. We do not seek to 
+           minimise the suffering of either side, nor to prejudge any final political settlement. 
+           In particular, a visit to Kyiv or Moscow by us would in no way constitute recognition 
+           of Crimea or any other territory as belonging to either side. It would be solely a 
+           humanitarian and peace-oriented gesture, intended to show that private citizens can 
+           stand for dialogue even when official negotiations are difficult. 
+        </p>
+
+        <p>
+            There are also strong practical reasons to seek an end to the fighting.
+        </p>
+
+        <p>
+            Ukraine’s economic situation remains extremely difficult. The country 
+            depends heavily on financial assistance from the European Union and other 
+            international partners to sustain public services, reconstruction, defence, 
+            and its broader economy. The EU has established major support mechanisms, 
+            including a €90 billion Ukraine Support Loan for 2026–2027, while further 
+            financing proposals have been discussed to address Ukraine’s continuing needs. 
+            Continued war therefore places a heavy and prolonged burden not only on Ukraine, 
+            but also on its partners and taxpayers.
+        </p>
+
+        <p>
+           Russia, too, has paid an enormous price. The war has required major direct expenditure, 
+           disrupted trade and investment, and contributed to long-term economic and financial 
+           costs. In addition, Russian state assets remain immobilised in Europe. 
+           Estimates place frozen Russian central-bank assets at around €300 billion globally, 
+           with approximately €210 billion in the EU, largely held at Euroclear in Belgium. 
+           These assets, and the income generated from them, have become central to discussions about 
+           financing Ukraine’s recovery and compensation. Their continued immobilisation represents a 
+           major long-term financial and strategic loss for Russia, which could only be resolved 
+           through a settlement that ends the conflict and addresses compensation and legal questions.
+        </p>
+
+        <p>
+           Neither side can realistically expect a military solution to produce a stable, prosperous, 
+           and secure future. Every additional month of war brings further casualties, displacement, 
+           destruction of infrastructure, separation of families, and deepening hostility between 
+           societies that will have to coexist in Europe for generations. 
+        </p>
+        
+	<p>
+            We respectfully appeal to both governments to consider:
+        </p>
+
+        <p>
+            1. An immediate, verifiable ceasefire and protection of civilians.
+        </p>
+
+        <p>
+            2. Humanitarian access, prisoner exchanges, and the safe return of displaced people 
+            where possible.
+        </p>
+        
+        <p>
+            3. A serious negotiating process, including international guarantees and security 
+            arrangements acceptable to both sides.
+        </p>
+
+        <p>
+            4. A settlement that respects international law, the sovereignty and territorial integrity of 
+            Ukraine, and the legitimate security concerns of all parties.
+        </p>
+
+        <p>
+            5. A framework for reconstruction, economic recovery, and the eventual resolution of 
+            frozen-asset and compensation issues.
+        </p>
+        
+        <p>
+            6. A long-term vision in which Ukraine and Russia can live in peace, without permanent hostility 
+            or the threat of renewed war.
+        </p>
+        
+        <p>
+            We understand that peace cannot be built on unrealistic expectations or on terms that either 
+            side regards as unjust. But we believe that diplomacy, patience, and direct communication 
+            remain preferable to continued destruction. Even a modest private initiative, if it encourages 
+            dialogue and human contact, may be worth undertaking.
+        </p>
+        
+        <p>
+            We would be grateful if Your Excellency would consider receiving us, or forwarding our appeal 
+            to the appropriate officials in Kyiv or Moscow. We would be willing to travel to either capital 
+            solely for peaceful, humanitarian, and dialogue-oriented purposes.
+        </p>
+        
+        <p>
+            We remain entirely neutral in this conflict. Our aim is not to support one side against the other, 
+            but to support life, peace, and the possibility of a negotiated future.
+        </p>
+        
+        <p>Respectfully,</p>
+        
+
+        <div class="facts">
+            {
+                facts.map((f) => (
+                    <section class="fact">
+                        <h2 class="fact__label">{f.label}</h2>
+                        <p class="fact__line">{f.line}</p>
+                        <p class="fact__line">{f.text}</p>
+                        <p class="fact__muted">{f.country}</p>
+                    </section>
+                ))
+            }
+        </div>
+    </article>
+</Layout>
