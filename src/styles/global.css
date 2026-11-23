@@ -20,6 +20,7 @@
    @capsizecss/unpack (web metrics) against @capsizecss/metrics (fallbacks);
    regenerate if the web fonts change. */
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @import "tw-animate-css";
 @import "shadcn-svelte/tailwind.css";
 @import "@fontsource-variable/inter";
