@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import PostCard from "../../../components/PostCard.astro";
+import MountainChat from "../../../components/MountainChat.astro";
 import { getCollection } from "astro:content";
 const posts = (
     await getCollection("hiker", ({ data }) =>
@@ -18,6 +19,8 @@ const posts = (
         <p class="blog-head__sub">
             Field notes on light, weather, and mountaineering.
         </p>
+        <br />
+    	<MountainChat /> 
     </header>
 
     {posts.length === 0 ? (

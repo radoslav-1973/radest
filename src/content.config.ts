@@ -19,6 +19,7 @@ const blogSchema = ({ image }: { image: () => any }) =>
     description: z.string(),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
+    featured: z.boolean().default(false),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
     // Optional lead image (rendered full-width above the post + used on cards).

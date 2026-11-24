@@ -2,6 +2,7 @@
 title: 'Your AI Agent is Not Going to Steal Your Job. Politicians Will, By Keeping You Scared of It'
 description: 'About artificial intelligence from a positive perspective.'
 pubDate: 2026-11-06
+featured: true
 tags: ['ai', 'creative', 'job', 'fears']
 ---
 
