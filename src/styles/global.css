@@ -27,6 +27,10 @@
 
 @variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
+.prose {
+  @apply dark:prose-invert;
+}
+
 @font-face {
   font-family: 'EB Garamond Fallback';
   src: local('Georgia');
