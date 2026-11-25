@@ -8,7 +8,7 @@ tags: ['ai', 'creative', 'job', 'fears']
 
 Let's be honest. If you go hiking and you meet a bear, you have two options: run and scream, or stay calm, make yourself big, and understand what the bear actually wants.
 
-For the last 2 years, most politicians chose option 1. They run and scream about AI.
+For the last 2 years, most politicians chose option one. They run and scream about AI.
 
 "AI will take your jobs! AI is dangerous! We must ban it!"
 
