@@ -568,6 +568,7 @@ a {
   font-size: clamp(2.5rem, 5vw, 3.4rem);
   line-height: 1.05;
   margin-bottom: 1.3rem;
+  text-align: center;
 }
 
 .prose p {
@@ -748,6 +749,7 @@ a {
   max-width: var(--read);
   margin-inline: auto;
   margin-bottom: 2.4rem;
+  text-align: center
 }
 
 .blog-head__sub {
